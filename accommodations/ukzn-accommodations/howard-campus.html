@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="../../image/favicon.ico" type="image/png" />
+    <title>Uniroomi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../vendors/linericon/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="../../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css"
+    />
+    <link rel="stylesheet" href="../../vendors/nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="../../vendors/owl-carousel/owl.carousel.min.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+    <link rel="stylesheet" href="../../css/auth.css" />
+  </head>
+  <body>
+    <!--================Header Area =================-->
+    <header class="header_area">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="../../index.html"
+            ><img src="../../image/Logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse offset"
+            id="navbarSupportedContent"
+          >
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../about.html"></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="../../accomodation.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../gallery.html"></a>
+              </li>
+              <li class="nav-item dashboard-nav-item" style="display: none;">
+                <button class="button-75" role="button" onclick="navigateToDashboard(); return false;"><span class="text"><i class="fa-solid fa-th-large"></i> Dashboard</span></button>
+              </li>
+              <li class="nav-item submenu dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ></a
+                >
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../blog.html"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../blog-single.html"></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn_two">Become a Host</span>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn login-btn">Login</span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================Header Area =================-->
+    <div class="content-wrapper">
+    <!--================ Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button id="accommodationToggle" class="collapsible-header">
+              <span class="collapsible-title">Accomodations within walking distance</span>
+              <span class="collapsible-icon">+</span>
+            </button>
+          </div>
+        </div>
+        <div id="accommodationContent" class="row accomodation_two">
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kwamoya Ocwebileyo</h4></a>
+              <h5><small>494 Esther Roberts Road, Glenwood, 4001 (0 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Radebe</h4></a>
+              <h5><small>20 Mundy Avenue, Manor Gardens (0 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Niki Moore</h4></a>
+              <h5><small>47 Elgie Road, Glenwood (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khayalam' Student Accommodation</h4></a>
+              <h5><small>90 Manor Drive (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Zamangema Mngadi</h4></a>
+              <h5><small>30 Sir Duncan Road, Glenwood (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Dambose Homes</h4></a>
+              <h5><small>35 Wheeler Road, Westridge (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">KN AND MJ PTY LTD</h4></a>
+              <h5><small>25 Farmon Road, Glenmore (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sihlahla Properties</h4></a>
+              <h5><small>5 Wheeler Road (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Unlocked Keys Accommodation</h4></a>
+              <h5><small>77 Sphiwe Zuma Ave (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Vusumuzi Mlambo – The Master's Grace</h4></a>
+              <h5><small>355 Lena Ahrens Road, Glenwood (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sithembiso Nkosi</h4></a>
+              <h5><small>115 Teignmouth Road, Umbilo (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Cheslynn Van Der Merwe</h4></a>
+              <h5><small>31 Dale Road (100 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Helen Lubanga</h4></a>
+              <h5><small>60 Dale Road (250 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Caledon – Carlisle</h4></a>
+              <h5><small>18/20 Carlisle Street (250 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Illuminate Properties</h4></a>
+              <h5><small>63 Myro Road, Glenmore (250 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Philamzu Court</h4></a>
+              <h5><small>60 Myro Drive, Glenmore (250 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Howard Student Accommodations</h4></a>
+              <h5><small>19 Malcolm Road, Manor Gardens (250 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">564 Sydney Road</h4></a>
+              <h5><small>564 Sydney Road (250 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Gideon Vundla – Phumalanga Holdings</h4></a>
+              <h5><small>205 Queen Elizabeth Avenue, Manor Gardens (250 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khwezilamantungwa (PTY) LTD</h4></a>
+              <h5><small>526 Bartle Road, Umbilo (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Okankasa Developers – The Rose House</h4></a>
+              <h5><small>73 Grosvenor Road, Glenmore (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">L Ntuli</h4></a>
+              <h5><small>66 Bank Terrace (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Lupama Holdings</h4></a>
+              <h5><small>35 Elgie Road, Glenwood (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Inqubekenhle Residence</h4></a>
+              <h5><small>63 Elgie Road, Glenwood/Umbilo (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sathie Moodley – Grosvenor House</h4></a>
+              <h5><small>89 Grosvenor Road, Glenmore (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Zlungile Memela</h4></a>
+              <h5><small>79 Grosvenor Road, Umbilo (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Majojobela Properties</h4></a>
+              <h5><small>64 Malcolm Road, Westridge (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ahlumile Group</h4></a>
+              <h5><small>8 Dale Road, Westridge (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ventsi Xana Group</h4></a>
+              <h5><small>48 Malcolm Road, Manor Gardens (450 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Rynnet Moloi – uThingo leNkosazana</h4></a>
+              <h5><small>64 Manor Drive, Westridge (800 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">MSE Commune</h4></a>
+              <h5><small>08 Ton Road, Glenmore (800 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Elizabeth Court (Hlelo Properties)</h4></a>
+              <h5><small>96 Umbilo Road (800 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Durban Boutique Hotel</h4></a>
+              <h5><small>15 Deodar Avenue, Glenwood (800 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Unity Square</h4></a>
+              <h5><small>161 Esther Roberts Road (800 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Patrick Mdlalose – 2 St Claire</h4></a>
+              <h5><small>310 Mazisi Kunene Road (800 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kiran Bahal</h4></a>
+              <h5><small>133 Edmonds Road (800 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mabuza Residence</h4></a>
+              <h5><small>1 Rus Place (800 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Grant van Wyk – 9@RUS</h4></a>
+              <h5><small>9 Rus Place, Manor Gardens (800 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ntuthuko Ngubane</h4></a>
+              <h5><small>48 Archer Crescent, Manor Gardens (800 m)</small></h5>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!--================ Second Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button id="accommodationToggle2" class="collapsible-header">
+              <span class="collapsible-title">Accomodations within 1-3km</span>
+              <span class="collapsible-icon">+</span>
+            </button>
+          </div>
+        </div>
+        <div id="accommodationContent2" class="row accomodation_two">
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kiran Bahal</h4></a>
+              <h5><small>133 Edmonds Road (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Private Accommodation (Progressive Global Residence)</h4></a>
+              <h5><small>52 Rand Road, Westridge (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mabuza Residence</h4></a>
+              <h5><small>1 Rus Place (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Trevor Court Student Accommodation</h4></a>
+              <h5><small>40 Brighton Road, Wentworth (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nkosinathi Mkhize (MNS Asakhe Property Group)</h4></a>
+              <h5><small>33 Hyder Road, Glenmore (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Zintle Khuzwayo</h4></a>
+              <h5><small>79 Sunderland, Cator Manor, Ridgeview (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khayelisha Residence</h4></a>
+              <h5><small>36 Sarnia Road, Umbilo (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Grant van Wyk (9@RUS)</h4></a>
+              <h5><small>9 Rus Place, Manor Gardens (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Caledon (Carlisle)</h4></a>
+              <h5><small>18/20 Carlisle Street (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Baby Pigeon Property</h4></a>
+              <h5><small>3 Mundy Avenue, Westridge (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khayelisha Residence</h4></a>
+              <h5><small>36 Sarnia Road, Umbilo (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sithembiso Nkosi</h4></a>
+              <h5><small>115 Teignmouth Road, Umbilo (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Luyanda Dube</h4></a>
+              <h5><small>28 Mundy Avenue (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Tighard</h4></a>
+              <h5><small>51 Tighard Avenue, Westridge (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">O Squared & Co</h4></a>
+              <h5><small>44 Forsdick Road, Carrington Heights (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Uzamile Trading</h4></a>
+              <h5><small>P.O Box Musgrave (property listed under this) (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">57 Baines Road</h4></a>
+              <h5><small>57 Baines Road, Glenmore (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mbongeni Khalishwayo</h4></a>
+              <h5><small>9 Madura Grove (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Muloko Students Accommodation</h4></a>
+              <h5><small>38 Elgie Road, Glenmore (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Promise Winnie Khuzwayo</h4></a>
+              <h5><small>16 Nicolai Crescent, Glenmore (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ntuthuko Ngubane</h4></a>
+              <h5><small>48 Archer Crescent, Manor Gardens (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Engweni Homes</h4></a>
+              <h5><small>150 Queen Elizabeth Avenue, Manor Gardens (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Siyabonga Masinga</h4></a>
+              <h5><small>104 Oliver Lea Drive, Umbilo (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nokuphila Khuzwayo</h4></a>
+              <h5><small>28 Malcolm Road, Manor Gardens (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Lindokuhle Phungula</h4></a>
+              <h5><small>50 Elgie Road (1.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">INHERITORS ENTERPRISES</h4></a>
+              <h5><small>72 Lamont Road (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Calvin Naidoo</h4></a>
+              <h5><small>3 Rand Road, Manor Gardens (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Y&M Importers</h4></a>
+              <h5><small>139 Bowen Avenue (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nkanyezi Shange</h4></a>
+              <h5><small>149 Grosvenor Road (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">J.A.E.S Properties (Hive Zee)</h4></a>
+              <h5><small>19 Sphiwe Zuma Ave (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mandisa Menyuka</h4></a>
+              <h5><small>41 Baines Road, Glenmore (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sifiso Molife</h4></a>
+              <h5><small>1 Alton Road, Glenmore (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Fosdick's Accommodation</h4></a>
+              <h5><small>7 Forsdicks Road, Glenmore (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Monica Mngadi (Farmon Girls Commune)</h4></a>
+              <h5><small>15 Farmon Road (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Michal Mierzwa</h4></a>
+              <h5><small>45 Grosvenor Road, Glenmore (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nokuphila Khuzwayo</h4></a>
+              <h5><small>28 Malcolm Road (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Pamella Nkwanyana</h4></a>
+              <h5><small>44 Leighton Crescent, Glenwood (1.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">May Trust Accommodation</h4></a>
+              <h5><small>10 Brunswick Road, Glenmore (2.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">J.A.E.S Properties (River Drive)</h4></a>
+              <h5><small>35 River Drive (2.40 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Makhunga Sizwe Entrepreneurs (Veez Accommodation)</h4></a>
+              <h5><small>04 Alton Road, Glenmore (2.30 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">MPINGE Trading & Projects</h4></a>
+              <h5><small>7 Allenby Gardens, Umbilo (2.30 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Juan Solis Arias</h4></a>
+              <h5><small>38 Bank Terrace (2.40 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Thembinkosi Khuzwayo</h4></a>
+              <h5><small>243 Sphiwe Zuma Avenue (2.40 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Howard Student Accommodations</h4></a>
+              <h5><small>17 Malcolm Road (2.80 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Usulane Projects</h4></a>
+              <h5><small>405 Queen Elizabeth Avenue, Manor Gardens (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Amathiba Student House</h4></a>
+              <h5><small>14 Farmon Road, Glenwood/Berea (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">KN and MJ Pty Ltd</h4></a>
+              <h5><small>27 Farmon Road, Glenmore (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Balla Sagren Naidu</h4></a>
+              <h5><small>7 Downing Road, Glenmore (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Yoliswa Matiso</h4></a>
+              <h5><small>1 Homa Road, Glenmore (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Vusi Manana</h4></a>
+              <h5><small>543 Lena Ahrens Road, Glenwood (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kala Concepts Properties</h4></a>
+              <h5><small>50 Malcolm Road (3.00 km)</small></h5>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!--================ Third Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button id="accommodationToggle3" class="collapsible-header">
+              <span class="collapsible-title">Accomodations within 3-5km</span>
+              <span class="collapsible-icon">+</span>
+            </button>
+          </div>
+        </div>
+        <div id="accommodationContent3" class="row accomodation_two">
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Amathiba Student House</h4></a>
+              <h5><small>14 Farmon Road, Glenwood/Berea (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Balla Sagren Naidu</h4></a>
+              <h5><small>7 Downing Road, Glenmore (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Yoliswa Matiso</h4></a>
+              <h5><small>1 Homa Road, Glenmore (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Vusi Manana</h4></a>
+              <h5><small>543 Lena Ahrens Road, Glenwood (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">KN and MJ Proprietary Limited</h4></a>
+              <h5><small>27 Farmon Road, Glenmore (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kala Concepts Properties</h4></a>
+              <h5><small>50 Malcolm Road (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ntuthuko Ngubane</h4></a>
+              <h5><small>48 Archer Crescent, Manor Gardens (3.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Majozi Properties</h4></a>
+              <h5><small>81 Archer Crescent, Manor Gardens (3.20 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Divine Harvest Enterprise</h4></a>
+              <h5><small>408 Bartle Road, Umbilo (3.40 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">G H Seedat Investments CC</h4></a>
+              <h5><small>64 Gordon Road, Morningside (3.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nandipha Mzolo</h4></a>
+              <h5><small>18 Acacia Road, Glenwood (4.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Dambose Investments Portfolio</h4></a>
+              <h5><small>(listed at 4.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Lindi Dlamini</h4></a>
+              <h5><small>296 Sphiwe Zuma Avenue (4.20 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Hlelo Properties</h4></a>
+              <h5><small>340 Umbilo Road (4.40 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nonhlanhla Carol Gumbi</h4></a>
+              <h5><small>45 Hyder Road, Glenmore (4.80 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Phindile Ndimande</h4></a>
+              <h5><small>Heavenswood Residence, 18 Laburnum Road, Glenwood (5.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nombuso Ethel Mqadi</h4></a>
+              <h5><small>248 Sphiwe Zuma Avenue (5.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">J.A.E.S Properties (Bowtye)</h4></a>
+              <h5><small>81 Bowen Avenue (5.00 km)</small></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-push"></div>
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div
+          class="row footer-bottom d-flex justify-content-between align-items-center"
+        >
+          <p class="col-lg-8 col-sm-12 footer-text m-0">
+            
+            Copyright &copy; 2026. UniRoomi is a digital platform operated by Anokha Holdings (Pty) Ltd. 
+            <i class="fa-regular fa-heart"></i> 
+            <a href="" target="_blank"></a>
+            
+          </p>
+          <div class="col-lg-4 col-sm-12 footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+    <!--================ End footer Area  =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/popper.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../../js/jquery.ajaxchimp.min.js"></script>
+    <script src="../../js/mail-script.js"></script>
+    <script src="../../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="../../js/stellar.js"></script>
+    <script src="../../vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="../../js/custom.js"></script>
+    <!-- Firebase SDK -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-functions-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
+        authDomain: "uniroomi-e1216.firebaseapp.com",
+        projectId: "uniroomi-e1216",
+        storageBucket: "uniroomi-e1216.appspot.com",
+        messagingSenderId: "495800480757",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <!-- Firebase Email Authentication -->
+    <script src="../../js/firebase-email-auth.js"></script>
+    
+    <!-- Accommodation Favorites -->
+    <script src="../../js/accommodation-favorites.js"></script>
+    
+    <style>
+        /* Back to Top Button Styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #000000;
+            color: #2BA2D8;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+        
+        .back-to-top:active {
+            transform: translateY(-1px);
+        }
+        
+        /* Pulse animation for attention */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+            }
+            100% {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            }
+        }
+        
+        .back-to-top.show {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+        }
+    </style>
+  </body>
+</html>
+
+
+
+
+
+

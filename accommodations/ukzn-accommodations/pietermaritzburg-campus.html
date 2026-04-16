@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="../../image/favicon.ico" type="image/png" />
+    <title>Uniroomi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../vendors/linericon/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="../../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css"
+    />
+    <link rel="stylesheet" href="../../vendors/nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="../../vendors/owl-carousel/owl.carousel.min.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+    <!-- Auth CSS for heart icons -->
+    <link rel="stylesheet" href="../../css/auth.css" />
+  </head>
+  <body>
+    <!--================Header Area =================-->
+    <header class="header_area">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="../../index.html"
+            ><img src="../../image/Logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse offset"
+            id="navbarSupportedContent"
+          >
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html"></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="accomodation.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html"></a>
+              </li>
+              <li class="nav-item submenu dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ></a
+                >
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog.html"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog-single.html"></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="elements.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="uct-accommodation.html"></a>
+              </li>
+              <li class="nav-item dashboard-nav-item" style="display: none;">
+                <button class="button-75" role="button" onclick="navigateToDashboard(); return false;"><span class="text"><i class="fa-solid fa-th-large"></i> Dashboard</span></button>
+              </li>
+              <li class="nav-item submenu dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ></a
+                >
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog.html"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog-single.html"></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn_two">Become a Host</span>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn login-btn">Login</span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================Header Area =================-->
+    <div class="content-wrapper">
+    <!--================ Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button id="accommodationToggle" class="collapsible-header">
+              <span class="collapsible-title">Accomodations within walking distance</span>
+              <span class="collapsible-icon">+</span>
+            </button>
+          </div>
+        </div>
+        <div id="accommodationContent" class="row accomodation_two">
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Jayanand Maharaj</h4></a>
+              <h5><small>123 King Edward Avenue (0-200 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kim Small</h4></a>
+              <h5><small>246 King Edward Avenue, Scottville (100-300 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kimeran Chetty</h4></a>
+              <h5><small>254 King Edward Avenue (200-400 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Krisen Moodley Properties Cc</h4></a>
+              <h5><small>28 King Edward Avenue (0-200 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mashiza Properties</h4></a>
+              <h5><small>248 King Edward Avenue, Scottville (100-300 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mashiza Properties</h4></a>
+              <h5><small>242 King Edward Avenue Scottville (100-300 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mashiza Properties</h4></a>
+              <h5><small>215 King Edward Avenue (0-200 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mayuana Nadar</h4></a>
+              <h5><small>215 King Edward Avenue (0-200 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Peter Kean</h4></a>
+              <h5><small>123 King Edward Ave Pietermaritzburg (0-200 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Peter Kean</h4></a>
+              <h5><small>123 King Edward Avenue (0-200 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sanele Ntshangase (Unicribz)</h4></a>
+              <h5><small>123 King Edward Avenue, Glen Allen Unit 18 (0-200 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Siyabonga Ntombela</h4></a>
+              <h5><small>123 King Edward Avenue Scottsville (0-200 m)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Thando Pholani Mkhize</h4></a>
+              <h5><small>123 King Edward Avenue Scottsville (0-200 m)</small></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ Second Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button id="accommodationToggle2" class="collapsible-header">
+              <span class="collapsible-title">Accomodations within 1-3km</span>
+              <span class="collapsible-icon">+</span>
+            </button>
+          </div>
+        </div>
+                <div id="accommodationContent2" class="row accomodation_two">
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Imbawula Property Group</h4></a>
+              <h5><small>53 Golf Road, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Jaden Naidoo</h4></a>
+              <h5><small>29 Golf Road, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Jamakaslone Trading</h4></a>
+              <h5><small>47 Golf Road, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Joyce Nyawoe</h4></a>
+              <h5><small>28 New England Road, Scottville (≈1.8–2.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Judy Dlamini</h4></a>
+              <h5><small>42 Orli Road, Pelham (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kaha Properties</h4></a>
+              <h5><small>96 Birket Road, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kganyo Mogale</h4></a>
+              <h5><small>15 Phipson Lane (≈1.0–1.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kholiswa Luthuli</h4></a>
+              <h5><small>14 Phipson Lane, Scottville (≈1.0–1.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khangezile Student Commune</h4></a>
+              <h5><small>48 Jessmond Road, Pelham (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khayelile Madonda</h4></a>
+              <h5><small>58 Jessmond Road, Pietermaritzburg (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khayelile Madonda</h4></a>
+              <h5><small>19 St Patrick Road, Scottville (≈1.2–1.7 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khayelile Madonda</h4></a>
+              <h5><small>36 St Patrick Road, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khuthazwa Sontangana</h4></a>
+              <h5><small>265 Alexandra Road, Pelham (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kiron Morley</h4></a>
+              <h5><small>15 St King's Road (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kwamhlanga Res</h4></a>
+              <h5><small>18 York Avenue, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Lymabissa</h4></a>
+              <h5><small>99 Ritchie Road, Pelham (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Lizvi Leqiniso Holdings</h4></a>
+              <h5><small>38 Mad Avenue (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Londeka Ngubane</h4></a>
+              <h5><small>19 St Patrick Road, Elgarth Unit 7 (≈1.2–1.7 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Londy And Landy Pty Ltd</h4></a>
+              <h5><small>33 Orli Road, Scottville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Lulama Bikitsha</h4></a>
+              <h5><small>206 Fairways, 281 Alexandra Road, Pelham (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Lungiswa Agrineth Shezi</h4></a>
+              <h5><small>3 Rusell Avenue (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Luthana Properties</h4></a>
+              <h5><small>91 St Patrick Road, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Macdonald Chitja</h4></a>
+              <h5><small>5 Pepi Patrick Road, Scottville (≈1.8–2.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mahlaba Property Development And Management</h4></a>
+              <h5><small>101 St Patrick Road, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Malusi Zaca</h4></a>
+              <h5><small>Chambers, 22 Chamberlain Road, Scottville (≈1.8–2.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Manopla Mabaso</h4></a>
+              <h5><small>32 St Patrick Road, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mark Whitted</h4></a>
+              <h5><small>17 Hutchinson Road, Scottville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mary Bloem</h4></a>
+              <h5><small>25 York Avenue (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Masindi Investment</h4></a>
+              <h5><small>8 Key Avenue (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mbalenhe Student Accommodation</h4></a>
+              <h5><small>28 New England Road, Scottville (≈1.8–2.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mbalisto Food Services</h4></a>
+              <h5><small>35 Carbis Road, Scottville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mbonwezinto Zonke Trust</h4></a>
+              <h5><small>23 Coronation Road, Scottville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mbonwezinto Zonke Trust</h4></a>
+              <h5><small>23 Miner Road, Scottville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mdu Bhringo</h4></a>
+              <h5><small>88 St Patrick Road (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mercy Swatson</h4></a>
+              <h5><small>30 Churton Road, Scottville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mfaku Investments (Pty) Ltd</h4></a>
+              <h5><small>13 Comaughat Road (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Milengi Memela</h4></a>
+              <h5><small>15 Isabel Road, Scottville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mondli Ewart Cele</h4></a>
+              <h5><small>30 Marunda Avenue (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mpila Mathebula</h4></a>
+              <h5><small>15 Hutchison Road, Scottville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mshangazi Trading Enterprise</h4></a>
+              <h5><small>43 Hutchison Road, Scottville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Muniari Kader</h4></a>
+              <h5><small>43 Plaad Road, Scottville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mxolisi Macuphu</h4></a>
+              <h5><small>95 St Patrick Road (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Myk Family Trust</h4></a>
+              <h5><small>162 Pietermaritz Street (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Narendra Pillay</h4></a>
+              <h5><small>16 Harcourt Road (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ndaniso (Pty) Ltd</h4></a>
+              <h5><small>35 Clarke Road, Pelham (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Neeshi Govender</h4></a>
+              <h5><small>327 Bulwer Street, Pietermaritzburg (≈3.0 km (edge))</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ngobule Properties (Pty) Ltd</h4></a>
+              <h5><small>19 Dunhill Road (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ngwenya And Malaizi Mining (Pty) Ltd</h4></a>
+              <h5><small>35 Fafield Avenue (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nikulėlėk Mynandu</h4></a>
+              <h5><small>64 St Patrick's (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nokuthula Cele</h4></a>
+              <h5><small>17 Ridge Road, Scottsville (≈1.8–2.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nokuthula Neliswe Zuma</h4></a>
+              <h5><small>93 St Patrick's Road, Scottsville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Noluthando Dlungwana</h4></a>
+              <h5><small>13 Asipat Poon Avenue (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nolwazi Wisegiri Cezu</h4></a>
+              <h5><small>39 Pephow Road, Scottsville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nomhle Zondi</h4></a>
+              <h5><small>15 David Baxter Road (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nompumelolo Ntshangase</h4></a>
+              <h5><small>18 Maud Avenue, Scottsville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nondumiso Mphambo</h4></a>
+              <h5><small>39 Leisner Road, Scottsville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ntando Madonda</h4></a>
+              <h5><small>33 St Patrick's Road (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ntsikatech Solutions (Pty) Ltd</h4></a>
+              <h5><small>47 Pephow Road, Scottsville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ntsikatech Baai</h4></a>
+              <h5><small>59 Garth Road, Scottsville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ocezwini Holding</h4></a>
+              <h5><small>32 Mr Johnson Road, Scottsville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ocezwini Holding</h4></a>
+              <h5><small>23 Mr Johnson Road, Scottsville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ocezwini Holding</h4></a>
+              <h5><small>13 Asipatna Road, Scottsville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Olivia Nokuthula Thabethe</h4></a>
+              <h5><small>79 Leisner Road, No 15 Sanmar Mansions (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">One Life Youth Development Npc</h4></a>
+              <h5><small>31 Garth Road (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Opulent Capital Group (Pty) Ltd</h4></a>
+              <h5><small>46 Linq Road, Scottsville, Pelham (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Orange Cloud Property Trust</h4></a>
+              <h5><small>6 Surrey Road, Scottsville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Penia Pazvakavambwa</h4></a>
+              <h5><small>8 Surrey Road, Scottsville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Peter Kean</h4></a>
+              <h5><small>32 St Patrick's Rd, Scottsville (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Phila Mrucwabe</h4></a>
+              <h5><small>406 Ndebele Plaza, 60 Alan Paton, Scottsville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Prea Pillay</h4></a>
+              <h5><small>Unit 8 Ridgeford (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Prince Wilson Olomu</h4></a>
+              <h5><small>44 Orbi Road, Pelham (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Princez Zondi</h4></a>
+              <h5><small>57 Garth Road, Scottsville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Proywest PMB (PTY) LTD</h4></a>
+              <h5><small>111 Asipat Paton Road, Scottsville (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Respublika Student Living (Pty) Ltd</h4></a>
+              <h5><small>29 Garth Road, Scottsville (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sandile Ndlovu</h4></a>
+              <h5><small>20 York Avenue (≈1.5–2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sane Thabethe</h4></a>
+              <h5><small>72 Orchard Road (≈2.5–3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sanele Ntshangase</h4></a>
+              <h5><small>79 Leisner Road (Sanmar Mansions Unit 9) (≈2.0–2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sanele Ntshangase</h4></a>
+              <h5><small>2 Lindup Road, Scottsville ()</small></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ Third Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button id="accommodationToggle3" class="collapsible-header">
+              <span class="collapsible-title">Accomodations within 3-5km</span>
+              <span class="collapsible-icon">+</span>
+            </button>
+          </div>
+        </div>
+        <div id="accommodationContent3" class="row accomodation_two">
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Miluvuo (Pty) Ltd</h4></a>
+              <h5><small>21 Bromhead Road, Pelham (≈3.5–4.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Phila Phungula</h4></a>
+              <h5><small>4 Bromhead Road, Pelham (≈3.5–4.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khayelile Madonda</h4></a>
+              <h5><small>25 Hutchinson Road, Scottville (≈3.0–3.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kwanele Ngcobo</h4></a>
+              <h5><small>7 Hutchinson Road, Pelham (≈3.5–4.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Phumlani Gumedle</h4></a>
+              <h5><small>33 Hutchinson Road (≈3.5–4.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ryland Gibb</h4></a>
+              <h5><small>29 Mr Hutchinson Road, Scottsville (≈3.5–4.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sink Guesthouse</h4></a>
+              <h5><small>18 Mr Hutchinson Road, Scottsville (≈3.5–4.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Malinga Mxo</h4></a>
+              <h5><small>105 Exporth Road (≈4.0–4.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sibusiso Dialla</h4></a>
+              <h5><small>Scottsville Road Leister 82 (≈4.0–4.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sibusiso Dialla</h4></a>
+              <h5><small>Scottsville Road Scottsville (≈4.0–4.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Skyline Property</h4></a>
+              <h5><small>1 Sanqaman Avenue (≈4.5–5.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Phillie Gumedle</h4></a>
+              <h5><small>46 Mr Chitole Road, Pelham (≈4.0–4.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Philisiwe And Lungisani Mkhize</h4></a>
+              <h5><small>31 Mr Chitole Road (≈4.0–4.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Seth Hakizimana</h4></a>
+              <h5><small>17 Hamilton Road, Pelham (≈3.5–4.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Wonder Mpapane</h4></a>
+              <h5><small>43 Ridge Road (≈3.0–3.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Yaweth Trading (PTY) LTD</h4></a>
+              <h5><small>1 Hull Hill, Hutchison Road Scottsville (≈4.0–4.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Yusuf Mulla</h4></a>
+              <h5><small>117 Pepworth Road (≈4.5–5.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Zanokuhle Guest House</h4></a>
+              <h5><small>12 Pimula Road (≈4.0–4.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Zwelisha Gumede</h4></a>
+              <h5><small>15 Pepworth (≈4.5–5.0 km)</small></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-push"></div>
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div
+          class="row footer-bottom d-flex justify-content-between align-items-center"
+        >
+          <p class="col-lg-8 col-sm-12 footer-text m-0">
+            
+            Copyright &copy; 2026. UniRoomi is a digital platform operated by Anokha Holdings (Pty) Ltd. 
+            <i class="fa-regular fa-heart"></i> 
+            <a href="" target="_blank"></a>
+            
+          </p>
+          <div class="col-lg-4 col-sm-12 footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+    <!--================ End footer Area  =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/popper.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../../js/jquery.ajaxchimp.min.js"></script>
+    <script src="../../js/mail-script.js"></script>
+    <script src="../../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="../../js/stellar.js"></script>
+    <script src="../../vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="../../js/custom.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
+        authDomain: "uniroomi-e1216.firebaseapp.com",
+        projectId: "uniroomi-e1216",
+        storageBucket: "uniroomi-e1216.appspot.com",
+        messagingSenderId: "495800480757",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <!-- Firebase Email Authentication -->
+    <script src="../../js/firebase-email-auth.js"></script>
+    
+    <!-- Accommodation Favorites -->
+    <script src="../../js/accommodation-favorites.js"></script>
+    
+    <!-- Initialize Messaging System -->
+    <script>
+      // Initialize messaging system when user is logged in
+      if (typeof firebase !== 'undefined' && firebase.auth) {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            // Initialize messaging system for logged in users
+            if (typeof initializeMessaging === 'function') {
+              initializeMessaging();
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+

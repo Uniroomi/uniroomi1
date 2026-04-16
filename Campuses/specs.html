@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="../image/favicon.ico" type="image/png" />
+    <title>Uniroomi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../vendors/linericon/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css"
+    />
+    <link rel="stylesheet" href="../vendors/nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+    
+    <!-- Custom Modal Styles -->
+    <style>
+        .custom-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .custom-modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        
+        .custom-modal-container {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: scale(0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .custom-modal-overlay.show .custom-modal-container {
+            transform: scale(1);
+        }
+        
+        .custom-modal-header {
+            background: linear-gradient(135deg, #2BA2D8 0%, #1E7BA8 100%);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .custom-modal-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+        
+        .custom-modal-icon i {
+            font-size: 24px;
+        }
+        
+        .restriction-icon {
+            background: rgba(255, 193, 7, 0.2) !important;
+        }
+        
+        .restriction-icon i {
+            color: #FFC107 !important;
+        }
+        
+        .host-action-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .custom-btn {
+            background: linear-gradient(135deg, #2BA2D8 0%, #1E7BA8 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+            justify-content: center;
+        }
+        
+        .custom-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(43, 162, 216, 0.4);
+        }
+        
+        .custom-btn:active {
+            transform: translateY(0);
+        }
+        
+        .custom-btn-primary {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+        }
+        
+        .custom-btn-primary:hover {
+            box-shadow: 0 5px 15px rgba(22, 163, 74, 0.4);
+        }
+        
+        .custom-btn-secondary {
+            background: #6c757d;
+        }
+        
+        .custom-btn-secondary:hover {
+            background: #5a6268;
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+        }
+        
+        .custom-modal-header h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .custom-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .custom-modal-close:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .custom-modal-body {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .custom-modal-body p {
+            margin: 0;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .custom-modal-footer {
+            padding: 20px 25px 25px;
+            text-align: center;
+        }
+        
+        .custom-modal-btn {
+            background: linear-gradient(135deg, #2BA2D8 0%, #1E7BA8 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        
+        .custom-modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(43, 162, 216, 0.4);
+        }
+        
+        .custom-modal-btn:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 480px) {
+            .custom-modal-container {
+                width: 95%;
+                margin: 20px;
+            }
+            
+            .custom-modal-header {
+                padding: 25px 20px;
+            }
+            
+            .custom-modal-body {
+                padding: 20px;
+            }
+            
+            .custom-modal-footer {
+                padding: 15px 20px 20px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!--================Header Area =================-->
+    <header class="header_area">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="../index.html"
+            ><img src="../image/Logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse offset"
+            id="navbarSupportedContent"
+          >
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../about.html"></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="../accomodation.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../gallery.html"></a>
+              </li>
+              <li class="nav-item dashboard-nav-item" style="display: none;">
+                <button class="button-75" role="button" onclick="navigateToDashboard(); return false;"><span class="text"><i class="fa-solid fa-th-large"></i> Dashboard</span></button>
+              </li>
+              <li class="nav-item submenu dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ></a
+                >
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../blog.html"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../blog-single.html"></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn_two">Become a Host</span>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn login-btn">Login</span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================Header Area =================-->
+    <!--================ Main Content Area start  =================-->
+    <section class="gallery_section section_gap">
+        <div class="container">
+           
+            
+            <div class="compact_gallery">
+                <!-- Desktop/Tablet Layout -->
+                <div class="desktop_gallery">
+                    <div class="gallery_row">
+                        <div class="gallery_item small">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Modern Bedroom">
+                        </div>
+                        <div class="gallery_item small">
+                            <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Study Area">
+                        </div>
+                        <div class="gallery_item small">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Kitchen">
+                        </div>
+                        <div class="gallery_item small">
+                            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Living Room">
+                        </div>
+                    </div>
+                    
+                    <div class="gallery_row">
+                        <div class="gallery_item large">
+                            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-1358440589814929824/original/0313fdee-97e0-4cef-a824-a30661a595e1.jpeg" alt="Modern Bathroom">
+                        </div>
+                        <div class="gallery_item large">
+                            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-1358440589814929824/original/1ad1aa2a-c4df-4e3e-8ed2-a64b2b83aac8.jpeg?im_w=720" alt="Gym">
+                        </div>
+                    </div>
+                    
+                  
+                </div>
+
+                <!-- Mobile Slider -->
+                <div class="mobile_slider">
+                    <div class="slider_container">
+                        <div class="slider_wrapper">
+                            <div class="slide">
+                                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Modern Bedroom">
+                                <div class="slide_caption">Modern Bedroom</div>
+                            </div>
+                            <div class="slide">
+                                <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Study Area">
+                                <div class="slide_caption">Study Area</div>
+                            </div>
+                            <div class="slide">
+                                <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kitchen">
+                                <div class="slide_caption">Kitchen</div>
+                            </div>
+                            <div class="slide">
+                                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Living Room">
+                                <div class="slide_caption">Living Room</div>
+                            </div>
+                            <div class="slide">
+                                <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-1358440589814929824/original/0313fdee-97e0-4cef-a824-a30661a595e1.jpeg" alt="Modern Bathroom">
+                                <div class="slide_caption">Modern Bathroom</div>
+                            </div>
+                            <div class="slide">
+                                <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-1358440589814929824/original/1ad1aa2a-c4df-4e3e-8ed2-a64b2b83aac8.jpeg?im_w=720" alt="Gym">
+                                <div class="slide_caption">Gym</div>
+                            </div>
+                        </div>
+                        <button class="slider_prev">&#10094;</button>
+                        <button class="slider_next">&#10095;</button>
+                    </div>
+                    <div class="slider_dots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="room_details_left">
+                        <div class="room_type_toggle_inline">
+                            <span class="toggle_option_small">Single</span>
+                            <label class="switch_small">
+                                <input type="checkbox" id="roomTypeToggle">
+                                <span class="slider_small"></span>
+                            </label>
+                            <span class="toggle_option_small">Double</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="room_title">Dambose Homes</h2>
+                            <div class="rating">
+                                <i class="fa fa-star"></i> 4.8 (67)
+                            </div>
+                        </div>
+                        <div class="room_meta mb-4">
+                            <span class="mr-3"><i class="fa fa-map-marker"></i> 47 Elgie Road, Glenwood</span>
+                            <span class="mr-3"><i class="fa fa-bed"></i> 1 Bedrooms</span>
+                            <span class="mr-3"><i class="fa fa-bath"></i> 1 Bathrooms</span>
+                            <span><i class="fa fa-users"></i> Up to 1 guests</span>
+                        </div>
+                        <div class="university_walk mb-4">
+                            <span><i class="fa fa-graduation-cap"></i> 12 min walk Howard College</span>
+                        </div>
+
+                        <h3 class="about_title">About this place</h3>
+                        <p class="about_text">Charming room in a restored Victorian house. Original architectural details with modern comforts. Shared living spaces include a library, garden, and fully equipped kitchen. Close to Oxford city center.</p>
+
+                        <h3 class="amenities_title">Amenities</h3>
+                        <div class="amenities_list d-flex flex-wrap">
+                            <span class="amenity_item"><i class="fa fa-wifi"></i> WiFi</span>
+                            <span class="amenity_item"><i class="fa fa-check"></i> Garden</span>
+                            <span class="amenity_item"><i class="fa fa-cutlery"></i> Kitchen</span>
+                            <span class="amenity_item"><i class="fa fa-check"></i> Furnished</span>
+                            <span class="amenity_item"><i class="fa fa-book"></i> Study Desk</span>
+                            <span class="amenity_item"><i class="fa fa-check"></i> Heating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="booking_card">
+                        <div class="price_info d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="price">R6,000 <small>/ month</small></h3>
+                            <span class="room_type_display">Single</span>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-block request_book_btn">Request to Book</button>
+                        <p class="text-center mt-3 mb-0">You won't be charged yet</p>
+                    </div>
+                    
+                    <!-- Mobile Floating Booking Card -->
+                    <div class="booking-card-mobile">
+                        <div class="price_info d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="price">R6,000 <small>/ month</small></h3>
+                            <span class="room_type_display">Single</span>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-block request_book_btn">Request to Book</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================ Main Content Area end =================-->
+
+    <!--================ Your Host Section =================-->
+    <section class="host_section section_gap_bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="host_card">
+                        <h3 class="host_title">Your Host</h3>
+                        <div class="media align-items-center mt-4">
+                            <div class="host_avatar mr-3">E</div>
+                            <div class="media-body">
+                                <h5 class="mb-0">Elizabeth Taylor</h5>
+                                <p class="text-muted">Property Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================ End Your Host Section =================-->
+
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div
+          class="row footer-bottom d-flex justify-content-between align-items-center"
+        >
+          <p class="col-lg-8 col-sm-12 footer-text m-0">
+            
+            Copyright &copy; 2026. UniRoomi is a digital platform operated by Anokha Holdings (Pty) Ltd.
+            <i class="fa-regular fa-heart" aria-hidden="true"></i> 
+            <a href="" target="_blank"></a>
+            
+          </p>
+          <div class="col-lg-4 col-sm-12 footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/stellar.js"></script>
+    <script src="../vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../js/jquery.ajaxchimp.min.js"></script>
+    <script src="../js/mail-script.js"></script>
+    <script src="../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="../js/main.js"></script>
+    
+    <!-- Firebase SDK -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-functions-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
+        authDomain: "uniroomi-e1216.firebaseapp.com",
+        projectId: "uniroomi-e1216",
+        storageBucket: "uniroomi-e1216.appspot.com",
+        messagingSenderId: "495800480757",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <!-- Firebase Email Authentication -->
+    <script src="../js/firebase-email-auth.js"></script>
+    
+    <!-- Custom Scripts for Slider and Booking -->
+    <script src="../js/custom.js"></script>
+    
+    <!-- Booking System JavaScript -->
+    <script>
+        // Room type pricing data
+        const roomTypeData = {
+            single: {
+                price: "R6,000",
+                guests: "Up to 1 guests",
+                bedrooms: "1 Bedrooms",
+                bathrooms: "1 Bathrooms"
+            },
+            double: {
+                price: "R8,500",
+                guests: "Up to 2 guests", 
+                bedrooms: "1 Bedrooms",
+                bathrooms: "1 Bathrooms"
+            }
+        };
+
+        // Property data for this listing
+        const propertyData = {
+            title: "Dambose Homes",
+            location: "Durban • 12 min walk Howard College",
+            roomType: "Single",
+            price: "R6,000 / month",
+            hostName: "Elizabeth Taylor",
+            hostAvatar: "E",
+            description: "Charming room in a restored Victorian house. Original architectural details with modern comforts. Shared living spaces include a library, garden, and fully equipped kitchen. Close to Oxford city center.",
+            amenities: ["WiFi", "Garden", "Kitchen", "Furnished", "Study Desk", "Heating"],
+            guestCapacity: "Up to 1 guests",
+            universityDistance: "12 min walk Howard College"
+        };
+
+        // Room type toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const roomTypeToggle = document.getElementById('roomTypeToggle');
+            const toggleOptions = document.querySelectorAll('.toggle_option_small');
+            const roomTypeDisplays = document.querySelectorAll('.room_type_display');
+            const priceElements = document.querySelectorAll('.price');
+            const guestsElement = document.querySelector('.room_meta span:last-child');
+            const bedroomsElement = document.querySelector('.room_meta span:nth-child(2)');
+            const bathroomsElement = document.querySelector('.room_meta span:nth-child(3)');
+
+            if (roomTypeToggle) {
+                roomTypeToggle.addEventListener('change', function() {
+                    const isDouble = this.checked;
+                    const roomType = isDouble ? 'Double' : 'Single';
+                    const roomData = isDouble ? roomTypeData.double : roomTypeData.single;
+
+                    // Update toggle options styling
+                    toggleOptions.forEach((option, index) => {
+                        if ((isDouble && index === 1) || (!isDouble && index === 0)) {
+                            option.style.fontWeight = '600';
+                            option.style.color = '#2563eb';
+                        } else {
+                            option.style.fontWeight = '400';
+                            option.style.color = '#666';
+                        }
+                    });
+
+                    // Update room type displays
+                    roomTypeDisplays.forEach(display => {
+                        display.textContent = roomType;
+                    });
+
+                    // Update prices
+                    priceElements.forEach(priceElement => {
+                        priceElement.innerHTML = `${roomData.price} <small>/ month</small>`;
+                    });
+
+                    // Update room meta information
+                    if (guestsElement) {
+                        guestsElement.innerHTML = `<i class="fa fa-users"></i> ${roomData.guests}`;
+                    }
+                    if (bedroomsElement) {
+                        bedroomsElement.innerHTML = `<i class="fa fa-bed"></i> ${roomData.bedrooms}`;
+                    }
+                    if (bathroomsElement) {
+                        bathroomsElement.innerHTML = `<i class="fa fa-bath"></i> ${roomData.bathrooms}`;
+                    }
+
+                    // Update property data for booking
+                    propertyData.roomType = roomType;
+                    propertyData.price = `${roomData.price} / month`;
+                    propertyData.guestCapacity = roomData.guests;
+
+                    console.log(`Room type changed to: ${roomType}`, propertyData);
+                });
+            }
+        });
+
+        // Handle booking request
+        let isProcessingBooking = false; // Flag to prevent duplicate bookings
+        
+        function handleBookingRequest() {
+            console.log('handleBookingRequest called!'); // Debug log
+            
+            // Prevent multiple simultaneous booking requests
+            if (isProcessingBooking) {
+                console.log('Booking already in progress, ignoring request');
+                return;
+            }
+            
+            isProcessingBooking = true;
+            
+            // Check if Firebase is properly initialized
+            try {
+                if (typeof firebase !== 'undefined' && firebase.auth && firebase.apps && firebase.apps.length > 0) {
+                    console.log('Firebase is properly initialized, checking auth state'); // Debug log
+                    firebase.auth().onAuthStateChanged((user) => {
+                        console.log('Auth state checked, user:', user ? 'logged in' : 'logged out'); // Debug log
+                        if (user) {
+                            // User is logged in, check if they are a host
+                            const userData = localStorage.getItem(`uniroomi_user_${user.uid}`);
+                            if (userData) {
+                                const userObj = JSON.parse(userData);
+                                if (userObj.role === 'host') {
+                                    // User is a host, show restriction message
+                                    isProcessingBooking = false;
+                                    showHostRestrictionModal();
+                                    return;
+                                }
+                            }
+                            // User is not a host or role not found, proceed with booking
+                            createBookingRequest();
+                        } else {
+                            // User not logged in, show custom modal
+                            console.log('User not logged in, showing modal'); // Debug log
+                            isProcessingBooking = false;
+                            showLoginModal();
+                        }
+                    });
+                } else {
+                    console.log('Firebase not properly initialized, showing modal'); // Debug log
+                    isProcessingBooking = false;
+                    showLoginModal();
+                }
+            } catch (error) {
+                console.log('Firebase error, showing modal:', error); // Debug log
+                isProcessingBooking = false;
+                showLoginModal();
+            }
+        }
+
+        // Show custom login modal
+        function showLoginModal() {
+            console.log('Showing login modal'); // Debug log
+            
+            // Always try to use Firebase auth login modal
+            if (typeof window.uniroomiAuth !== 'undefined' && window.uniroomiAuth.showLoginModal) {
+                console.log('Using Firebase auth login modal'); // Debug log
+                window.uniroomiAuth.showLoginModal();
+                return;
+            }
+            
+            // Wait a moment and try again (in case scripts are still loading)
+            setTimeout(() => {
+                if (typeof window.uniroomiAuth !== 'undefined' && window.uniroomiAuth.showLoginModal) {
+                    console.log('Firebase auth loaded, using login modal'); // Debug log
+                    window.uniroomiAuth.showLoginModal();
+                } else {
+                    console.log('Firebase auth not available, using fallback modal'); // Debug log
+                    const modal = document.getElementById('loginModal');
+                    if (modal) {
+                        modal.classList.add('show');
+                        console.log('Fallback modal shown'); // Debug log
+                    } else {
+                        console.error('Fallback modal not found'); // Debug log
+                    }
+                }
+            }, 500);
+        }
+
+        // Close login modal
+        function closeLoginModal() {
+            const modal = document.getElementById('loginModal');
+            if (modal) {
+                modal.classList.remove('show');
+                console.log('Login modal closed'); // Debug log
+            }
+        }
+
+        // Show host restriction modal
+        function showHostRestrictionModal() {
+            console.log('Showing host restriction modal'); // Debug log
+            
+            // Create modal if it doesn't exist
+            let modal = document.getElementById('hostRestrictionModal');
+            if (!modal) {
+                const modalHTML = `
+                    <div class="custom-modal-overlay" id="hostRestrictionModal">
+                        <div class="custom-modal-container">
+                            <div class="custom-modal-header">
+                                <div class="custom-modal-icon restriction-icon">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                </div>
+                                <h3>Booking Not Available</h3>
+                                <button class="custom-modal-close" onclick="closeHostRestrictionModal()">&times;</button>
+                            </div>
+                            <div class="custom-modal-body">
+                                <p>As a Host, you cannot book accommodations through the guest booking system.</p>
+                                <p>Hosts manage their own properties and cannot make guest bookings.</p>
+                                <div class="host-action-buttons">
+                                    <button class="custom-btn custom-btn-primary" onclick="goToHostDashboard()">
+                                        <i class="fa fa-home"></i> Go to Host Dashboard
+                                    </button>
+                                    <button class="custom-btn custom-btn-secondary" onclick="closeHostRestrictionModal()">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+            }
+            
+            // Show the modal
+            modal = document.getElementById('hostRestrictionModal');
+            if (modal) {
+                modal.classList.add('show');
+                console.log('Host restriction modal shown'); // Debug log
+            }
+        }
+
+        // Close host restriction modal
+        function closeHostRestrictionModal() {
+            const modal = document.getElementById('hostRestrictionModal');
+            if (modal) {
+                modal.classList.remove('show');
+                console.log('Host restriction modal closed'); // Debug log
+            }
+        }
+
+        // Go to host dashboard
+        function goToHostDashboard() {
+            window.location.href = '../dashboard-host.html';
+        }
+
+        // Redirect to login page
+        function redirectToLogin() {
+            navigateToDashboard();
+        }
+
+        // Create booking request
+        function createBookingRequest() {
+            // Store booking data in localStorage for the dashboard to pick up
+            const bookingData = {
+                ...propertyData,
+                requestedAt: new Date().toISOString(),
+                status: 'pending'
+            };
+
+            // Get current user
+            const user = firebase.auth().currentUser;
+            if (user) {
+                const userBookingsKey = `uniroomi_bookings_${user.uid}`;
+                const existingBookings = JSON.parse(localStorage.getItem(userBookingsKey) || '[]');
+                
+                // Add new booking
+                const newBooking = {
+                    id: Date.now(),
+                    ...bookingData,
+                    checkInDate: calculateCheckInDate()
+                };
+                
+                existingBookings.unshift(newBooking);
+                localStorage.setItem(userBookingsKey, JSON.stringify(existingBookings));
+
+                // Reset processing flag
+                isProcessingBooking = false;
+
+                // Show confirmation
+                showBookingConfirmation(newBooking);
+                
+                // Redirect to dashboard to see booking
+                setTimeout(() => {
+                    navigateToDashboard();
+                }, 3000);
+            } else {
+                // Reset processing flag if no user
+                isProcessingBooking = false;
+            }
+        }
+
+        // Calculate check-in date (2 weeks from now)
+        function calculateCheckInDate() {
+            const checkIn = new Date();
+            checkIn.setDate(checkIn.getDate() + 14);
+            return checkIn.toISOString().split('T')[0];
+        }
+
+        // Show booking confirmation
+        function showBookingConfirmation(booking) {
+            const confirmationDiv = document.createElement('div');
+            confirmationDiv.className = 'booking-confirmation-popup';
+            confirmationDiv.innerHTML = `
+                <div class="confirmation-content">
+                    <div class="confirmation-header">
+                        <h3>🎉 Booking Request Sent!</h3>
+                        <button class="close-btn" onclick="this.parentElement.parentElement.parentElement.remove()">×</button>
+                    </div>
+                    <div class="confirmation-body">
+                        <p>Your booking request for <strong>${booking.title}</strong> has been sent to <strong>${booking.hostName}</strong>.</p>
+                        <div class="booking-summary">
+                            <div class="summary-item">
+                                <span class="label">Property:</span>
+                                <span class="value">${booking.title}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Room Type:</span>
+                                <span class="value">${booking.roomType}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Price:</span>
+                                <span class="value">${booking.price}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Host:</span>
+                                <span class="value">${booking.hostName}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Status:</span>
+                                <span class="value status-pending">Pending Confirmation</span>
+                            </div>
+                        </div>
+                        <p class="redirect-message">You will be redirected to your dashboard to view your booking...</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(confirmationDiv);
+        }
+
+        // Add event listeners to booking buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded - Setting up booking buttons'); // Debug log
+            const bookingButtons = document.querySelectorAll('.request_book_btn');
+            console.log('Found booking buttons:', bookingButtons.length); // Debug log
+            
+            bookingButtons.forEach((button, index) => {
+                console.log(`Setting up button ${index + 1}`); // Debug log
+                // Remove any existing event listeners first
+                button.removeEventListener('click', handleBookingRequest);
+                button.onclick = null;
+                
+                // Add single event listener
+                button.addEventListener('click', function(e) {
+                    console.log('Button clicked!'); // Debug log
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleBookingRequest();
+                });
+            });
+        });
+    </script>
+  <!-- Custom Login Modal -->
+    <div class="custom-modal-overlay" id="loginModal">
+        <div class="custom-modal-container">
+            <div class="custom-modal-header">
+                <div class="custom-modal-icon">
+                    <i class="fa fa-lock"></i>
+                </div>
+                <h3>Login Required</h3>
+                <button class="custom-modal-close" onclick="closeLoginModal()">&times;</button>
+            </div>
+            <div class="custom-modal-body">
+                <p>Please login to make a booking request. You will be redirected to the login page.</p>
+            </div>
+            <div class="custom-modal-footer">
+                <button class="custom-modal-btn" onclick="redirectToLogin()">OK</button>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>

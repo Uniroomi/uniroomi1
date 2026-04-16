@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="../../image/favicon.ico" type="image/png" />
+    <title>Uniroomi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../vendors/linericon/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="../../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css"
+    />
+    <link rel="stylesheet" href="../../vendors/nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="../../vendors/owl-carousel/owl.carousel.min.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+    <!-- Auth CSS for heart icons -->
+    <link rel="stylesheet" href="../../css/auth.css" />
+  </head>
+  <body>
+    <!--================Header Area =================-->
+    <header class="header_area">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="../../index.html"
+            ><img src="../../image/Logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse offset"
+            id="navbarSupportedContent"
+          >
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html"></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="accomodation.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html"></a>
+              </li>
+              <li class="nav-item submenu dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ></a
+                >
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog.html"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog-single.html"></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="elements.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="uct-accommodation.html"></a>
+              </li>
+              <li class="nav-item dashboard-nav-item" style="display: none;">
+                <button class="button-75" role="button" onclick="navigateToDashboard(); return false;"><span class="text"><i class="fa-solid fa-th-large"></i> Dashboard</span></button>
+              </li>
+              <li class="nav-item submenu dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ></a
+                >
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog.html"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog-single.html"></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn_two">Become a Host</span>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn login-btn">Login</span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================Header Area =================-->
+    <div class="content-wrapper">
+    <!--================ Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button id="accommodationToggle" class="collapsible-header">
+              <span class="collapsible-title">Accomodations within walking distance</span>
+              <span class="collapsible-icon">+</span>
+            </button>
+          </div>
+        </div>
+        <div id="accommodationContent" class="row accomodation_two">
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+                <!-- Heart Icon -->
+                <div class="accommodation-heart" data-accommodation-id="msinsi-lodge" 
+                     data-title="Msinsi Lodge" 
+                     data-location="36 University Road, Westville (0.05 km)" 
+                     data-image="../../image/room5_263x270.png"
+                     data-link="../../Campuses/specs.html">
+                  <i class="fa fa-heart"></i>
+                </div>
+              </div>
+              <a href="#"><h4 class="sec_h4">Msinsi Lodge</h4></a>
+              <h5><small>36 University Road, Westville (0.05 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+                <!-- Heart Icon -->
+                <div class="accommodation-heart" data-accommodation-id="karishma-khemraz" 
+                     data-title="Karishma Khemraz" 
+                     data-location="03 Nathson close, Westville (0.12 km)" 
+                     data-image="../../image/room5_263x270.png"
+                     data-link="../../Campuses/specs.html">
+                  <i class="fa fa-heart"></i>
+                </div>
+              </div>
+              <a href="#"><h4 class="sec_h4">Karishma Khemraz</h4></a>
+              <h5><small>03 Nathson close, Westville (0.12 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+                <!-- Heart Icon -->
+                <div class="accommodation-heart" data-accommodation-id="green-house" 
+                     data-title="Green house" 
+                     data-location="131 oflherty road, Westville (0.15 km)" 
+                     data-image="../../image/room5_263x270.png"
+                     data-link="../../Campuses/specs.html">
+                  <i class="fa fa-heart"></i>
+                </div>
+              </div>
+              <a href="#"><h4 class="sec_h4">Green house</h4></a>
+              <h5><small>131 oflherty road, Westville (0.15 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+                <!-- Heart Icon -->
+                <div class="accommodation-heart" data-accommodation-id="varsity-drive-1" 
+                     data-title="Varsity Drive" 
+                     data-location="222 Varsity Drive, Westville (0.18 km)" 
+                     data-image="../../image/room5_263x270.png"
+                     data-link="../../Campuses/specs.html">
+                  <i class="fa fa-heart"></i>
+                </div>
+              </div>
+              <a href="#"><h4 class="sec_h4">Varsity Drive</h4></a>
+              <h5><small>222 Varsity Drive, Westville (0.18 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+                <!-- Heart Icon -->
+                <div class="accommodation-heart" data-accommodation-id="varsity-drive-2" 
+                     data-title="Varsity drive" 
+                     data-location="170 Varsity drive, Westville (0.19 km)" 
+                     data-image="../../image/room5_263x270.png"
+                     data-link="../../Campuses/specs.html">
+                  <i class="fa fa-heart"></i>
+                </div>
+              </div>
+              <a href="#"><h4 class="sec_h4">Varsity drive</h4></a>
+              <h5><small>170 Varsity drive, Westville (0.19 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Rivika</h4></a>
+              <h5><small>2 Westdale Crescent, Westville (0.22 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Goodwill Private Accommodation</h4></a>
+              <h5><small>18 Aylsham Close, Westville (0.25 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">ABALO</h4></a>
+              <h5><small>1 Aylsham Close, Reservoir Hills, Durban (0.27 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">WESTDALE CRESCENT</h4></a>
+              <h5><small>36 WESTDALE CRESCENT, RESERVOIR HILLS (0.31 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mama's Apartments</h4></a>
+              <h5><small>B9 Robert Herrick Avenue, Westville North (0.35 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Hope students accommodation</h4></a>
+              <h5><small>278 Pitlochry Rd westville Durban 4001 (0.35 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Varsity Drive</h4></a>
+              <h5><small>364 Varsity Drive, Westville (0.33 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Dunstable crescent</h4></a>
+              <h5><small>36 Dunstable crescent, Westville (0.28 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Westgate</h4></a>
+              <h5><small>13 Mottrandale road, Westville (0.32 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mountbatten Drive</h4></a>
+              <h5><small>344 Mountbatten Drive Reservoir Hills Durban 4091 (0.38 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Varsity drive</h4></a>
+              <h5><small>288 Varsity drive Reservoirhills 4091 (0.41 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">VARSITY DRIVE</h4></a>
+              <h5><small>186 Varsity Drive, Reservoir Hills, Durban, 4090 (0.42 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mxoli Residents</h4></a>
+              <h5><small>59 Hatfield Road, Reservoir Hills, Durban, South Africa (0.48 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Hatfield Student Village</h4></a>
+              <h5><small>120 Hatfield road, Reservoir Hills (0.52 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Dolphin Res</h4></a>
+              <h5><small>41 Dolphin Avenue Reservoir Hills (0.55 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Hayden Avenue</h4></a>
+              <h5><small>16 Hayden Avenue, Westville (0.45 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Rick Turner Road</h4></a>
+              <h5><small>07 Rick Turner Road, Glenwood, Umbilo, Durban, 4001 (0.58 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Premila Moodley</h4></a>
+              <h5><small>61 Plumstead Crescent, Westville (0.20 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nugget PA (Kushaal Harishunker)</h4></a>
+              <h5><small>59 Nugget Road, Reservoir Hills (0.30 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">HNS Family Trust</h4></a>
+              <h5><small>221 Varsity Drive, Westville (0.30 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Vusumuzi Mbonambi</h4></a>
+              <h5><small>7 Gila Close, Reservoir Hills (0.40 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Thembisile Mapumulo</h4></a>
+              <h5><small>332 Varsity Drive, Westville (0.30 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nuh Benedicta Mthembu (Mbombela PTY)</h4></a>
+              <h5><small>106 Hatfield Road, Reservoir Hills (0.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Student in dube (pty) Ltd</h4></a>
+              <h5><small>23 DR LANGALIBALELE DUBE STREET, 23 WINDER STREET, Westville (0.70 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">nkanyiso khumalo</h4></a>
+              <h5><small>69 A Umgudulu Road, Westville (0.70 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">WINDSOR HOUSE (1)</h4></a>
+              <h5><small>24 Morel Drive, Varsity Drive, Westville (0.90 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Hubert Sikhumbuzo Ndlovu</h4></a>
+              <h5><small>244 Varsity Drive, Reservoir Hills (0.80 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Rose Student Accommodation</h4></a>
+              <h5><small>26A Konigskramer Avenue, Berea West, Westville (0.90 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Andrisha Behary-Ramraj</h4></a>
+              <h5><small>240 Varsity Drive, Westville (0.80 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mpushini Investment</h4></a>
+              <h5><small>8 Dunstaple Crescent, Reservoir Hills, Durban, 4090 (0.80 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">CLASSY COMMUNES</h4></a>
+              <h5><small>250 Varsity Drive, Westville (0.70 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sabelo Ladbury Nyathikazi Properties</h4></a>
+              <h5><small>220 Mclarty Road, Reservoir Hills, 4090 (0.80 km)</small></h5>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!--================ Second Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button id="accommodationToggle2" class="collapsible-header">
+              <span class="collapsible-title">Available Accommodations (1-3 km)</span>
+              <span class="collapsible-icon">+</span>
+            </button>
+          </div>
+        </div>
+        <div id="accommodationContent2" class="row accomodation_two">
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Reoshani Maharaj</h4></a>
+              <h5><small>344 Varsity Drive, Reservoir Hills (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Goodwill Private Accommodation</h4></a>
+              <h5><small>18 Aylsham Close, Westville (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Rakesh Ramlugaan</h4></a>
+              <h5><small>47 Hatfield Road, Reservoir Hills (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sagewood Student Residence</h4></a>
+              <h5><small>11 Gila Close, Reservoir Hills (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nonyaniso Trading</h4></a>
+              <h5><small>51 Hatfield Road, Westville (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">A1 Luxury Accommodation (Varsity Drive)</h4></a>
+              <h5><small>169 Varsity Drive (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">House of Vuyo</h4></a>
+              <h5><small>198/206 Varsity Drive (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Arbee Arbee</h4></a>
+              <h5><small>8 Hatfield Road (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Emadungeni Properties</h4></a>
+              <h5><small>150 Varsity Drive (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Padmavhthi Singh</h4></a>
+              <h5><small>71 Hatfield Road (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">A1 Residence</h4></a>
+              <h5><small>07 Aylsham Close (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khumalo Student Residence</h4></a>
+              <h5><small>21 Drewstead Road (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Jayshree Sukdoe</h4></a>
+              <h5><small>258 Varsity Drive (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Amazon Luxmie Enterprise</h4></a>
+              <h5><small>89 Hatfield Road (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Home Away From Home</h4></a>
+              <h5><small>137 Varsity Drive (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">PS Govender</h4></a>
+              <h5><small>280 Varsity Drive (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Neno Estates (ABALO)</h4></a>
+              <h5><small>1 Aylsham Close (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khulekani Chonco</h4></a>
+              <h5><small>67 Umgudulu Road (1.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Bongumusa Ndwandwe</h4></a>
+              <h5><small>58 Umgudulu Road (1.1 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Hlelo Properties</h4></a>
+              <h5><small>32 Dunstaple Crescent (1.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Rashid Ali Bedi</h4></a>
+              <h5><small>19 Umgudulu Road (1.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Westwood Lodge B</h4></a>
+              <h5><small>12 Grace Avenue (1.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Oumesh Ranjit</h4></a>
+              <h5><small>25 Drewstead Road (1.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Real Estate @ Westwood</h4></a>
+              <h5><small>12 Grace Avenue (1.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Shoba Aswanth Kumar</h4></a>
+              <h5><small>54 Plumstead Crescent (1.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Brindhavan</h4></a>
+              <h5><small>210 Varsity Drive (1.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Amasosha Residence</h4></a>
+              <h5><small>20 Westdale Terrace (1.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kwa TMS</h4></a>
+              <h5><small>7 Nathson Close (1.6 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Florence Khoza</h4></a>
+              <h5><small>328 Varsity Drive (1.7 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mlamli Magigaba</h4></a>
+              <h5><small>9 Hatfield Road (1.7 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Varsity@225</h4></a>
+              <h5><small>225 Varsity Drive (1.8 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Shaloos House</h4></a>
+              <h5><small>51 Morel Road (1.8 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ekuthuleni</h4></a>
+              <h5><small>220 McLarty Road (1.8 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">ASTRA Student Accommodation (Outspan)</h4></a>
+              <h5><small>24 Sarnia Road (1.8 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Bonginkosi Kheswa</h4></a>
+              <h5><small>2 Westdale Crescent (1.9 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Windsor House</h4></a>
+              <h5><small>63 Umgudulu Road (1.9 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nomcebo Myeni</h4></a>
+              <h5><small>13 Mottramdale Road (2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Bradley Accommodation</h4></a>
+              <h5><small>36 Dunstable Crescent (2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Samkelokuhle Trading</h4></a>
+              <h5><small>344 Mountbatten Drive (2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Subieiga Krishna</h4></a>
+              <h5><small>166 Varsity Drive (2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Zanele Msomi</h4></a>
+              <h5><small>14 Westdale Crescent (2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sastri Pillay</h4></a>
+              <h5><small>3 Gila Close (2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Justice Msomi Accommodation</h4></a>
+              <h5><small>39 Derna Road (2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kamala Naidoo</h4></a>
+              <h5><small>284 Varsity Drive (2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">TMNGUNI</h4></a>
+              <h5><small>104 Plumstead Crescent (2.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">GAP Developments</h4></a>
+              <h5><small>186 Varsity Drive (2.3 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Rishendra Reddy</h4></a>
+              <h5><small>23 Drewstead Road (2.3 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">OA Properties</h4></a>
+              <h5><small>12 Westdene Terrace (2.3 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">East-Coast Accommodation</h4></a>
+              <h5><small>50 Plumstead Crescent (2.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Khumalo Residence</h4></a>
+              <h5><small>288 Varsity Drive (2.2 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sindisiwe Sibiya</h4></a>
+              <h5><small>157 Varsity Drive (2.1 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Elihle Properties</h4></a>
+              <h5><small>60 Hatfield Drive (2.1 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Valentine Hlambisa</h4></a>
+              <h5><small>121 Varsity Drive (2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Azukhe Residence</h4></a>
+              <h5><small>31 Renown Road (2.5 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Windsor House</h4></a>
+              <h5><small>75 Varsity Drive (2.6 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Windsor House</h4></a>
+              <h5><small>79 Varsity Drive (2.6 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mbongeleni Mathenjwa</h4></a>
+              <h5><small>16 Hayden Avenue (2.6 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nolibu Enterprise</h4></a>
+              <h5><small>77 Drewstead Road (2.7 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Gunga Devi Soorjbully</h4></a>
+              <h5><small>35 Sternhold Avenue (2.7 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ntombifuthi Mbatha</h4></a>
+              <h5><small>122 Varsity Drive (2.8 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Windsor House</h4></a>
+              <h5><small>24 Morel Drive (2.9 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Silindile Magwaza</h4></a>
+              <h5><small>57 Kies Avenue (2.9 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Rose Student Accommodation</h4></a>
+              <h5><small>26A Konigkramer Avenue (2.9 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Muzomuhle Guest House</h4></a>
+              <h5><small>50 Holmleigh Road (2.9 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Non Applicable</h4></a>
+              <h5><small>247 Kies Avenue (3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">PSF Student Residence 1</h4></a>
+              <h5><small>29 Dolphin Avenue (3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Nkanyezi Projects</h4></a>
+              <h5><small>15 Abbey Street (3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Sastri Pillay</h4></a>
+              <h5><small>146 Varsity Drive (3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">ZAMUXOLO ZAMEKO</h4></a>
+              <h5><small>11 Magpie (3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Moving Forward Trading</h4></a>
+              <h5><small>19A Renown Road (3.0 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Windsor House</h4></a>
+              <h5><small>19 Varsity Drive (3.0 km)</small></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ Third Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-12">
+            <button id="accommodationToggle3" class="collapsible-header">
+              <span class="collapsible-title">Available Accommodations (3-5 km)</span>
+              <span class="collapsible-icon">+</span>
+            </button>
+          </div>
+        </div>
+        <div id="accommodationContent3" class="row accomodation_two">
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">J.A.E.S Properties</h4></a>
+              <h5><small>12 Renown Road, Westville (3.10 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Mama's Apartments B</h4></a>
+              <h5><small>9 Robert Herrick Avenue, Westville North (3.30 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Non Applicable</h4></a>
+              <h5><small>255 Kies Avenue, Reservoir Hills (3.30 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ndumiso Mbambo</h4></a>
+              <h5><small>144 McLarty Road, Reservoir Hills (3.30 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Graham Michael</h4></a>
+              <h5><small>131 O'Flaherty Road, Westville (4.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Dolphin Res</h4></a>
+              <h5><small>41 Dolphin Avenue, Reservoir Hills (4.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Kirket Investments CC (Westview)</h4></a>
+              <h5><small>126 Fulham Road, Westville (4.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Wiseman Khumalo</h4></a>
+              <h5><small>2 Winton Crescent, Westville (4.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Logan Govender</h4></a>
+              <h5><small>14 Pitlochry Road, Westville (4.20 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Student in Dube (Pty) Ltd</h4></a>
+              <h5><small>23 Dr Langalibalele Dube Street / 23 Winder Street (4.70 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Skoomba Residence</h4></a>
+              <h5><small>7 Abbey Street, Reservoir Hills (4.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Tanuja Maharaj</h4></a>
+              <h5><small>2 Dumbarton Road, Chiltern Hills (4.60 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">CRYSTAL VALLEY</h4></a>
+              <h5><small>120 O'Flaherty Road, Palmiet (4.80 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ravi Meghraj Rampersad</h4></a>
+              <h5><small>192 Fulham Road, Westville (4.90 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Ketan Soni</h4></a>
+              <h5><small>Farah Gardens, 460 Randles Road, Sydenham (5.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Thembalakhe Mbili</h4></a>
+              <h5><small>222 Varsity Drive, Westville (5.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Reservoir Heights</h4></a>
+              <h5><small>8 Halpin Avenue, Reservoir Hills (5.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Motala Trusts (Riverstream Investment)</h4></a>
+              <h5><small>80 Smith Street, Durban (5.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">Vuyisile Madonsela</h4></a>
+              <h5><small>21 Dolphin Ave / 87 Leopard Ave, Reservoir Hills (5.00 km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">[Missing Listing 1]</h4></a>
+              <h5><small>[Address] ([Distance] km)</small></h5>
+            </div>
+          </div>
+          <div class="col-lg-2 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="../../image/room5_263x270.png" alt="" />
+                <a href="../../Campuses/specs.html" class="btn theme_btn button_hover">View</a>
+              </div>
+              <a href="#"><h4 class="sec_h4">[Missing Listing 2]</h4></a>
+              <h5><small>[Address] ([Distance] km)</small></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-push"></div>
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div
+          class="row footer-bottom d-flex justify-content-between align-items-center"
+        >
+          <p class="col-lg-8 col-sm-12 footer-text m-0">
+            
+            Copyright &copy; 2026. UniRoomi is a digital platform operated by Anokha Holdings (Pty) Ltd. 
+            <i class="fa-regular fa-heart" aria-hidden="true"></i> 
+            <a href="" target="_blank"></a>
+            
+          </p>
+          <div class="col-lg-4 col-sm-12 footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+    <!--================ End footer Area  =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/popper.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../../js/jquery.ajaxchimp.min.js"></script>
+    <script src="../../js/mail-script.js"></script>
+    <script src="../../vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="../../js/stellar.js"></script>
+    <script src="../../vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="../../js/custom.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
+        authDomain: "uniroomi-e1216.firebaseapp.com",
+        projectId: "uniroomi-e1216",
+        storageBucket: "uniroomi-e1216.appspot.com",
+        messagingSenderId: "495800480757",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <!-- Firebase Email Authentication -->
+    <script src="../../js/firebase-email-auth.js"></script>
+    
+    <!-- Accommodation Favorites -->
+    <script src="../../js/accommodation-favorites.js"></script>
+    
+    <!-- Initialize Messaging System -->
+    <script>
+      // Initialize messaging system when user is logged in
+      if (typeof firebase !== 'undefined' && firebase.auth) {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            // Initialize messaging system for logged in users
+            if (typeof initializeMessaging === 'function') {
+              initializeMessaging();
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
