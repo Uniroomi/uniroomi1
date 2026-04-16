@@ -1,0 +1,3253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="image/favicon.ico" type="image/png" />
+    <title>Uniroomi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="vendors/linericon/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css"
+    />
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
+    <link
+      rel="stylesheet"
+      href="vendors/owl-carousel/owl.carousel.min.css"
+    />
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Host Dashboard Styles -->
+    <style>
+      /* Listings Section Styles */
+      .dashboard-btn-primary {
+        background: #2BA2D8;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 11px;
+        transition: all 0.3s ease;
+      }
+      
+      .dashboard-btn-primary:hover {
+        background: #1E7BA8;
+        transform: translateY(-1px);
+      }
+      
+      .dashboard-btn-danger {
+        background: #dc3545;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 11px;
+        transition: all 0.3s ease;
+      }
+      
+      .dashboard-btn-danger:hover {
+        background: #c82333;
+      }
+      
+      .dashboard-btn-outline {
+        background: transparent;
+        color: #2BA2D8;
+        border: 1px solid #2BA2D8;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 11px;
+        transition: all 0.3s ease;
+      }
+      
+      .dashboard-btn-outline:hover {
+        background: #2BA2D8;
+        color: white;
+        transform: translateY(-1px);
+      }
+      
+      /* Modal Styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+      
+      .modal-overlay.show {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      
+      .modal-container {
+        background: white;
+        border-radius: 12px;
+        padding: 0;
+        max-width: 800px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        transform: scale(0.9);
+        transition: all 0.3s ease;
+      }
+      
+      .modal-overlay.show .modal-container {
+        transform: scale(1);
+      }
+      
+      .create-listing-modal {
+        max-width: 900px;
+      }
+      
+      .modal-header {
+        background: linear-gradient(135deg, #2BA2D8 0%, #1E7BA8 100%);
+        color: white;
+        padding: 25px 30px;
+        border-radius: 12px 12px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .modal-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+      }
+      
+      .modal-close:hover {
+        opacity: 1;
+      }
+      
+      .listing-form {
+        padding: 30px;
+      }
+      
+      .form-section {
+        margin-bottom: 35px;
+      }
+      
+      .form-section h3 {
+        color: #333;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #2BA2D8;
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #555;
+      }
+      
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e1e5e9;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+      }
+      
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #2BA2D8;
+      }
+      
+      .form-help {
+        display: block;
+        margin-top: 5px;
+        color: #666;
+        font-size: 12px;
+        font-style: italic;
+      }
+      
+      .gender-selection {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      
+      .gender-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        background: #f8f9fa;
+        border: 2px solid #e1e5e9;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1;
+        min-width: 120px;
+      }
+      
+      .gender-option:hover {
+        background: #e9ecef;
+        border-color: #2BA2D8;
+      }
+      
+      .gender-option input[type="radio"] {
+        margin-bottom: 8px;
+        width: auto;
+      }
+      
+      .gender-option input[type="radio"]:checked + .gender-icon {
+        transform: scale(1.2);
+        filter: hue-rotate(200deg);
+      }
+      
+      .gender-option:has(input:checked) {
+        background: #e3f2fd;
+        border-color: #2BA2D8;
+      }
+      
+      .gender-icon {
+        font-size: 32px;
+        margin-bottom: 8px;
+        transition: transform 0.3s ease;
+      }
+      
+      .gender-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+      }
+      
+      .room-type-selection {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      
+      .room-type-option {
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        background: #f8f9fa;
+        border: 2px solid #e1e5e9;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1;
+        min-width: 150px;
+      }
+      
+      .room-type-option:hover {
+        background: #e9ecef;
+        border-color: #2BA2D8;
+      }
+      
+      .room-type-option input[type="checkbox"] {
+        margin-right: 10px;
+        width: auto;
+      }
+      
+      .room-type-option:has(input:checked) {
+        background: #e3f2fd;
+        border-color: #2BA2D8;
+      }
+      
+      .room-type-option input[type="checkbox"]:checked + .room-type-icon {
+        transform: scale(1.1);
+      }
+      
+      .room-type-icon {
+        font-size: 20px;
+        margin-right: 8px;
+        transition: transform 0.3s ease;
+      }
+      
+      .room-type-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+      }
+      
+      .room-type-config {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid #2BA2D8;
+      }
+      
+      .room-type-config.hidden {
+        display: none;
+      }
+      
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      
+      .room-type-config {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      
+      .room-type-config h4 {
+        color: #2BA2D8;
+        margin-bottom: 15px;
+      }
+      
+      .amenities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
+      
+      .amenity-checkbox {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .amenity-checkbox:hover {
+        background: #e9ecef;
+      }
+      
+      .amenity-checkbox input[type="checkbox"] {
+        margin-right: 10px;
+        width: auto;
+      }
+      
+      .amenity-checkbox span {
+        font-size: 14px;
+      }
+      
+      .image-upload-section {
+        margin-top: 20px;
+      }
+      
+      .image-upload-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+      
+      .image-upload-slot {
+        aspect-ratio: 1;
+        border: 2px dashed #ddd;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .image-upload-slot:hover {
+        border-color: #2BA2D8;
+        background: #f8f9fa;
+      }
+      
+      .image-upload-slot.filled {
+        border: 2px solid #2BA2D8;
+      }
+      
+      .image-upload-slot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .upload-placeholder {
+        text-align: center;
+        color: #999;
+      }
+      
+      .upload-placeholder i {
+        font-size: 24px;
+        margin-bottom: 5px;
+        display: block;
+      }
+      
+      .remove-image {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(220, 53, 69, 0.9);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+      }
+      
+      .thumbnail-badge {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        background: #2BA2D8;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        z-index: 2;
+      }
+      
+      .image-upload-slot.thumbnail {
+        border: 3px solid #2BA2D8;
+        box-shadow: 0 0 0 2px rgba(43, 162, 216, 0.2);
+      }
+      
+      .thumbnail-indicator {
+        background: #e3f2fd;
+        border: 1px solid #2BA2D8;
+        border-radius: 6px;
+        padding: 12px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #1565c0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .thumbnail-indicator i {
+        color: #2BA2D8;
+        font-size: 16px;
+      }
+      
+      .upload-help {
+        color: #666;
+        font-size: 14px;
+        font-style: italic;
+      }
+      
+      .listing-submit-btn {
+        background: linear-gradient(135deg, #2BA2D8 0%, #1E7BA8 100%);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+      
+      .listing-submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(43, 162, 216, 0.4);
+      }
+      
+      .listing-submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      
+      .error-message {
+        background: #f8d7da;
+        color: #721c24;
+        padding: 12px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        border: 1px solid #f5c6cb;
+      }
+      
+      /* Listings Display Styles */
+      .listings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+      }
+      
+      .listing-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      
+      .listing-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      .listing-image {
+        position: relative;
+        height: 120px;
+        background: #f8f9fa;
+      }
+      
+      .listing-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .no-image-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        font-size: 48px;
+        color: #ddd;
+      }
+      
+      .listing-status {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #28a745;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      
+      .listing-status.pending {
+        background: #ffc107;
+        color: #212529;
+      }
+      
+      .listing-status.pending.approval {
+        background: #ffc107;
+        color: #212529;
+      }
+      
+      /* View Listing Modal Styles */
+      .listing-status-badge {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      
+      .listing-status-badge.pending-approval {
+        background: #ffc107;
+        color: #212529;
+      }
+      
+      .listing-status-badge.active {
+        background: #28a745;
+        color: white;
+      }
+      
+      .form-value {
+        padding: 12px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        border: 1px solid #e1e5e9;
+        font-weight: 500;
+        color: #333;
+      }
+      
+      .property-images-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+      }
+      
+      .property-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      .amenities-display {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        margin-top: 15px;
+      }
+      
+      .amenity-tag {
+        display: inline-block;
+        padding: 8px 12px;
+        background: #e9ecef;
+        border-radius: 20px;
+        font-size: 14px;
+        text-align: center;
+        border: 1px solid #dee2e6;
+      }
+      
+      .room-type-display {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border-left: 4px solid #2BA2D8;
+      }
+      
+      .room-type-display h4 {
+        color: #2BA2D8;
+        margin-bottom: 10px;
+      }
+      
+      .room-pricing {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-top: 10px;
+      }
+      
+      .room-price {
+        font-size: 18px;
+        font-weight: 600;
+        color: #2BA2D8;
+      }
+      
+      .room-capacity {
+        color: #666;
+        font-size: 14px;
+      }
+      
+      .listing-details {
+        padding: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .listing-details h4 {
+        margin-bottom: 6px;
+        color: #333;
+        font-size: 14px;
+        line-height: 1.2;
+        min-height: 34px;
+        font-weight: 600;
+      }
+      
+      .listing-address {
+        color: #666;
+        font-size: 11px;
+        margin-bottom: 8px;
+        line-height: 1.2;
+        min-height: 26px;
+      }
+      
+      .listing-meta {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 8px;
+        font-size: 10px;
+        color: #666;
+      }
+      
+      .listing-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      
+      .listing-pricing {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      
+      .price {
+        font-weight: 600;
+        color: black;
+        font-size: 11px;
+        background: #D3D3D3;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      
+      .price-type {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 1px 4px;
+        border-radius: 4px;
+        font-size: 9px;
+        color: #666;
+        border: 1px solid #e9ecef;
+      }
+      
+      .listing-actions {
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+        margin-top: auto;
+      }
+      
+      .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666;
+      }
+      
+      .empty-icon {
+        font-size: 64px;
+        margin-bottom: 20px;
+      }
+      
+      .empty-state h3 {
+        margin-bottom: 10px;
+        color: #333;
+      }
+      
+      .empty-state p {
+        margin-bottom: 25px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      @media (max-width: 768px) {
+        .modal-container {
+          width: 95%;
+          margin: 20px;
+        }
+        
+        .listing-form {
+          padding: 20px;
+        }
+        
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+        
+        .gender-selection {
+          flex-direction: column;
+          gap: 10px;
+        }
+        
+        .gender-option {
+          flex-direction: row;
+          justify-content: flex-start;
+          gap: 15px;
+          min-width: auto;
+        }
+        
+        .room-type-selection {
+          flex-direction: column;
+          gap: 10px;
+        }
+        
+        .room-type-option {
+          flex-direction: row;
+          justify-content: flex-start;
+          gap: 15px;
+          min-width: auto;
+        }
+        
+        .amenities-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .listings-grid {
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+          gap: 12px;
+        }
+        
+        .listing-image {
+          height: 100px;
+        }
+        
+        .listing-details {
+          padding: 8px;
+        }
+        
+        .listing-details h4 {
+          font-size: 12px;
+          min-height: 30px;
+          line-height: 1.1;
+        }
+        
+        .listing-address {
+          font-size: 10px;
+          min-height: 24px;
+        }
+        
+        .listing-meta {
+          font-size: 9px;
+          gap: 6px;
+        }
+        
+        .listing-pricing {
+          gap: 4px;
+          margin-bottom: 6px;
+        }
+        
+        .price {
+          font-size: 10px;
+          padding: 1px 4px;
+        }
+        
+        .price-type {
+          font-size: 8px;
+          padding: 1px 3px;
+        }
+        
+        .dashboard-btn-primary,
+        .dashboard-btn-danger,
+        .dashboard-btn-outline {
+          padding: 3px 6px;
+          font-size: 10px;
+          border-radius: 3px;
+        }
+        
+        .listing-actions {
+          gap: 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--================Header Area =================-->
+    <header class="header_area">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="index.html"
+            ><img src="image/Logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse offset"
+            id="navbarSupportedContent"
+          >
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item">
+                <span class="nav-link theme_btn_two">Become a Host</span>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn login-btn">Login</span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================Header Area =================-->
+    
+</head>
+<body class="dashboard-page">
+  <div class="dashboard-container">
+
+    <div class="dashboard-header">
+      <div>
+        <h1 id="welcomeMessage"></h1>
+      </div>
+    </div>
+
+    <div class="dashboard-quick-grid">
+      <div class="dashboard-quick-card profile-toggle" onclick="toggleProfileSection()">
+        <div class="dashboard-icon">👤</div>
+        <div>
+          <small>My Profile</small>
+          <strong>Complete</strong>
+        </div>
+      </div>
+
+      <!-- Mobile Profile Section -->
+      <div class="dashboard-card dashboard-profile-section hidden">
+        <div class="loading">Loading profile...</div>
+      </div>
+
+      <div class="dashboard-quick-card booking-toggle" onclick="toggleBookingSection()">
+        <div class="dashboard-icon">📅</div>
+        <div>
+          <small>My Bookings</small>
+          <strong>2 Active</strong>
+        </div>
+      </div>
+
+      <!-- Mobile Booking Section -->
+      <div class="dashboard-card dashboard-booking-section hidden">
+        <div class="dashboard-card-header">
+          <h2>My Bookings</h2>
+          <button class="dashboard-btn-outline">View All</button>
+        </div>
+
+        <div class="dashboard-bookings-container">
+          <!-- Bookings will be dynamically loaded here -->
+          <div class="loading-bookings">Loading bookings...</div>
+        </div>
+      </div>
+
+      <div class="dashboard-quick-card saved-toggle" onclick="toggleSavedSection()">
+        <div class="dashboard-icon">🔖</div>
+        <div>
+          <small>Saved Properties</small>
+          <strong>8 Saved</strong>
+        </div>
+      </div>
+
+      <!-- Mobile Saved Section -->
+      <div class="dashboard-card dashboard-saved-section hidden">
+        <div class="dashboard-card-header">
+          <h2>Saved Properties</h2>
+          <button class="dashboard-btn-outline">View Saved</button>
+        </div>
+
+        <div class="dashboard-saved-grid">
+          <!-- Saved properties will be dynamically loaded here -->
+          <div class="loading-saved-properties">Loading saved properties...</div>
+        </div>
+      </div>
+
+      <div class="dashboard-quick-card listing-toggle" onclick="toggleListingSection()">
+        <div class="dashboard-icon">🏠</div>
+        <div>
+          <small>My Listings</small>
+          <strong id="mobileListingsCount">0 Active</strong>
+        </div>
+      </div>
+
+      <!-- Mobile Listings Section -->
+      <div class="dashboard-card dashboard-listings-section-mobile hidden">
+        <div class="dashboard-card-header">
+          <h2>My Listings</h2>
+          <button class="dashboard-btn-primary show-create-listing">+ Create New Listing</button>
+        </div>
+
+        <div class="dashboard-listings-container-mobile">
+          <!-- Listings will be dynamically loaded here -->
+          <div class="loading-listings">Loading listings...</div>
+        </div>
+      </div>
+
+      <!-- Mobile Message Section -->
+      <div class="dashboard-card dashboard-message-section hidden">
+        <div class="dashboard-card-header">
+          <h2>Messages</h2>
+          <button class="dashboard-btn-outline">Open Inbox</button>
+        </div>
+
+        <div class="dashboard-messages-container">
+          <!-- Messages will be dynamically loaded here -->
+          <div class="loading-messages">Loading messages...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Original Layout -->
+    <div class="dashboard-grid">
+      <div class="dashboard-card dashboard-profile-section" style="grid-column: 1 / -1;">
+        <div class="loading">Loading profile...</div>
+      </div>
+
+      <div class="dashboard-card dashboard-listings-section" style="grid-column: 1 / -1;">
+        <div class="dashboard-card-header">
+          <h2>My Listings</h2>
+          <button class="dashboard-btn-primary show-create-listing">+ Create New Listing</button>
+        </div>
+
+        <div class="dashboard-listings-container">
+          <!-- Listings will be dynamically loaded here -->
+          <div class="loading-listings">Loading listings...</div>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="dashboard-card-header">
+          <h2>My Bookings</h2>
+          <button class="dashboard-btn-outline">View All</button>
+        </div>
+
+        <div class="dashboard-bookings-container">
+          <!-- Bookings will be dynamically loaded here -->
+          <div class="loading-bookings">Loading bookings...</div>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="dashboard-card-header">
+          <h2>Messages</h2>
+          <button class="dashboard-btn-outline">Open Inbox</button>
+        </div>
+
+        <div class="dashboard-messages-container">
+          <!-- Messages will be dynamically loaded here -->
+          <div class="loading-messages">Loading messages...</div>
+        </div>
+      </div>
+
+      <div class="dashboard-card" style="grid-column:1/-1;">
+        <div class="dashboard-card-header">
+          <h2>Saved Properties</h2>
+          <button class="dashboard-btn-outline">View Saved</button>
+        </div>
+
+        <div class="dashboard-saved-grid">
+          <!-- Saved properties will be dynamically loaded here -->
+          <div class="loading-saved-properties">Loading saved properties...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Listing Modal -->
+    <div class="modal-overlay" id="createListingModal">
+      <div class="modal-container create-listing-modal">
+        <div class="modal-header">
+          <h2>Create New Listing</h2>
+          <button type="button" class="modal-close" onclick="closeCreateListingModal()">&times;</button>
+        </div>
+        
+        <form id="createListingForm" class="listing-form">
+          <div class="error-message" id="listingError" style="display: none;"></div>
+          
+          <!-- Basic Information -->
+          <div class="form-section">
+            <h3>Basic Information</h3>
+            <div class="form-group">
+              <label for="listingTitle">Property Title *</label>
+              <input type="text" id="listingTitle" required placeholder="e.g., Modern Student Apartment">
+            </div>
+            
+            <div class="form-group">
+              <label for="listingAddress">Address *</label>
+              <input type="text" id="listingAddress" required placeholder="e.g., 47 Elgie Road, Glenwood">
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="listingCity">City *</label>
+                <input type="text" id="listingCity" required placeholder="e.g., Durban">
+              </div>
+              <div class="form-group">
+                <label for="listingProvince">Province *</label>
+                <select id="listingProvince" required>
+                  <option value="">Select Province</option>
+                  <option value="KZN">KwaZulu-Natal</option>
+                  <option value="WC">Western Cape</option>
+                  <option value="GP">Gauteng</option>
+                  <option value="EC">Eastern Cape</option>
+                  <option value="FS">Free State</option>
+                  <option value="LP">Limpopo</option>
+                  <option value="MP">Mpumalanga</option>
+                  <option value="NC">Northern Cape</option>
+                  <option value="NW">North West</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property Details -->
+          <div class="form-section">
+            <h3>Property Details</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="listingBedrooms">Bedrooms *</label>
+                <input type="number" id="listingBedrooms" required min="1" placeholder="1">
+              </div>
+              <div class="form-group">
+                <label for="listingBathrooms">Bathrooms *</label>
+                <input type="number" id="listingBathrooms" required min="1" placeholder="1">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="listingGuests">Maximum Guests *</label>
+              <input type="number" id="listingGuests" required min="1" placeholder="1">
+            </div>
+            
+            <div class="form-group">
+              <label for="listingDescription">Description *</label>
+              <textarea id="listingDescription" required rows="4" placeholder="Describe your property, its features, and what makes it special for students..."></textarea>
+            </div>
+          </div>
+
+          <!-- Room Types & Pricing -->
+          <div class="form-section">
+            <h3>Room Types & Pricing</h3>
+            
+            <!-- Room Type Selection -->
+            <div class="form-group">
+              <label>Available Room Types *</label>
+              <div class="room-type-selection">
+                <label class="room-type-option">
+                  <input type="checkbox" name="roomTypes" value="single" checked>
+                  <span class="room-type-icon">🛏️</span>
+                  <span class="room-type-label">Single Room</span>
+                </label>
+                <label class="room-type-option">
+                  <input type="checkbox" name="roomTypes" value="double" checked>
+                  <span class="room-type-icon">🛏️</span>
+                  <span class="room-type-label">Double Room</span>
+                </label>
+              </div>
+              <small class="form-help">Select which room types you want to offer. You can offer one or both types.</small>
+            </div>
+            
+            <div id="roomTypesContainer">
+              <div class="room-type-config" id="singleRoomConfig">
+                <h4>Single Room</h4>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="singlePrice">Monthly Price (R) *</label>
+                    <input type="number" id="singlePrice" required min="0" placeholder="6000">
+                  </div>
+                  <div class="form-group">
+                    <label for="singleCapacity">Guest Capacity *</label>
+                    <input type="number" id="singleCapacity" required min="1" placeholder="1">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="room-type-config" id="doubleRoomConfig">
+                <h4>Double Room</h4>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="doublePrice">Monthly Price (R) *</label>
+                    <input type="number" id="doublePrice" required min="0" placeholder="8500">
+                  </div>
+                  <div class="form-group">
+                    <label for="doubleCapacity">Guest Capacity *</label>
+                    <input type="number" id="doubleCapacity" required min="1" placeholder="2">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gender Selection -->
+          <div class="form-section">
+            <h3>Accommodation Gender</h3>
+            <div class="gender-selection">
+              <label class="gender-option">
+                <input type="radio" name="gender" value="male" required>
+                <span class="gender-icon">👨</span>
+                <span class="gender-label">Male Only</span>
+              </label>
+              <label class="gender-option">
+                <input type="radio" name="gender" value="female" required>
+                <span class="gender-icon">👩</span>
+                <span class="gender-label">Female Only</span>
+              </label>
+              <label class="gender-option">
+                <input type="radio" name="gender" value="both" required checked>
+                <span class="gender-icon">👥</span>
+                <span class="gender-label">All Genders</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Host Information -->
+          <div class="form-section">
+            <h3>Host Information</h3>
+            <div class="form-group">
+              <label for="hostName">Host Name *</label>
+              <input type="text" id="hostName" required placeholder="e.g., Elizabeth Taylor">
+              <small class="form-help">This name will be displayed to students viewing your property</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="hostEmail">Email Address *</label>
+              <input type="email" id="hostEmail" required placeholder="e.g., elizabeth@example.com">
+              <small class="form-help">This email will be used for booking inquiries and notifications</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="hostCellphone">Cellphone Number *</label>
+              <input type="tel" id="hostCellphone" required placeholder="e.g., 0821234567">
+              <small class="form-help">This number will be used for urgent booking inquiries</small>
+            </div>
+          </div>
+
+          <!-- University Information -->
+          <div class="form-section">
+            <h3>University Information</h3>
+            <div class="form-group">
+              <label for="nearestUniversity">Nearest University *</label>
+              <select id="nearestUniversity" required>
+                <option value="">Select University</option>
+                <option value="Campuses/uct.html">University of Cape Town</option>
+                <option value="Campuses/ukzn.html">University of KwaZulu Natal</option>
+                <option value="Campuses/wits.html">University of Witwatersrand</option>
+                <option value="Campuses/dut.html">Durban University of Technology</option>
+                <option value="Campuses/ufh.html">University of Fort Hare</option>
+                <option value="Campuses/cut.html">Central University of Technology</option>
+                <option value="Campuses/cput.html">Cape Peninsula University of Technology</option>
+                <option value="Campuses/ufs.html">University of Free State</option>
+                <option value="Campuses/ul.html">University of Limpopo</option>
+                <option value="Campuses/mut.html">Mangosuthu University of Technology</option>
+                <option value="Campuses/ump.html">Mpumalanga University</option>
+                <option value="Campuses/nmu.html">Nelson Mandela Metropolitan University</option>
+                <option value="Campuses/nwu.html">North-West University</option>
+                <option value="Campuses/up.html">University of Pretoria</option>
+                <option value="Campuses/rhodes.html">Rhodes University</option>
+                <option value="Campuses/unizulu.html">University of Zululand</option>
+                <option value="Campuses/uj.html">University of Johannesburg</option>
+                <option value="Campuses/spu.html">Sol Plaatje University</option>
+                <option value="Campuses/unisa.html">University of South Africa</option>
+                <option value="Campuses/su.html">Stellenbosch University</option>
+                <option value="Campuses/tut.html">Tshwane University of Technology</option>
+                <option value="Campuses/vut.html">Vaal University of Technology</option>
+                <option value="Campuses/wsu.html">Walter Sisulu University</option>
+                <option value="Campuses/uwc.html">University of Western Cape</option>
+                <option value="Campuses/smu.html">Sefako Makgatho Health & Sciences University</option>
+                <option value="Campuses/uv.html">University of Venda</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="nearestCampus">Nearest Campus *</label>
+              <select id="nearestCampus" required>
+                <option value="">Select University First</option>
+              </select>
+              <small class="form-help">Campuses will load based on selected university</small>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="distanceToCampus">Distance to Campus *</label>
+                <select id="distanceToCampus" required>
+                  <option value="">Select Distance</option>
+                  <option value="walking">Walking Distance</option>
+                  <option value="1-3km">1 to 3km</option>
+                  <option value="3-5km">3 to 5km</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="transportMethod">Transport Method</label>
+                <select id="transportMethod">
+                  <option value="walk">Walk</option>
+                  <option value="bus">Bus</option>
+                  <option value="taxi">Taxi</option>
+                  <option value="car">Car</option>
+                  <option value="bike">Bicycle</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amenities -->
+          <div class="form-section">
+            <h3>Amenities</h3>
+            <div class="amenities-grid">
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="WiFi">
+                <span>📶 WiFi</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Kitchen">
+                <span>🍳 Kitchen</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Furnished">
+                <span>🛋️ Furnished</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Study Desk">
+                <span>📚 Study Desk</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Heating">
+                <span>🔥 Heating</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Air Conditioning">
+                <span>❄️ Air Conditioning</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Parking">
+                <span>🚗 Parking</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Laundry">
+                <span>🧺 Laundry</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Garden">
+                <span>🌳 Garden</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Security">
+                <span>🔒 Security</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Gym">
+                <span>💪 Gym</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="amenities" value="Pool">
+                <span>🏊 Pool</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Images -->
+          <div class="form-section">
+            <h3>Property Images</h3>
+            <div class="image-upload-section">
+              <div class="thumbnail-indicator">
+                <i class="fa-solid fa-star"></i>
+                <span><strong>First image uploaded</strong> will be used as the property thumbnail</span>
+              </div>
+              <div class="image-upload-grid" id="imageUploadGrid">
+                <div class="image-upload-slot" onclick="triggerImageUpload(0)">
+                  <div class="upload-placeholder">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add Image</span>
+                  </div>
+                </div>
+              </div>
+              <input type="file" id="imageUploadInput" multiple accept="image/*" style="display: none;">
+              <p class="upload-help">Please upload exactly 6 images for your property. The first image will be the thumbnail.</p>
+            </div>
+          </div>
+
+          <button type="submit" class="listing-submit-btn">Create Listing</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <!-- View Listing Modal -->
+    <div class="modal-overlay" id="viewListingModal">
+      <div class="modal-container create-listing-modal">
+        <div class="modal-header">
+          <h2 id="viewListingTitle">Listing Details</h2>
+          <button type="button" class="modal-close" onclick="closeViewListingModal()">&times;</button>
+        </div>
+        
+        <div class="listing-form">
+          <!-- Status Badge -->
+          <div class="form-section">
+            <div class="listing-status-badge" id="viewListingStatus"></div>
+          </div>
+
+          <!-- Property Images -->
+          <div class="form-section">
+            <h3>Property Images</h3>
+            <div class="property-images-gallery" id="viewListingImages">
+              <!-- Images will be dynamically loaded here -->
+            </div>
+          </div>
+
+          <!-- Basic Information -->
+          <div class="form-section">
+            <h3>Basic Information</h3>
+            <div class="form-group">
+              <label>Property Title</label>
+              <div class="form-value" id="viewTitle"></div>
+            </div>
+            
+            <div class="form-group">
+              <label>Address</label>
+              <div class="form-value" id="viewAddress"></div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>City</label>
+                <div class="form-value" id="viewCity"></div>
+              </div>
+              <div class="form-group">
+                <label>Province</label>
+                <div class="form-value" id="viewProvince"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property Details -->
+          <div class="form-section">
+            <h3>Property Details</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Bedrooms</label>
+                <div class="form-value" id="viewBedrooms"></div>
+              </div>
+              <div class="form-group">
+                <label>Bathrooms</label>
+                <div class="form-value" id="viewBathrooms"></div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Maximum Guests</label>
+              <div class="form-value" id="viewGuests"></div>
+            </div>
+            
+            <div class="form-group">
+              <label>Description</label>
+              <div class="form-value" id="viewDescription"></div>
+            </div>
+
+            <div class="form-group">
+              <label>Accommodation Gender</label>
+              <div class="form-value" id="viewGender"></div>
+            </div>
+          </div>
+
+          <!-- Room Types & Pricing -->
+          <div class="form-section">
+            <h3>Room Types & Pricing</h3>
+            <div id="viewRoomTypes">
+              <!-- Room types will be dynamically loaded here -->
+            </div>
+          </div>
+
+          <!-- Host Information -->
+          <div class="form-section">
+            <h3>Host Information</h3>
+            <div class="form-group">
+              <label>Host Name</label>
+              <div class="form-value" id="viewHostName"></div>
+            </div>
+            
+            <div class="form-group">
+              <label>Email Address</label>
+              <div class="form-value" id="viewHostEmail"></div>
+            </div>
+            
+            <div class="form-group">
+              <label>Cellphone Number</label>
+              <div class="form-value" id="viewHostCellphone"></div>
+            </div>
+          </div>
+
+          <!-- University Information -->
+          <div class="form-section">
+            <h3>University Information</h3>
+            <div class="form-group">
+              <label>Nearest University</label>
+              <div class="form-value" id="viewUniversity"></div>
+            </div>
+            
+            <div class="form-group">
+              <label>Nearest Campus</label>
+              <div class="form-value" id="viewCampus"></div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Distance to Campus</label>
+                <div class="form-value" id="viewDistance"></div>
+              </div>
+              <div class="form-group">
+                <label>Transport Method</label>
+                <div class="form-value" id="viewTransport"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amenities -->
+          <div class="form-section">
+            <h3>Amenities</h3>
+            <div class="amenities-display" id="viewAmenities">
+              <!-- Amenities will be dynamically loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Listing Modal -->
+    <div class="modal-overlay" id="editListingModal">
+      <div class="modal-container create-listing-modal">
+        <div class="modal-header">
+          <h2>Edit Listing</h2>
+          <button type="button" class="modal-close" onclick="closeEditListingModal()">&times;</button>
+        </div>
+        
+        <form id="editListingForm" class="listing-form">
+          <div class="error-message" id="editListingError" style="display: none;"></div>
+          
+          <!-- Basic Information -->
+          <div class="form-section">
+            <h3>Basic Information</h3>
+            <div class="form-group">
+              <label for="editListingTitle">Property Title *</label>
+              <input type="text" id="editListingTitle" required placeholder="e.g., Modern Student Apartment">
+            </div>
+            
+            <div class="form-group">
+              <label for="editListingAddress">Address *</label>
+              <input type="text" id="editListingAddress" required placeholder="e.g., 47 Elgie Road, Glenwood">
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="editListingCity">City *</label>
+                <input type="text" id="editListingCity" required placeholder="e.g., Durban">
+              </div>
+              <div class="form-group">
+                <label for="editListingProvince">Province *</label>
+                <select id="editListingProvince" required>
+                  <option value="">Select Province</option>
+                  <option value="KZN">KwaZulu-Natal</option>
+                  <option value="WC">Western Cape</option>
+                  <option value="GP">Gauteng</option>
+                  <option value="EC">Eastern Cape</option>
+                  <option value="FS">Free State</option>
+                  <option value="LP">Limpopo</option>
+                  <option value="MP">Mpumalanga</option>
+                  <option value="NC">Northern Cape</option>
+                  <option value="NW">North West</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property Details -->
+          <div class="form-section">
+            <h3>Property Details</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="editListingBedrooms">Bedrooms *</label>
+                <input type="number" id="editListingBedrooms" required min="1" placeholder="1">
+              </div>
+              <div class="form-group">
+                <label for="editListingBathrooms">Bathrooms *</label>
+                <input type="number" id="editListingBathrooms" required min="1" placeholder="1">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="editListingGuests">Maximum Guests *</label>
+              <input type="number" id="editListingGuests" required min="1" placeholder="1">
+            </div>
+            
+            <div class="form-group">
+              <label for="editListingDescription">Description *</label>
+              <textarea id="editListingDescription" required rows="4" placeholder="Describe your property, its features, and what makes it special for students..."></textarea>
+            </div>
+          </div>
+
+          <!-- Room Types & Pricing -->
+          <div class="form-section">
+            <h3>Room Types & Pricing</h3>
+            
+            <!-- Room Type Selection -->
+            <div class="form-group">
+              <label>Available Room Types *</label>
+              <div class="room-type-selection">
+                <label class="room-type-option">
+                  <input type="checkbox" name="editRoomTypes" value="single">
+                  <span class="room-type-icon">🛏️</span>
+                  <span class="room-type-label">Single Room</span>
+                </label>
+                <label class="room-type-option">
+                  <input type="checkbox" name="editRoomTypes" value="double">
+                  <span class="room-type-icon">🛏️</span>
+                  <span class="room-type-label">Double Room</span>
+                </label>
+              </div>
+              <small class="form-help">Select which room types you want to offer. You can offer one or both types.</small>
+            </div>
+            
+            <div id="editRoomTypesContainer">
+              <div class="room-type-config hidden" id="editSingleRoomConfig">
+                <h4>Single Room</h4>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="editSinglePrice">Monthly Price (R) *</label>
+                    <input type="number" id="editSinglePrice" required min="0" placeholder="6000">
+                  </div>
+                  <div class="form-group">
+                    <label for="editSingleCapacity">Guest Capacity *</label>
+                    <input type="number" id="editSingleCapacity" required min="1" placeholder="1">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="room-type-config hidden" id="editDoubleRoomConfig">
+                <h4>Double Room</h4>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="editDoublePrice">Monthly Price (R) *</label>
+                    <input type="number" id="editDoublePrice" required min="0" placeholder="8500">
+                  </div>
+                  <div class="form-group">
+                    <label for="editDoubleCapacity">Guest Capacity *</label>
+                    <input type="number" id="editDoubleCapacity" required min="1" placeholder="2">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gender Selection -->
+          <div class="form-section">
+            <h3>Accommodation Gender</h3>
+            <div class="gender-selection">
+              <label class="gender-option">
+                <input type="radio" name="editGender" value="male">
+                <span class="gender-icon">👨</span>
+                <span class="gender-label">Male</span>
+              </label>
+              <label class="gender-option">
+                <input type="radio" name="editGender" value="female">
+                <span class="gender-icon">👩</span>
+                <span class="gender-label">Female</span>
+              </label>
+              <label class="gender-option">
+                <input type="radio" name="editGender" value="mixed">
+                <span class="gender-icon">👥</span>
+                <span class="gender-label">Mixed</span>
+              </label>
+            </div>
+            <small class="form-help">Select the gender preference for this accommodation.</small>
+          </div>
+
+          <!-- Campus Information -->
+          <div class="form-section">
+            <h3>Campus Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="editNearestUniversity">Nearest University *</label>
+                <select id="editNearestUniversity" required>
+                  <option value="">Select University</option>
+                  <option value="https://www.ukzn.ac.za/">University of KwaZulu-Natal (UKZN)</option>
+                  <option value="https://www.dut.ac.za/">Durban University of Technology (DUT)</option>
+                  <option value="https://www.mut.ac.za/">Mangosuthu University of Technology (MUT)</option>
+                  <option value="https://www.unisa.ac.za/">UNISA</option>
+                  <option value="https://www.ufh.ac.za/">University of Fort Hare</option>
+                  <option value="https://www.ru.ac.za/">Rhodes University</option>
+                  <option value="https://www.wits.ac.za/">University of the Witwatersrand</option>
+                  <option value="https://www.up.ac.za/">University of Pretoria</option>
+                  <option value="https://www.uj.ac.za/">University of Johannesburg</option>
+                  <option value="https://www.uwc.ac.za/">University of the Western Cape</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="editNearestCampus">Nearest Campus *</label>
+                <select id="editNearestCampus" required>
+                  <option value="">Select Campus</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="editDistanceToCampus">Distance to Campus *</label>
+                <input type="number" id="editDistanceToCampus" required min="0" step="0.1" placeholder="2.5">
+              </div>
+              <div class="form-group">
+                <label for="editTransportMethod">Transport Method *</label>
+                <select id="editTransportMethod" required>
+                  <option value="">Select Transport</option>
+                  <option value="walking">Walking</option>
+                  <option value="public">Public Transport</option>
+                  <option value="private">Private Vehicle</option>
+                  <option value="university">University Shuttle</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amenities -->
+          <div class="form-section">
+            <h3>Amenities</h3>
+            <div class="amenities-grid">
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="editAmenities" value="WiFi">
+                <span>📶 WiFi</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="editAmenities" value="Parking">
+                <span>🚗 Parking</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="editAmenities" value="Kitchen">
+                <span>🍳 Kitchen</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="editAmenities" value="Laundry">
+                <span>🧺 Laundry</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="editAmenities" value="Security">
+                <span>🔒 Security</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="editAmenities" value="Study Room">
+                <span>📚 Study Room</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="editAmenities" value="Gym">
+                <span>💪 Gym</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" name="editAmenities" value="Pool">
+                <span>🏊 Pool</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Images -->
+          <div class="form-section">
+            <h3>Property Images</h3>
+            <div class="thumbnail-indicator">
+              <i class="fa-solid fa-star"></i>
+              <span><strong>First image</strong> is currently used as the property thumbnail</span>
+            </div>
+            <div class="image-upload-section">
+              <div class="image-upload-grid" id="editImageUploadGrid">
+                <!-- Images will be dynamically loaded here -->
+              </div>
+              <input type="file" id="editImageUploadInput" multiple accept="image/*" style="display: none;">
+              <p class="upload-help">You can replace images by uploading new ones. The first image will remain the thumbnail.</p>
+            </div>
+          </div>
+
+          <button type="submit" class="listing-submit-btn">Update Listing</button>
+        </form>
+      </div>
+    </div>
+
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div
+          class="row footer-bottom d-flex justify-content-between align-items-center"
+        >
+          <p class="col-lg-8 col-sm-12 footer-text m-0 mb-2 mb-lg-0">
+            Copyright &copy; 2026. UniRoomi is a digital platform operated by Anokha Holdings (Pty) Ltd.
+          </p>
+          <div class="col-lg-4 col-sm-12 footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+      // Role-based navigation utility
+      function navigateToDashboard() {
+        const userRole = localStorage.getItem('userRole') || 'guest';
+        const currentPath = window.location.pathname;
+        
+        // Determine which dashboard to go to
+        let targetDashboard = 'dashboard.html'; // default for guests
+        
+        if (userRole === 'host') {
+          targetDashboard = 'dashboard-host.html';
+        }
+        
+        // Check if we're already on correct dashboard
+        if (!currentPath.includes(targetDashboard)) {
+          window.location.href = targetDashboard;
+        }
+      }
+
+      // Profile Toggle Functionality
+      function toggleProfileSection() {
+        const profileSection = document.querySelector('.dashboard-profile-section');
+        const profileToggle = document.querySelector('.profile-toggle');
+        
+        if (profileSection && profileToggle) {
+          profileSection.classList.toggle('hidden');
+          profileToggle.classList.toggle('collapsed');
+        }
+      }
+
+      // Booking Toggle Functionality
+      function toggleBookingSection() {
+        const bookingSection = document.querySelector('.dashboard-booking-section');
+        const bookingToggle = document.querySelector('.booking-toggle');
+        
+        if (bookingSection && bookingToggle) {
+          bookingSection.classList.toggle('hidden');
+          bookingToggle.classList.toggle('collapsed');
+        }
+      }
+
+      // Saved Properties Toggle Functionality
+      function toggleSavedSection() {
+        const savedSection = document.querySelector('.dashboard-saved-section');
+        const savedToggle = document.querySelector('.saved-toggle');
+        
+        if (savedSection && savedToggle) {
+          savedSection.classList.toggle('hidden');
+          savedToggle.classList.toggle('collapsed');
+        }
+      }
+
+      // Messages Toggle Functionality
+      function toggleMessageSection() {
+        const messageSection = document.querySelector('.dashboard-message-section');
+        const messageToggle = document.querySelector('.message-toggle');
+        
+        if (messageSection && messageToggle) {
+          messageSection.classList.toggle('hidden');
+          messageToggle.classList.toggle('collapsed');
+        }
+      }
+
+      // Listings Toggle Functionality
+      function toggleListingSection() {
+        const listingSection = document.querySelector('.dashboard-listings-section');
+        const listingSectionMobile = document.querySelector('.dashboard-listings-section-mobile');
+        const listingToggle = document.querySelector('.listing-toggle');
+        
+        if (listingToggle) {
+          listingToggle.classList.toggle('collapsed');
+        }
+        
+        // Toggle desktop section (for desktop view)
+        if (listingSection) {
+          listingSection.classList.toggle('hidden');
+        }
+        
+        // Toggle mobile section (for mobile view)
+        if (listingSectionMobile) {
+          listingSectionMobile.classList.toggle('hidden');
+        }
+      }
+
+      // Create Listing Modal Functions
+      function showCreateListingModal() {
+        document.getElementById('createListingModal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeCreateListingModal() {
+        document.getElementById('createListingModal').classList.remove('show');
+        document.body.style.overflow = 'auto';
+        resetListingForm();
+      }
+
+      function resetListingForm() {
+        document.getElementById('createListingForm').reset();
+        document.getElementById('listingError').style.display = 'none';
+        
+        // Reset gender selection to default (both)
+        const bothGenderRadio = document.querySelector('input[name="gender"][value="both"]');
+        if (bothGenderRadio) bothGenderRadio.checked = true;
+        handleRoomTypeSelection();
+        uploadedImages = [];
+        updateImageGrid();
+      }
+
+
+
+      // Image Upload Functions
+      let uploadedImages = [];
+
+      function triggerImageUpload(slotIndex) {
+        document.getElementById('imageUploadInput').click();
+      }
+
+      function handleImageUpload(event) {
+        const files = event.target.files;
+        
+        for (let file of files) {
+          if (uploadedImages.length >= 6) {
+            alert('Maximum 6 images allowed');
+            break;
+          }
+          
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            uploadedImages.push(e.target.result);
+            updateImageGrid();
+          };
+          reader.readAsDataURL(file);
+        }
+        
+        // Reset the input to allow selecting the same file again
+        event.target.value = '';
+      }
+
+      function updateImageGrid() {
+        const imageGrid = document.getElementById('imageUploadGrid');
+        let html = '';
+        
+        uploadedImages.forEach((image, index) => {
+          const isThumbnail = index === 0;
+          html += `
+            <div class="image-upload-slot filled ${isThumbnail ? 'thumbnail' : ''}">
+              ${isThumbnail ? '<div class="thumbnail-badge">Thumbnail</div>' : ''}
+              <img src="${image}" alt="Property image ${index + 1}">
+              <button type="button" class="remove-image" onclick="removeImage(${index})">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          `;
+        });
+        
+        if (uploadedImages.length < 6) {
+          html += `
+            <div class="image-upload-slot" onclick="triggerImageUpload()">
+              <div class="upload-placeholder">
+                <i class="fa-solid fa-plus"></i>
+                <span>Add Image</span>
+              </div>
+            </div>
+          `;
+        }
+        
+        imageGrid.innerHTML = html;
+      }
+
+      function removeImage(index) {
+        uploadedImages.splice(index, 1);
+        updateImageGrid();
+      }
+
+      // Campus Selection Functions
+      function handleUniversitySelection() {
+        const universitySelect = document.getElementById('nearestUniversity');
+        const campusSelect = document.getElementById('nearestCampus');
+        const selectedUniversity = universitySelect.value;
+        
+        // Reset campus dropdown
+        campusSelect.innerHTML = '<option value="">Select Campus</option>';
+        
+        if (!selectedUniversity) {
+          return;
+        }
+        
+        // Show loading state
+        campusSelect.innerHTML = '<option value="">Loading campuses...</option>';
+        
+        // Fetch campuses for selected university
+        fetch(selectedUniversity)
+          .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+          })
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const campusItems = doc.querySelectorAll('.single-recent-blog-post');
+            const campuses = [];
+            
+            campusItems.forEach(item => {
+              const linkElement = item.querySelector('.details a');
+              const titleElement = item.querySelector('.details h4');
+              const title = linkElement ? linkElement.textContent.trim() : 
+                           (titleElement ? titleElement.textContent.trim() : '');
+              const link = linkElement ? linkElement.getAttribute('href') : '';
+              
+              if (title) {
+                campuses.push({ title, link });
+              }
+            });
+            
+            // Populate campus dropdown
+            campusSelect.innerHTML = '<option value="">Select Campus</option>';
+            campuses.forEach(campus => {
+              const option = document.createElement('option');
+              option.value = campus.title;
+              option.textContent = campus.title;
+              campusSelect.appendChild(option);
+            });
+            
+            if (campuses.length === 0) {
+              campusSelect.innerHTML = '<option value="">No campuses found</option>';
+            }
+          })
+          .catch(error => {
+            console.error('Error loading campuses:', error);
+            campusSelect.innerHTML = '<option value="">Error loading campuses</option>';
+          });
+      }
+
+      // Room Type Selection Functions
+      function handleRoomTypeSelection() {
+        const singleCheckbox = document.querySelector('input[name="roomTypes"][value="single"]');
+        const doubleCheckbox = document.querySelector('input[name="roomTypes"][value="double"]');
+        const singleConfig = document.getElementById('singleRoomConfig');
+        const doubleConfig = document.getElementById('doubleRoomConfig');
+        
+        // Show/hide single room config
+        if (singleCheckbox.checked) {
+          singleConfig.classList.remove('hidden');
+          document.getElementById('singlePrice').required = true;
+          document.getElementById('singleCapacity').required = true;
+        } else {
+          singleConfig.classList.add('hidden');
+          document.getElementById('singlePrice').required = false;
+          document.getElementById('singleCapacity').required = false;
+        }
+        
+        // Show/hide double room config
+        if (doubleCheckbox.checked) {
+          doubleConfig.classList.remove('hidden');
+          document.getElementById('doublePrice').required = true;
+          document.getElementById('doubleCapacity').required = true;
+        } else {
+          doubleConfig.classList.add('hidden');
+          document.getElementById('doublePrice').required = false;
+          document.getElementById('doubleCapacity').required = false;
+        }
+      }
+
+      // Create Listing Form Submission
+      function handleCreateListing(event) {
+        event.preventDefault();
+
+        // Get selected room types
+        const selectedRoomTypes = Array.from(document.querySelectorAll('input[name="roomTypes"]:checked')).map(cb => cb.value);
+
+        // Validate at least one room type is selected
+        if (selectedRoomTypes.length === 0) {
+          showListingError('Please select at least one room type to offer');
+          return;
+        }
+
+        // Validate exactly 6 images are uploaded
+        if (uploadedImages.length !== 6) {
+          showListingError('Please upload exactly 6 images for your property');
+          return;
+        }
+
+        // Validate at least one amenity is selected
+        const selectedAmenities = Array.from(document.querySelectorAll('input[name="amenities"]:checked')).map(cb => cb.value);
+        if (selectedAmenities.length === 0) {
+          showListingError('Please select at least one amenity');
+          return;
+        }
+
+        const formData = {
+          title: document.getElementById('listingTitle').value,
+          address: document.getElementById('listingAddress').value,
+          city: document.getElementById('listingCity').value,
+          province: document.getElementById('listingProvince').value,
+          bedrooms: document.getElementById('listingBedrooms').value,
+          bathrooms: document.getElementById('listingBathrooms').value,
+          guests: document.getElementById('listingGuests').value,
+          description: document.getElementById('listingDescription').value,
+          gender: document.querySelector('input[name="gender"]:checked').value,
+          hostName: document.getElementById('hostName').value,
+          hostEmail: document.getElementById('hostEmail').value,
+          hostCellphone: document.getElementById('hostCellphone').value,
+          roomTypes: selectedRoomTypes,
+          singlePrice: document.getElementById('singlePrice').value,
+          singleCapacity: document.getElementById('singleCapacity').value,
+          doublePrice: document.getElementById('doublePrice').value,
+          doubleCapacity: document.getElementById('doubleCapacity').value,
+          nearestUniversity: document.getElementById('nearestUniversity').value,
+          nearestCampus: document.getElementById('nearestCampus').value,
+          distanceToCampus: document.getElementById('distanceToCampus').value,
+          transportMethod: document.getElementById('transportMethod').value,
+          amenities: selectedAmenities,
+          images: uploadedImages
+        };
+
+        // Use the submit button inside this form (safer when multiple forms exist)
+        const submitBtn = event.target.querySelector('.listing-submit-btn') || document.querySelector('.listing-submit-btn');
+        const originalText = submitBtn ? submitBtn.textContent : 'Create Listing';
+        if (submitBtn) {
+          submitBtn.textContent = 'Creating Listing...';
+          submitBtn.disabled = true;
+        }
+
+        // Simulate API call
+        setTimeout(() => {
+          try {
+            const user = firebase.auth().currentUser;
+            if (!user) {
+              showListingError('User not authenticated. Please sign in and try again.');
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+              }
+              return;
+            }
+
+            const listings = JSON.parse(localStorage.getItem(`host_listings_${user.uid}`) || '[]');
+            const newListing = Object.assign({
+              id: Date.now().toString(),
+              hostId: user.uid,
+              createdAt: new Date().toISOString(),
+              status: 'pending approval'
+            }, formData);
+
+            listings.push(newListing);
+            localStorage.setItem(`host_listings_${user.uid}`, JSON.stringify(listings));
+            showSuccess('Listing submitted successfully! It is now pending approval.');
+
+            // Update UI then close modal
+            loadHostListings();
+            closeCreateListingModal();
+          } catch (err) {
+            console.error('Error creating listing:', err);
+            showListingError('An error occurred while creating the listing. Please try again.');
+          } finally {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+            }
+          }
+        }, 2000);
+      }
+
+      function showListingError(message) {
+        const errorDiv = document.getElementById('listingError');
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+        setTimeout(() => {
+          errorDiv.style.display = 'none';
+        }, 5000);
+      }
+
+      // Update mobile listings count only
+      function updateMobileListingsCount() {
+        const user = firebase.auth().currentUser;
+        if (!user) return;
+        
+        const listings = JSON.parse(localStorage.getItem(`host_listings_${user.uid}`) || '[]');
+        const mobileListingsCount = document.getElementById('mobileListingsCount');
+        if (mobileListingsCount) {
+          // Count all listings regardless of status (pending, active, approved)
+          const totalListings = listings.length;
+          mobileListingsCount.textContent = `${totalListings} Listings`;
+        }
+      }
+
+      // Load Host Listings
+      function loadHostListings() {
+        const user = firebase.auth().currentUser;
+        if (!user) return;
+        
+        const listings = JSON.parse(localStorage.getItem(`host_listings_${user.uid}`) || '[]');
+        const listingsContainer = document.querySelector('.dashboard-listings-container');
+        const listingsContainerMobile = document.querySelector('.dashboard-listings-container-mobile');
+        
+        // Update mobile listings count
+        updateMobileListingsCount();
+        
+        if (listings.length === 0) {
+          const emptyHtml = `
+            <div class="empty-state">
+              <div class="empty-icon">🏠</div>
+              <h3>No Listings Yet</h3>
+              <p>Create your first property listing to start hosting students.</p>
+              <button class="dashboard-btn-primary create-first-listing-btn">Create Your First Listing</button>
+            </div>
+          `;
+          
+          if (listingsContainer) listingsContainer.innerHTML = emptyHtml;
+          if (listingsContainerMobile) listingsContainerMobile.innerHTML = emptyHtml;
+          return;
+        }
+        
+        let html = '<div class="listings-grid">';
+        listings.forEach(listing => {
+          // escape user-provided strings to avoid accidental tag injection
+          const safeTitle = listing.title ? listing.title.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+          const safeAddress = listing.address ? listing.address.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+          const safeCity = listing.city ? listing.city.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+
+          html += `
+            <div class="listing-card">
+              <div class="listing-image">
+                ${listing.images.length > 0 ? 
+                  `<img src="${listing.images[0]}" alt="${safeTitle}">` :
+                  `<div class="no-image-placeholder">📷</div>`
+                }
+                <div class="listing-status ${listing.status.replace(' ', '-')}">${listing.status}</div>
+              </div>
+              <div class="listing-details">
+                <h4>${safeTitle}</h4>
+                <p class="listing-address"><i class="fa-solid fa-location-dot"></i> ${safeAddress}, ${safeCity}</p>
+                <div class="listing-meta">
+                  <span><i class="fa-solid fa-bed"></i> ${listing.bedrooms} bed</span>
+                  <span><i class="fa-solid fa-bath"></i> ${listing.bathrooms} bath</span>
+                  <span><i class="fa-solid fa-users"></i> ${listing.guests} guests</span>
+                </div>
+                <div class="listing-pricing">
+                  <span class="price">R${listing.singlePrice}/mo</span>
+                  <span class="price-type">Single</span>
+                  <span class="price">R${listing.doublePrice}/mo</span>
+                  <span class="price-type">Double</span>
+                </div>
+                <div class="listing-actions">
+                  <button class="dashboard-btn-outline view-btn" data-id="${listing.id}">View</button>
+                  <button class="dashboard-btn-primary edit-btn" data-id="${listing.id}">Edit</button>
+                  <button class="dashboard-btn-danger delete-btn" data-id="${listing.id}">Delete</button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        html += '</div>';
+        
+        if (listingsContainer) listingsContainer.innerHTML = html;
+        if (listingsContainerMobile) listingsContainerMobile.innerHTML = html;
+      }
+
+
+
+      function viewListing(listingId) {
+        console.log('viewListing called with ID:', listingId);
+        const user = firebase.auth().currentUser;
+        if (!user) return;
+        
+        // Check if modal exists, if not, try to wait for it
+        let modal = document.getElementById('viewListingModal');
+        if (!modal) {
+          console.error('View modal not found in DOM! Attempting to wait...');
+          setTimeout(() => {
+            modal = document.getElementById('viewListingModal');
+            if (!modal) {
+              console.error('View modal still not found after delay!');
+              showError('Unable to open view modal. Please refresh the page.');
+              return;
+            }
+            proceedWithView(listingId, user);
+          }, 100);
+          return;
+        }
+        
+        console.log('View modal found:', modal);
+        proceedWithView(listingId, user);
+      }
+      
+      function proceedWithView(listingId, user) {
+        // Ensure no stale modal overlay blocks subsequent clicks
+        const viewModal = document.getElementById('viewListingModal');
+        const editModal = document.getElementById('editListingModal');
+        if (viewModal) viewModal.classList.remove('show');
+        if (editModal) editModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+        
+        const listings = JSON.parse(localStorage.getItem(`host_listings_${user.uid}`) || '[]');
+        const listing = listings.find(l => l.id === listingId);
+        
+        if (!listing) {
+          console.error('Listing not found:', listingId);
+          showError('Listing not found');
+          return;
+        }
+        
+        console.log('Found listing:', listing.title);
+        // Populate modal with listing data
+        populateViewListingModal(listing);
+        
+        // Show modal
+        showViewListingModal();
+      }
+
+      function showViewListingModal() {
+        console.log('Opening view modal');
+        const modal = document.getElementById('viewListingModal');
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeViewListingModal() {
+        console.log('Closing view modal');
+        const modal = document.getElementById('viewListingModal');
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+        
+        // Test if buttons are still clickable (uses delegated class now)
+        setTimeout(() => {
+          const testBtn = document.querySelector('button.view-btn');
+          if (testBtn) {
+            console.log('View button still clickable:', !testBtn.disabled);
+          }
+        }, 100);
+      }
+
+      function populateViewListingModal(listing) {
+        console.log('Populating view modal with listing:', listing.title);
+        
+        // Check if modal elements exist before trying to use them
+        const titleElement = document.getElementById('viewListingTitle');
+        const statusElement = document.getElementById('viewListingStatus');
+        
+        if (!titleElement || !statusElement) {
+          console.error('View modal elements not found!');
+          return;
+        }
+        
+        // Set title and status
+        titleElement.textContent = listing.title;
+        statusElement.textContent = listing.status;
+        statusElement.className = `listing-status-badge ${listing.status.replace(' ', '-')}`;
+        
+        // Basic Information
+        const viewTitle = document.getElementById('viewTitle');
+        const viewAddress = document.getElementById('viewAddress');
+        const viewCity = document.getElementById('viewCity');
+        const viewProvince = document.getElementById('viewProvince');
+        
+        if (viewTitle) viewTitle.textContent = listing.title;
+        if (viewAddress) viewAddress.textContent = listing.address;
+        if (viewCity) viewCity.textContent = listing.city;
+        if (viewProvince) viewProvince.textContent = listing.province;
+        
+        // Property Details
+        const viewBedrooms = document.getElementById('viewBedrooms');
+        const viewBathrooms = document.getElementById('viewBathrooms');
+        const viewGuests = document.getElementById('viewGuests');
+        const viewDescription = document.getElementById('viewDescription');
+        
+        if (viewBedrooms) viewBedrooms.textContent = listing.bedrooms;
+        if (viewBathrooms) viewBathrooms.textContent = listing.bathrooms;
+        if (viewGuests) viewGuests.textContent = listing.guests;
+        if (viewDescription) viewDescription.textContent = listing.description;
+        
+        // Gender display
+        const viewGender = document.getElementById('viewGender');
+        if (viewGender) {
+          const genderText = {
+            'male': 'Male Only',
+            'female': 'Female Only',
+            'both': 'All Genders'
+          };
+          viewGender.textContent = genderText[listing.gender] || listing.gender;
+        }
+        
+        // Room Types & Pricing
+        const roomTypesContainer = document.getElementById('viewRoomTypes');
+        if (roomTypesContainer) {
+          let roomTypesHtml = '';
+          
+          if (listing.roomTypes.includes('single')) {
+            roomTypesHtml += `
+              <div class="room-type-display">
+                <h4>Single Room</h4>
+                <div class="room-pricing">
+                  <span class="room-price">R${listing.singlePrice}/month</span>
+                  <span class="room-capacity">Capacity: ${listing.singleCapacity} guest${listing.singleCapacity > 1 ? 's' : ''}</span>
+                </div>
+              </div>
+            `;
+          }
+          
+          if (listing.roomTypes.includes('double')) {
+            roomTypesHtml += `
+              <div class="room-type-display">
+                <h4>Double Room</h4>
+                <div class="room-pricing">
+                  <span class="room-price">R${listing.doublePrice}/month</span>
+                  <span class="room-capacity">Capacity: ${listing.doubleCapacity} guest${listing.doubleCapacity > 1 ? 's' : ''}</span>
+                </div>
+              </div>
+            `;
+          }
+          
+          roomTypesContainer.innerHTML = roomTypesHtml;
+        }
+        
+        // Host Information
+        const viewHostName = document.getElementById('viewHostName');
+        const viewHostEmail = document.getElementById('viewHostEmail');
+        const viewHostCellphone = document.getElementById('viewHostCellphone');
+        
+        if (viewHostName) viewHostName.textContent = listing.hostName;
+        if (viewHostEmail) viewHostEmail.textContent = listing.hostEmail;
+        if (viewHostCellphone) viewHostCellphone.textContent = listing.hostCellphone;
+        
+        // University Information
+        const viewUniversity = document.getElementById('viewUniversity');
+        const viewCampus = document.getElementById('viewCampus');
+        const viewDistance = document.getElementById('viewDistance');
+        const viewTransport = document.getElementById('viewTransport');
+        
+        if (viewUniversity) {
+          const universityText = listing.nearestUniversity.replace('Campuses/', '').replace('.html', '').replace(/([A-Z])/g, ' $1').trim();
+          viewUniversity.textContent = universityText;
+        }
+        if (viewCampus) viewCampus.textContent = listing.nearestCampus;
+        if (viewDistance) viewDistance.textContent = listing.distanceToCampus;
+        if (viewTransport) viewTransport.textContent = listing.transportMethod;
+        
+        // Amenities
+        const amenitiesContainer = document.getElementById('viewAmenities');
+        if (amenitiesContainer) {
+          let amenitiesHtml = '';
+          listing.amenities.forEach(amenity => {
+            amenitiesHtml += `<div class="amenity-tag">${amenity}</div>`;
+          });
+          amenitiesContainer.innerHTML = amenitiesHtml;
+        }
+        
+        // Images
+        const imagesContainer = document.getElementById('viewListingImages');
+        if (imagesContainer) {
+          let imagesHtml = '';
+          listing.images.forEach((image, index) => {
+            imagesHtml += `<img src="${image}" alt="Property image ${index + 1}" class="property-image">`;
+          });
+          imagesContainer.innerHTML = imagesHtml;
+        }
+      }
+
+      function deleteListing(listingId) {
+        if (confirm('Are you sure you want to delete this listing? This action cannot be undone.')) {
+          const user = firebase.auth().currentUser;
+          if (user) {
+            const listings = JSON.parse(localStorage.getItem(`host_listings_${user.uid}`) || '[]');
+            const updatedListings = listings.filter(l => l.id !== listingId);
+            localStorage.setItem(`host_listings_${user.uid}`, JSON.stringify(updatedListings));
+            loadHostListings();
+            showSuccess('Listing deleted successfully');
+          }
+        }
+      }
+
+      // Edit Listing Functions
+      let currentEditingListingId = null;
+      let editUploadedImages = [];
+
+      function editListing(listingId) {
+        console.log('editListing called with ID:', listingId);
+        const user = firebase.auth().currentUser;
+        if (!user) return;
+        
+        // Check if modal exists, if not, try to wait for it or recreate it
+        let modal = document.getElementById('editListingModal');
+        if (!modal) {
+          console.error('Edit modal not found in DOM! Attempting to wait...');
+          // Wait a moment and try again
+          setTimeout(() => {
+            modal = document.getElementById('editListingModal');
+            if (!modal) {
+              console.error('Edit modal still not found after delay!');
+              showError('Unable to open edit modal. Please refresh the page.');
+              return;
+            }
+            proceedWithEdit(listingId, user);
+          }, 100);
+          return;
+        }
+        
+        console.log('Edit modal found:', modal);
+        proceedWithEdit(listingId, user);
+      }
+      
+      function proceedWithEdit(listingId, user) {
+        // Ensure no stale modal overlay blocks subsequent clicks
+        const viewModal = document.getElementById('viewListingModal');
+        const editModal = document.getElementById('editListingModal');
+        if (viewModal) viewModal.classList.remove('show');
+        if (editModal) editModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+        
+        // Find the listing
+        const listings = JSON.parse(localStorage.getItem(`host_listings_${user.uid}`) || '[]');
+        const listing = listings.find(l => l.id === listingId);
+        
+        if (!listing) {
+          console.error('Listing not found:', listingId);
+          showError('Listing not found');
+          return;
+        }
+        
+        console.log('Found listing for edit:', listing.title);
+        currentEditingListingId = listingId;
+        editUploadedImages = [...listing.images];
+        
+        // Populate edit form with listing data
+        populateEditListingModal(listing);
+        
+        // Show modal
+        showEditListingModal();
+      }
+
+      function showEditListingModal() {
+        console.log('Opening edit modal');
+        const modal = document.getElementById('editListingModal');
+        if (!modal) {
+          console.error('Edit modal element not found!');
+          return;
+        }
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeEditListingModal() {
+        console.log('Closing edit modal');
+        const modal = document.getElementById('editListingModal');
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+        currentEditingListingId = null;
+        editUploadedImages = [];
+        resetEditListingForm();
+        
+        // Test if buttons are still clickable (uses delegated class now)
+        setTimeout(() => {
+          const testBtn = document.querySelector('button.edit-btn');
+          if (testBtn) {
+            console.log('Edit button still clickable:', !testBtn.disabled);
+          }
+        }, 100);
+      }
+
+      function populateEditListingModal(listing) {
+        console.log('Populating edit modal with listing:', listing.title);
+        
+        // Basic Information
+        const editTitle = document.getElementById('editListingTitle');
+        const editAddress = document.getElementById('editListingAddress');
+        const editCity = document.getElementById('editListingCity');
+        const editProvince = document.getElementById('editListingProvince');
+        
+        if (!editTitle || !editAddress || !editCity || !editProvince) {
+          console.error('Edit modal basic elements not found!');
+          return;
+        }
+        
+        editTitle.value = listing.title || '';
+        editAddress.value = listing.address || '';
+        editCity.value = listing.city || '';
+        editProvince.value = listing.province || '';
+        
+        // Property Details
+        const editBedrooms = document.getElementById('editListingBedrooms');
+        const editBathrooms = document.getElementById('editListingBathrooms');
+        const editGuests = document.getElementById('editListingGuests');
+        const editDescription = document.getElementById('editListingDescription');
+        
+        if (editBedrooms) editBedrooms.value = listing.bedrooms || '';
+        if (editBathrooms) editBathrooms.value = listing.bathrooms || '';
+        if (editGuests) editGuests.value = listing.guests || '';
+        if (editDescription) editDescription.value = listing.description || '';
+        
+        // Room Types & Pricing
+        const roomTypeCheckboxes = document.querySelectorAll('input[name="editRoomTypes"]');
+        roomTypeCheckboxes.forEach(checkbox => {
+          checkbox.checked = listing.roomTypes && listing.roomTypes.includes(checkbox.value);
+        });
+        
+        // Show/hide room type configs
+        handleEditRoomTypeSelection();
+        
+        // Set room type prices and capacities
+        const editSinglePrice = document.getElementById('editSinglePrice');
+        const editSingleCapacity = document.getElementById('editSingleCapacity');
+        const editDoublePrice = document.getElementById('editDoublePrice');
+        const editDoubleCapacity = document.getElementById('editDoubleCapacity');
+        
+        if (listing.singlePrice !== undefined && editSinglePrice) {
+          editSinglePrice.value = listing.singlePrice;
+        }
+        if (listing.singleCapacity !== undefined && editSingleCapacity) {
+          editSingleCapacity.value = listing.singleCapacity;
+        }
+        if (listing.doublePrice !== undefined && editDoublePrice) {
+          editDoublePrice.value = listing.doublePrice;
+        }
+        if (listing.doubleCapacity !== undefined && editDoubleCapacity) {
+          editDoubleCapacity.value = listing.doubleCapacity;
+        }
+        
+        // Gender Selection
+        const genderRadio = document.querySelector(`input[name="editGender"][value="${listing.gender}"]`);
+        if (genderRadio) {
+          genderRadio.checked = true;
+        }
+        
+        // Campus Information
+        const editNearestUniversity = document.getElementById('editNearestUniversity');
+        const editNearestCampus = document.getElementById('editNearestCampus');
+        const editDistanceToCampus = document.getElementById('editDistanceToCampus');
+        const editTransportMethod = document.getElementById('editTransportMethod');
+        
+        if (editNearestUniversity) editNearestUniversity.value = listing.nearestUniversity || '';
+        if (editNearestCampus) editNearestCampus.value = listing.nearestCampus || '';
+        if (editDistanceToCampus) editDistanceToCampus.value = listing.distanceToCampus || '';
+        if (editTransportMethod) editTransportMethod.value = listing.transportMethod || '';
+        
+        // Amenities
+        const amenityCheckboxes = document.querySelectorAll('input[name="editAmenities"]');
+        amenityCheckboxes.forEach(checkbox => {
+          checkbox.checked = listing.amenities && listing.amenities.includes(checkbox.value);
+        });
+        
+        // Images
+        updateEditImageGrid();
+      }
+
+      function handleEditRoomTypeSelection() {
+        const singleCheckbox = document.querySelector('input[name="editRoomTypes"][value="single"]');
+        const doubleCheckbox = document.querySelector('input[name="editRoomTypes"][value="double"]');
+        const singleConfig = document.getElementById('editSingleRoomConfig');
+        const doubleConfig = document.getElementById('editDoubleRoomConfig');
+        
+        if (singleCheckbox && singleConfig) {
+          if (singleCheckbox.checked) {
+            singleConfig.classList.remove('hidden');
+          } else {
+            singleConfig.classList.add('hidden');
+          }
+        }
+        
+        if (doubleCheckbox && doubleConfig) {
+          if (doubleCheckbox.checked) {
+            doubleConfig.classList.remove('hidden');
+          } else {
+            doubleConfig.classList.add('hidden');
+          }
+        }
+      }
+
+      function updateEditImageGrid() {
+        const imageGrid = document.getElementById('editImageUploadGrid');
+        let html = '';
+        
+        editUploadedImages.forEach((image, index) => {
+          const isThumbnail = index === 0;
+          html += `
+            <div class="image-upload-slot filled ${isThumbnail ? 'thumbnail' : ''}">
+              ${isThumbnail ? '<div class="thumbnail-badge">Thumbnail</div>' : ''}
+              <img src="${image}" alt="Property image ${index + 1}">
+              <button type="button" class="remove-image" onclick="removeEditImage(${index})">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          `;
+        });
+        
+        if (editUploadedImages.length < 6) {
+          html += `
+            <div class="image-upload-slot" onclick="triggerEditImageUpload()">
+              <div class="upload-placeholder">
+                <i class="fa-solid fa-plus"></i>
+                <span>Add Image</span>
+              </div>
+            </div>
+          `;
+        }
+        
+        imageGrid.innerHTML = html;
+      }
+
+      function triggerEditImageUpload() {
+        document.getElementById('editImageUploadInput').click();
+      }
+
+      function handleEditImageUpload(event) {
+        const files = event.target.files;
+        
+        for (let file of files) {
+          if (editUploadedImages.length >= 6) {
+            alert('Maximum 6 images allowed');
+            break;
+          }
+          
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            editUploadedImages.push(e.target.result);
+            updateEditImageGrid();
+          };
+          reader.readAsDataURL(file);
+        }
+        
+        // Reset the input to allow selecting the same file again
+        event.target.value = '';
+      }
+
+      function removeEditImage(index) {
+        editUploadedImages.splice(index, 1);
+        updateEditImageGrid();
+      }
+
+      function handleEditListing(event) {
+        event.preventDefault();
+        
+        const user = firebase.auth().currentUser;
+        if (!user) {
+          showEditListingError('User not authenticated');
+          return;
+        }
+        
+        const submitBtn = event.target.querySelector('.listing-submit-btn');
+        submitBtn.disabled = true;
+        
+        // Get form values
+        const title = document.getElementById('editListingTitle').value.trim();
+        const address = document.getElementById('editListingAddress').value.trim();
+        const city = document.getElementById('editListingCity').value.trim();
+        const province = document.getElementById('editListingProvince').value;
+        const bedrooms = document.getElementById('editListingBedrooms').value;
+        const bathrooms = document.getElementById('editListingBathrooms').value;
+        const guests = document.getElementById('editListingGuests').value;
+        const description = document.getElementById('editListingDescription').value.trim();
+        
+        // Validate required fields
+        if (!title || !address || !city || !province || !bedrooms || !bathrooms || !guests || !description) {
+          showEditListingError('Please fill in all required fields');
+          submitBtn.disabled = false;
+          return;
+        }
+        
+        // Get selected room types
+        const selectedRoomTypes = [];
+        const roomTypeCheckboxes = document.querySelectorAll('input[name="editRoomTypes"]:checked');
+        roomTypeCheckboxes.forEach(checkbox => {
+          selectedRoomTypes.push(checkbox.value);
+        });
+        
+        if (selectedRoomTypes.length === 0) {
+          showEditListingError('Please select at least one room type');
+          submitBtn.disabled = false;
+          return;
+        }
+        
+        // Get room type pricing
+        const roomTypeData = {};
+        if (selectedRoomTypes.includes('single')) {
+          const singlePrice = document.getElementById('editSinglePrice').value;
+          const singleCapacity = document.getElementById('editSingleCapacity').value;
+          if (!singlePrice || !singleCapacity) {
+            showEditListingError('Please fill in single room pricing details');
+            submitBtn.disabled = false;
+            return;
+          }
+          roomTypeData.singlePrice = parseFloat(singlePrice);
+          roomTypeData.singleCapacity = parseInt(singleCapacity);
+        }
+        
+        if (selectedRoomTypes.includes('double')) {
+          const doublePrice = document.getElementById('editDoublePrice').value;
+          const doubleCapacity = document.getElementById('editDoubleCapacity').value;
+          if (!doublePrice || !doubleCapacity) {
+            showEditListingError('Please fill in double room pricing details');
+            submitBtn.disabled = false;
+            return;
+          }
+          roomTypeData.doublePrice = parseFloat(doublePrice);
+          roomTypeData.doubleCapacity = parseInt(doubleCapacity);
+        }
+        
+        // Get gender selection
+        const selectedGender = document.querySelector('input[name="editGender"]:checked');
+        if (!selectedGender) {
+          showEditListingError('Please select accommodation gender preference');
+          submitBtn.disabled = false;
+          return;
+        }
+        
+        // Get campus information
+        const nearestUniversity = document.getElementById('editNearestUniversity').value;
+        const nearestCampus = document.getElementById('editNearestCampus').value;
+        const distanceToCampus = document.getElementById('editDistanceToCampus').value;
+        const transportMethod = document.getElementById('editTransportMethod').value;
+        
+        if (!nearestUniversity || !nearestCampus || !distanceToCampus || !transportMethod) {
+          showEditListingError('Please fill in all campus information');
+          submitBtn.disabled = false;
+          return;
+        }
+        
+        // Get selected amenities
+        const selectedAmenities = [];
+        const amenityCheckboxes = document.querySelectorAll('input[name="editAmenities"]:checked');
+        amenityCheckboxes.forEach(checkbox => {
+          selectedAmenities.push(checkbox.value);
+        });
+        
+        // Validate images
+        if (editUploadedImages.length !== 6) {
+          showEditListingError('Please ensure you have exactly 6 images for your property');
+          submitBtn.disabled = false;
+          return;
+        }
+        
+        // Update listing in localStorage
+        const listings = JSON.parse(localStorage.getItem(`host_listings_${user.uid}`) || '[]');
+        const listingIndex = listings.findIndex(l => l.id === currentEditingListingId);
+        
+        if (listingIndex === -1) {
+          showEditListingError('Listing not found');
+          submitBtn.disabled = false;
+          return;
+        }
+        
+        // Update the listing
+        listings[listingIndex] = {
+          ...listings[listingIndex],
+          title,
+          address,
+          city,
+          province,
+          bedrooms: parseInt(bedrooms),
+          bathrooms: parseInt(bathrooms),
+          guests: parseInt(guests),
+          description,
+          roomTypes: selectedRoomTypes,
+          ...roomTypeData,
+          gender: selectedGender.value,
+          nearestUniversity,
+          nearestCampus,
+          distanceToCampus: parseFloat(distanceToCampus),
+          transportMethod,
+          amenities: selectedAmenities,
+          images: editUploadedImages,
+          updatedAt: new Date().toISOString()
+        };
+        
+        localStorage.setItem(`host_listings_${user.uid}`, JSON.stringify(listings));
+        
+        // Show success message
+        showEditListingSuccess('Listing updated successfully!');
+        
+        // Update UI
+        setTimeout(() => {
+          loadHostListings();
+          closeEditListingModal();
+          submitBtn.disabled = false;
+        }, 2000);
+      }
+
+      function showEditListingError(message) {
+        const errorElement = document.getElementById('editListingError');
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+        setTimeout(() => {
+          errorElement.style.display = 'none';
+        }, 5000);
+      }
+
+      function showEditListingSuccess(message) {
+        const errorElement = document.getElementById('editListingError');
+        errorElement.textContent = message;
+        errorElement.style.background = '#d4edda';
+        errorElement.style.color = '#155724';
+        errorElement.style.borderColor = '#c3e6cb';
+        errorElement.style.display = 'block';
+        setTimeout(() => {
+          errorElement.style.display = 'none';
+          errorElement.style.background = '';
+          errorElement.style.color = '';
+          errorElement.style.borderColor = '';
+        }, 3000);
+      }
+
+      function resetEditListingForm() {
+        document.getElementById('editListingForm').reset();
+        editUploadedImages = [];
+        updateEditImageGrid();
+      }
+
+      function handleEditUniversitySelection() {
+        const universitySelect = document.getElementById('editNearestUniversity');
+        const campusSelect = document.getElementById('editNearestCampus');
+        const selectedUniversity = universitySelect.value;
+        
+        // Reset campus dropdown
+        campusSelect.innerHTML = '<option value="">Select Campus</option>';
+        
+        if (!selectedUniversity) {
+          return;
+        }
+        
+        // Show loading state
+        campusSelect.innerHTML = '<option value="">Loading campuses...</option>';
+        
+        // Fetch campuses for selected university
+        fetch(selectedUniversity)
+          .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+          })
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const campusItems = doc.querySelectorAll('.single-recent-blog-post');
+            const campuses = [];
+            
+            campusItems.forEach(item => {
+              const linkElement = item.querySelector('.details a');
+              const titleElement = item.querySelector('.details h4');
+              const title = linkElement ? linkElement.textContent.trim() : 
+                           (titleElement ? titleElement.textContent.trim() : '');
+              const link = linkElement ? linkElement.getAttribute('href') : '';
+              
+              if (title) {
+                campuses.push({ title, link });
+              }
+            });
+            
+            // Populate campus dropdown
+            campusSelect.innerHTML = '<option value="">Select Campus</option>';
+            campuses.forEach(campus => {
+              const option = document.createElement('option');
+              option.value = campus.link;
+              option.textContent = campus.title;
+              campusSelect.appendChild(option);
+            });
+            
+            // Set previously selected campus if exists
+            const currentListing = getCurrentEditingListing();
+            if (currentListing && currentListing.nearestCampus) {
+              campusSelect.value = currentListing.nearestCampus;
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching campuses:', error);
+            campusSelect.innerHTML = '<option value="">Error loading campuses</option>';
+          });
+      }
+
+      function getCurrentEditingListing() {
+        if (!currentEditingListingId) return null;
+        
+        const user = firebase.auth().currentUser;
+        if (!user) return null;
+        
+        const listings = JSON.parse(localStorage.getItem(`host_listings_${user.uid}`) || '[]');
+        return listings.find(l => l.id === currentEditingListingId);
+      }
+
+      // Initialize event listeners when DOM is loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        // make sure the three modals are placed at body level so container rewrites cannot remove them
+        const viewModalInit = document.getElementById('viewListingModal');
+        const editModalInit = document.getElementById('editListingModal');
+        const createModalInit = document.getElementById('createListingModal');
+        [viewModalInit, editModalInit, createModalInit].forEach(m => {
+          if (m && m.parentNode !== document.body) {
+            document.body.appendChild(m);
+          }
+        });
+
+        // keep copies of the original markup so we can rebuild if something accidentally removes them
+        const viewModalTemplate = viewModalInit ? viewModalInit.outerHTML : null;
+        const editModalTemplate = editModalInit ? editModalInit.outerHTML : null;
+
+        // helper to ensure modal exists
+        function ensureModal(id, template) {
+          let el = document.getElementById(id);
+          if (!el && template) {
+            document.body.insertAdjacentHTML('beforeend', template);
+            el = document.getElementById(id);
+          }
+          return el;
+        }
+
+        // delegation for listing action buttons (works even when container is re-rendered)
+        document.addEventListener('click', function(e) {
+          const target = e.target;
+          if (target.matches('.view-btn')) {
+            const id = target.dataset.id;
+            if (id) viewListing(id);
+          } else if (target.matches('.edit-btn')) {
+            const id = target.dataset.id;
+            if (id) editListing(id);
+          } else if (target.matches('.delete-btn')) {
+            const id = target.dataset.id;
+            if (id) deleteListing(id);
+          } else if (target.matches('.create-first-listing-btn') || target.matches('.dashboard-btn-primary.show-create-listing')) {
+            // buttons that open the create modal both in empty state and header
+            showCreateListingModal();
+          }
+        });
+
+        // monkey‑patch viewListing/editListing to auto‑restore if modal disappears
+        const originalView = window.viewListing;
+        window.viewListing = function(listingId) {
+          ensureModal('viewListingModal', viewModalTemplate);
+          return originalView(listingId);
+        };
+        const originalEdit = window.editListing;
+        window.editListing = function(listingId) {
+          ensureModal('editListingModal', editModalTemplate);
+          return originalEdit(listingId);
+        };
+
+        console.log('DOM loaded - checking modal elements');
+        
+        // Verify all modal elements exist
+        const viewModal = document.getElementById('viewListingModal');
+        const editModal = document.getElementById('editListingModal');
+        const createModal = document.getElementById('createListingModal');
+        
+        console.log('View modal found:', !!viewModal);
+        console.log('Edit modal found:', !!editModal);
+        console.log('Create modal found:', !!createModal);
+        
+        if (!viewModal) console.error('View modal missing from DOM!');
+        if (!editModal) console.error('Edit modal missing from DOM!');
+        if (!createModal) console.error('Create modal missing from DOM!');
+        
+        // Set up periodic check to ensure modals remain available
+        setInterval(() => {
+          const currentViewModal = document.getElementById('viewListingModal');
+          const currentEditModal = document.getElementById('editListingModal');
+          
+          if (!currentViewModal) {
+            console.warn('View modal disappeared from DOM!');
+          }
+          if (!currentEditModal) {
+            console.warn('Edit modal disappeared from DOM!');
+          }
+        }, 5000); // Check every 5 seconds
+        
+        // Set up form submission listener
+        const createListingForm = document.getElementById('createListingForm');
+        if (createListingForm) {
+          createListingForm.addEventListener('submit', handleCreateListing);
+        }
+        
+        // Set up image upload listener
+        const imageUploadInput = document.getElementById('imageUploadInput');
+        if (imageUploadInput) {
+          imageUploadInput.addEventListener('change', handleImageUpload);
+        }
+        
+        // Set up university selection listener
+        const universitySelect = document.getElementById('nearestUniversity');
+        if (universitySelect) {
+          universitySelect.addEventListener('change', handleUniversitySelection);
+        }
+        
+        // Set up room type selection listeners
+        const roomTypeCheckboxes = document.querySelectorAll('input[name="roomTypes"]');
+        roomTypeCheckboxes.forEach(checkbox => {
+          checkbox.addEventListener('change', handleRoomTypeSelection);
+        });
+        
+        // Set up modal close on backdrop click
+        const createListingModal = document.getElementById('createListingModal');
+        if (createListingModal) {
+          createListingModal.addEventListener('click', function(e) {
+            if (e.target === createListingModal) {
+              closeCreateListingModal();
+            }
+          });
+        }
+        
+        // Set up view listing modal close on backdrop click
+        const viewListingModal = document.getElementById('viewListingModal');
+        if (viewListingModal) {
+          viewListingModal.addEventListener('click', function(e) {
+            if (e.target === viewListingModal) {
+              closeViewListingModal();
+            }
+          });
+        }
+        
+        // Set up edit listing modal close on backdrop click
+        const editListingModal = document.getElementById('editListingModal');
+        if (editListingModal) {
+          editListingModal.addEventListener('click', function(e) {
+            if (e.target === editListingModal) {
+              closeEditListingModal();
+            }
+          });
+        }
+        
+        // Set up edit form submission listener
+        const editListingForm = document.getElementById('editListingForm');
+        if (editListingForm) {
+          editListingForm.addEventListener('submit', handleEditListing);
+        }
+        
+        // Set up edit image upload listener
+        const editImageUploadInput = document.getElementById('editImageUploadInput');
+        if (editImageUploadInput) {
+          editImageUploadInput.addEventListener('change', handleEditImageUpload);
+        }
+        
+        // Set up edit university selection listener
+        const editUniversitySelect = document.getElementById('editNearestUniversity');
+        if (editUniversitySelect) {
+          editUniversitySelect.addEventListener('change', function() {
+            handleEditUniversitySelection();
+          });
+        }
+        
+        // Set up edit room type selection listeners
+        const editRoomTypeCheckboxes = document.querySelectorAll('input[name="editRoomTypes"]');
+        editRoomTypeCheckboxes.forEach(checkbox => {
+          checkbox.addEventListener('change', handleEditRoomTypeSelection);
+        });
+        
+        // Load listings when user is authenticated
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            loadHostListings();
+          }
+        });
+      });
+
+      function showError(message) {
+        // Create error toast
+        const errorToast = document.createElement('div');
+        errorToast.className = 'error-toast';
+        errorToast.textContent = message;
+        errorToast.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: #dc3545;
+          color: white;
+          padding: 12px 20px;
+          border-radius: 6px;
+          z-index: 10000;
+          box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        `;
+        
+        document.body.appendChild(errorToast);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+          if (errorToast.parentNode) {
+            errorToast.parentNode.removeChild(errorToast);
+          }
+        }, 3000);
+      }
+
+      // Debug desktop profile loading
+      setTimeout(() => {
+        if (window.innerWidth > 768) {
+          console.log('=== DESKTOP PROFILE DEBUG ===');
+          console.log('Desktop profile section:', document.querySelector('.dashboard-grid .dashboard-profile-section'));
+          console.log('Desktop profile content:', document.querySelector('.dashboard-grid .dashboard-profile-section')?.innerHTML);
+          
+          // Force profile to load in desktop section
+          const desktopProfileSection = document.querySelector('.dashboard-grid .dashboard-profile-section');
+          if (desktopProfileSection && desktopProfileSection.innerHTML.includes('Loading profile')) {
+            console.log('Forcing desktop profile load...');
+            // Trigger profile loading for desktop
+            if (typeof loadProfileDirectly === 'function') {
+              loadProfileDirectly();
+            }
+          }
+        }
+      }, 3000);
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- Firebase SDK -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-functions-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
+        authDomain: "uniroomi-e1216.firebaseapp.com",
+        projectId: "uniroomi-e1216",
+        storageBucket: "uniroomi-e1216.appspot.com",
+        messagingSenderId: "495800480757",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <!-- Firebase Email Authentication -->
+    <script src="js/firebase-email-auth.js"></script>
+    
+    <!-- Simple Profile Management JavaScript -->
+    <script src="js/profile-simple.js"></script>
+    
+    <script>
+      // Handle hash navigation for mobile menu
+      document.addEventListener('DOMContentLoaded', function() {
+        // Check for hash in URL and navigate to section
+        if (window.location.hash) {
+          const section = window.location.hash.substring(1);
+          setTimeout(() => {
+            if (typeof window.auth !== 'undefined') {
+              window.auth.scrollToSection(section);
+            }
+          }, 1000);
+        }
+      });
+    </script>
+
+    <!-- Avatar Cropper JavaScript -->
+    <script src="js/avatar-cropper.js"></script>
+  </body>
+</html>

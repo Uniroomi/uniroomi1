@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="image/favicon.ico" type="image/png" />
+    <title>Uniroomi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="vendors/linericon/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css"
+    />
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
+    <link
+      rel="stylesheet"
+      href="vendors/owl-carousel/owl.carousel.min.css"
+    />
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!--================Header Area =================-->
+    <header class="header_area">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="index.html"
+            ><img src="image/Logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse offset"
+            id="navbarSupportedContent"
+          >
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item">
+                <span class="nav-link theme_btn_two">Become a Host</span>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn login-btn">Login</span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================Header Area =================-->
+    
+</head>
+<body class="dashboard-page">
+  <div class="dashboard-container">
+
+    <div class="dashboard-header">
+      <div>
+        <h1 id="welcomeMessage"></h1>
+      </div>
+    </div>
+
+    <div class="dashboard-quick-grid">
+      <div class="dashboard-quick-card profile-toggle" onclick="toggleProfileSection()">
+        <div class="dashboard-icon">👤</div>
+        <div>
+          <small>My Profile</small>
+          <strong>Complete</strong>
+        </div>
+      </div>
+
+      <!-- Mobile Profile Section -->
+      <div class="dashboard-card dashboard-profile-section hidden">
+        <div class="loading">Loading profile...</div>
+      </div>
+
+      <div class="dashboard-quick-card booking-toggle" onclick="toggleBookingSection()">
+        <div class="dashboard-icon">📅</div>
+        <div>
+          <small>My Bookings</small>
+          <strong>2 Active</strong>
+        </div>
+      </div>
+
+      <!-- Mobile Booking Section -->
+      <div class="dashboard-card dashboard-booking-section hidden">
+        <div class="dashboard-card-header">
+          <h2>My Bookings</h2>
+          <button class="dashboard-btn-outline">View All</button>
+        </div>
+
+        <div class="dashboard-bookings-container">
+          <!-- Bookings will be dynamically loaded here -->
+          <div class="loading-bookings">Loading bookings...</div>
+        </div>
+      </div>
+
+      <div class="dashboard-quick-card saved-toggle" onclick="toggleSavedSection()">
+        <div class="dashboard-icon">🔖</div>
+        <div>
+          <small>Saved Properties</small>
+          <strong>8 Saved</strong>
+        </div>
+      </div>
+
+      <!-- Mobile Saved Section -->
+      <div class="dashboard-card dashboard-saved-section hidden">
+        <div class="dashboard-card-header">
+          <h2>Saved Properties</h2>
+          <button class="dashboard-btn-outline">View Saved</button>
+        </div>
+
+        <div class="dashboard-saved-grid">
+          <!-- Saved properties will be dynamically loaded here -->
+          <div class="loading-saved-properties">Loading saved properties...</div>
+        </div>
+      </div>
+
+      <div class="dashboard-quick-card message-toggle" onclick="toggleMessageSection()">
+        <div class="dashboard-icon">💬</div>
+        <div>
+          <small>Messages</small>
+          <strong id="message-count">0 New</strong>
+        </div>
+      </div>
+
+      <!-- Mobile Message Section -->
+      <div class="dashboard-card dashboard-message-section hidden">
+        <div class="dashboard-card-header">
+          <h2>Messages</h2>
+          <button class="dashboard-btn-outline">Open Inbox</button>
+        </div>
+
+        <div class="dashboard-messages-container">
+          <!-- Messages will be dynamically loaded here -->
+          <div class="loading-messages">Loading messages...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Original Layout -->
+    <div class="dashboard-grid">
+      <div class="dashboard-card dashboard-profile-section" style="grid-column: 1 / -1;">
+        <div class="loading">Loading profile...</div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="dashboard-card-header">
+          <h2>My Bookings</h2>
+          <button class="dashboard-btn-outline">View All</button>
+        </div>
+
+        <div class="dashboard-bookings-container">
+          <!-- Bookings will be dynamically loaded here -->
+          <div class="loading-bookings">Loading bookings...</div>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="dashboard-card-header">
+          <h2>Messages</h2>
+          <button class="dashboard-btn-outline">Open Inbox</button>
+        </div>
+
+        <div class="dashboard-messages-container">
+          <!-- Messages will be dynamically loaded here -->
+          <div class="loading-messages">Loading messages...</div>
+        </div>
+      </div>
+
+      <div class="dashboard-card" style="grid-column:1/-1;">
+        <div class="dashboard-card-header">
+          <h2>Saved Properties</h2>
+          <button class="dashboard-btn-outline">View Saved</button>
+        </div>
+
+        <div class="dashboard-saved-grid">
+          <!-- Saved properties will be dynamically loaded here -->
+          <div class="loading-saved-properties">Loading saved properties...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div
+          class="row footer-bottom d-flex justify-content-between align-items-center"
+        >
+          <p class="col-lg-8 col-sm-12 footer-text m-0 mb-2 mb-lg-0">
+            Copyright &copy; 2026. UniRoomi is a digital platform operated by Anokha Holdings (Pty) Ltd.
+          </p>
+          <div class="col-lg-4 col-sm-12 footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+      // Role-based navigation utility
+      function navigateToDashboard() {
+        const userRole = localStorage.getItem('userRole') || 'guest';
+        const currentPath = window.location.pathname;
+        
+        // Determine which dashboard to go to
+        let targetDashboard = 'dashboard.html'; // default for guests
+        
+        if (userRole === 'host') {
+          targetDashboard = 'dashboard-host.html';
+        }
+        
+        // Check if we're already on the correct dashboard
+        if (!currentPath.includes(targetDashboard)) {
+          window.location.href = targetDashboard;
+        }
+      }
+
+      // Profile Toggle Functionality
+      function toggleProfileSection() {
+        const profileSection = document.querySelector('.dashboard-profile-section');
+        const profileToggle = document.querySelector('.profile-toggle');
+        
+        if (profileSection && profileToggle) {
+          profileSection.classList.toggle('hidden');
+          profileToggle.classList.toggle('collapsed');
+        }
+      }
+
+      // Booking Toggle Functionality
+      function toggleBookingSection() {
+        const bookingSection = document.querySelector('.dashboard-booking-section');
+        const bookingToggle = document.querySelector('.booking-toggle');
+        
+        if (bookingSection && bookingToggle) {
+          bookingSection.classList.toggle('hidden');
+          bookingToggle.classList.toggle('collapsed');
+        }
+      }
+
+      // Saved Properties Toggle Functionality
+      function toggleSavedSection() {
+        const savedSection = document.querySelector('.dashboard-saved-section');
+        const savedToggle = document.querySelector('.saved-toggle');
+        
+        if (savedSection && savedToggle) {
+          savedSection.classList.toggle('hidden');
+          savedToggle.classList.toggle('collapsed');
+        }
+      }
+
+      // Messages Toggle Functionality
+      function toggleMessageSection() {
+        const messageSection = document.querySelector('.dashboard-message-section');
+        const messageToggle = document.querySelector('.message-toggle');
+        
+        if (messageSection && messageToggle) {
+          messageSection.classList.toggle('hidden');
+          messageToggle.classList.toggle('collapsed');
+        }
+      }
+
+      // Debug desktop profile loading
+      setTimeout(() => {
+        if (window.innerWidth > 768) {
+          console.log('=== DESKTOP PROFILE DEBUG ===');
+          console.log('Desktop profile section:', document.querySelector('.dashboard-grid .dashboard-profile-section'));
+          console.log('Desktop profile content:', document.querySelector('.dashboard-grid .dashboard-profile-section')?.innerHTML);
+          
+          // Force profile to load in desktop section
+          const desktopProfileSection = document.querySelector('.dashboard-grid .dashboard-profile-section');
+          if (desktopProfileSection && desktopProfileSection.innerHTML.includes('Loading profile')) {
+            console.log('Forcing desktop profile load...');
+            // Trigger profile loading for desktop
+            if (typeof loadProfileDirectly === 'function') {
+              loadProfileDirectly();
+            }
+          }
+        }
+      }, 3000);
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- Firebase SDK -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-functions-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
+        authDomain: "uniroomi-e1216.firebaseapp.com",
+        projectId: "uniroomi-e1216",
+        storageBucket: "uniroomi-e1216.appspot.com",
+        messagingSenderId: "495800480757",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <!-- Firebase Email Authentication -->
+    <script src="js/firebase-email-auth.js"></script>
+    
+    <!-- Simple Profile Management JavaScript -->
+    <script src="js/profile-simple.js"></script>
+    
+    <script>
+      // Handle hash navigation for mobile menu
+      document.addEventListener('DOMContentLoaded', function() {
+        // Check for hash in URL and navigate to section
+        if (window.location.hash) {
+          const section = window.location.hash.substring(1);
+          setTimeout(() => {
+            if (typeof window.auth !== 'undefined') {
+              window.auth.scrollToSection(section);
+            }
+          }, 1000);
+        }
+      });
+    </script>
+
+    <!-- Avatar Cropper JavaScript -->
+    <script src="js/avatar-cropper.js"></script>
+  </body>
+</html>
+
+
+
+
+
+

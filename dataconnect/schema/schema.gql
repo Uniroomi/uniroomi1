@@ -1,0 +1,44 @@
+type User @table {
+  displayName: String!
+  email: String!
+  userType: String!
+  createdAt: Timestamp!
+  phoneNumber: String
+  universityAffiliation: String
+  profilePictureUrl: String
+}
+
+type Property @table {
+  landlord: User!
+  title: String!
+  address: String!
+  city: String!
+  postcode: String!
+  rentPerMonth: Float!
+  propertyType: String!
+  numberOfBedrooms: Int!
+  createdAt: Timestamp!
+  description: String
+  photoUrls: [String]
+}
+
+type Booking @table {
+  student: User!
+  property: Property!
+  checkInDate: Date!
+  checkOutDate: Date!
+  status: String!
+  createdAt: Timestamp!
+  messageToLandlord: String
+}
+
+type Amenity @table {
+  name: String!
+  description: String!
+  iconUrl: String
+}
+
+type PropertyAmenity @table(key: ["property", "amenity"]) {
+  property: Property!
+  amenity: Amenity!
+}

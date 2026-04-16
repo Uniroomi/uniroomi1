@@ -1,0 +1,86 @@
+mutation CreateDemoData @transaction @auth(level: PUBLIC, insecureReason: "This mutation is for seeding data and is safe to expose to the public") {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      createdAt: "2024-03-15T12:00:00Z",
+      displayName: "demouser1",
+      email: "demouser1@example.com",
+      userType: "student"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      createdAt: "2024-03-15T12:00:00Z",
+      displayName: "demouser2",
+      email: "demouser2@example.com",
+      userType: "student"
+    }
+  ])
+  property_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440002",
+      landlordId: "550e8400-e29b-41d4-a716-446655440000",
+      address: "123 Main St",
+      city: "Anytown",
+      createdAt: "2024-03-15T12:00:00Z",
+      numberOfBedrooms: 2,
+      postcode: "12345",
+      propertyType: "apartment",
+      rentPerMonth: 1200.00,
+      title: "Cozy Apartment"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440003",
+      landlordId: "550e8400-e29b-41d4-a716-446655440001",
+      address: "456 Elm St",
+      city: "Anytown",
+      createdAt: "2024-03-15T12:00:00Z",
+      numberOfBedrooms: 3,
+      postcode: "67890",
+      propertyType: "house",
+      rentPerMonth: 1800.00,
+      title: "Spacious House"
+    }
+  ])
+  booking_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440004",
+      propertyId: "550e8400-e29b-41d4-a716-446655440002",
+      studentId: "550e8400-e29b-41d4-a716-446655440000",
+      checkInDate: "2024-04-01",
+      checkOutDate: "2024-04-30",
+      createdAt: "2024-03-15T12:00:00Z",
+      status: "active"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440005",
+      propertyId: "550e8400-e29b-41d4-a716-446655440003",
+      studentId: "550e8400-e29b-41d4-a716-446655440001",
+      checkInDate: "2024-05-01",
+      checkOutDate: "2024-05-31",
+      createdAt: "2024-03-15T12:00:00Z",
+      status: "pending"
+    }
+  ])
+  amenity_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440006",
+      description: "High-speed internet access",
+      name: "Internet"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440007",
+      description: "On-site laundry facilities",
+      name: "Laundry"
+    }
+  ])
+ propertyAmenity_insertMany(data: [
+    {
+      propertyId: "550e8400-e29b-41d4-a716-446655440002",
+      amenityId: "550e8400-e29b-41d4-a716-446655440006"
+    },
+    {
+      propertyId: "550e8400-e29b-41d4-a716-446655440003",
+      amenityId: "550e8400-e29b-41d4-a716-446655440007"
+    }
+  ])
+}

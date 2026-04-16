@@ -1,0 +1,63 @@
+mutation CreateNewProperty(
+    $landlordId: UUID!
+    $address: String!
+    $city: String!
+    $numberOfBedrooms: Int!
+    $postcode: String!
+    $propertyType: String!
+    $rentPerMonth: Float!
+    $title: String!
+    $description: String
+    $photoUrls: [String]
+) @auth(level: USER) {
+    property_insert(
+        data: {
+            landlordId: $landlordId
+            address: $address
+            city: $city
+            numberOfBedrooms: $numberOfBedrooms
+            postcode: $postcode
+            propertyType: $propertyType
+            rentPerMonth: $rentPerMonth
+            title: $title
+            description: $description
+            photoUrls: $photoUrls
+        }
+    ) {
+        id
+    }
+}
+
+query GetPropertiesByCity($city: String!) @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  properties(where: {city: {eq: $city}}) {
+    id
+    address
+    city
+    rentPerMonth
+    numberOfBedrooms
+  }
+}
+
+mutation UpdateBookingStatus($id: UUID!, $status: String!) @auth(level: USER) {
+    booking_update(
+        key: {id: $id}
+        data: {
+            status: $status
+        }
+    ) {
+        id
+    }
+}
+
+query GetMyBookings($studentId: UUID!) @auth(level: USER) {
+    bookings(where: {studentId: {eq: $studentId}}) {
+        id
+        property {
+            title
+            address
+        }
+        checkInDate
+        checkOutDate
+        status
+    }
+}

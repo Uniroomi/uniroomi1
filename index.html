@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="image/favicon.ico" type="image/png" />
+    <title>Uniroomi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="vendors/linericon/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
+    <link
+      rel="stylesheet"
+      href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css"
+    />
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body>
+    <!--================Header Area =================-->
+    <header class="header_area">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="index.html"
+            ><img src="image/Logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse offset"
+            id="navbarSupportedContent"
+          >
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="accomodation.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html"></a>
+              </li>
+              <li class="nav-item dashboard-nav-item" style="display: none">
+                <button
+                  class="button-75"
+                  role="button"
+                  onclick="
+                    navigateToDashboard();
+                    return false;
+                  "
+                >
+                  <span class="text"
+                    ><i class="fa-solid fa-th-large"></i> Dashboard</span
+                  >
+                </button>
+              </li>
+              <li class="nav-item submenu dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                ></a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog.html"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog-single.html"></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn_two">Become a Host</span>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link theme_btn login-btn">Login</span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================Header Area =================-->
+
+    <!--================Banner Area =================-->
+    <section class="banner_area">
+      <div class="booking_table d_flex align-items-center">
+        <div
+          class="overlay bg-parallax"
+          data-stellar-ratio="0.9"
+          data-stellar-vertical-offset="0"
+          data-background=""
+        ></div>
+        <div class="container">
+          <div class="banner_search_form text-center">
+            <div class="search-heading">
+              <h2 class="search-title">
+                Find Student Accommodation Near Campus
+              </h2>
+              <p class="search-subtitle">Safe, Verified, and Simple</p>
+            </div>
+            <div class="search-container">
+              <div class="search-wrapper">
+                <div class="search-input-group">
+                  <div class="input-field">
+                    <div class="input-icon">
+                      <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <select
+                      id="university-select"
+                      class="form-control modern-select"
+                      required
+                    >
+                      <!-- Universities populated by JS -->
+                    </select>
+                  </div>
+                  <div class="input-field">
+                    <div class="input-icon">
+                      <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <select
+                      id="campus-select"
+                      class="form-control modern-select"
+                      required
+                    >
+                      <!-- Campus populated by JS -->
+                    </select>
+                  </div>
+                  <div class="search-button-wrapper">
+                    <button
+                      id="banner-search-btn"
+                      type="button"
+                      class="search-btn"
+                    >
+                      <span class="btn-text">Search</span>
+                      <span class="btn-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              id="banner-search-result"
+              class="search-result"
+              style="display: none"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================Banner Area =================-->
+
+    <!--================ Accomodation Area  =================-->
+    <section class="accomodation_area section_gap content-section">
+      <div class="container">
+        <div class="section_title text-center">
+          <h2 class="title_color">
+            Discover Your Ideal Student Living Space Near Top Universities
+          </h2>
+          <p>
+            Safe, affordable, and convenient housing options tailored for
+            students.
+          </p>
+        </div>
+        <div class="row accomodation_two">
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/uct (2).png" alt="" />
+              </div>
+              <a href="Campuses/uct.html"
+                ><h4 class="sec_h4">University of Cape Town</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/UKZN_263x270.jpg" alt="" />
+              </div>
+              <a href="Campuses/ukzn.html"
+                ><h4 class="sec_h4">University of KwaZulu Natal</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img
+                  src="image/universities/University-of-Witwatersrand.jpg"
+                  alt=""
+                />
+              </div>
+              <a href="Campuses/wits.html"
+                ><h4 class="sec_h4">University of Witwatersrand</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img
+                  src="image/universities/Durban-University-of-Technology.jpg"
+                  alt=""
+                />
+              </div>
+              <a href="Campuses/dut.html"
+                ><h4 class="sec_h4">Durban University of Technology</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/University-fort-hare.jpg" alt="" />
+              </div>
+              <a href="Campuses/ufh.html"
+                ><h4 class="sec_h4">University of Fort Hare</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/cut.png" alt="" />
+              </div>
+              <a href="Campuses/cut.html"
+                ><h4 class="sec_h4">Central University of Technology</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/cput.jpg" alt="" />
+              </div>
+              <a href="Campuses/cput.html"
+                ><h4 class="sec_h4">
+                  Cape Peninsula University of Technology
+                </h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img
+                  src="image/universities/University-of-the-Free-State.jpg"
+                  alt=""
+                />
+              </div>
+              <a href="Campuses/ufs.html"
+                ><h4 class="sec_h4">University of the Free State</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/ul-limpopo.jpg" alt="" />
+              </div>
+              <a href="Campuses/ul.html"
+                ><h4 class="sec_h4">University of Limpopo</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/Mut.png" alt="" />
+              </div>
+              <a href="Campuses/mut.html"
+                ><h4 class="sec_h4">Mangosuthu University of Technology</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img
+                  src="image/universities/University-of-Mpumalanga.jpeg"
+                  alt=""
+                />
+              </div>
+              <a href="Campuses/ump.html"
+                ><h4 class="sec_h4">Mpumalanga University</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/nelson-mandela.jpg" alt="" />
+              </div>
+              <a href="Campuses/nmu.html"
+                ><h4 class="sec_h4">
+                  Nelson Mandela Metropolitan University
+                </h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/nwu.png" alt="" />
+              </div>
+              <a href="Campuses/nwu.html"
+                ><h4 class="sec_h4">North-West University</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/upt.jpg" alt="" />
+              </div>
+              <a href="Campuses/up.html"
+                ><h4 class="sec_h4">University of Pretoria</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/rhodes-university.jpg" alt="" />
+              </div>
+              <a href="Campuses/rhodes.html"
+                ><h4 class="sec_h4">Rhodes University</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/Zulu-land.jpg" alt="" />
+              </div>
+              <a href="Campuses/unizulu.html"
+                ><h4 class="sec_h4">University of Zululand</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/UJ_263x270.jpeg" alt="" />
+              </div>
+              <a href="Campuses/uj.html"
+                ><h4 class="sec_h4">University of Johannesburg</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/spu.jpg" alt="" />
+              </div>
+              <a href="Campuses/spu.html"
+                ><h4 class="sec_h4">Sol Plaatje University</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/unisa.png" alt="" />
+              </div>
+              <a href="Campuses/unisa.html"
+                ><h4 class="sec_h4">University of South Africa</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/stellenbosch.jpg" alt="" />
+              </div>
+              <a href="Campuses/su.html"
+                ><h4 class="sec_h4">Stellenbosch University</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/tshwane.jpg" alt="" />
+              </div>
+              <a href="Campuses/tut.html"
+                ><h4 class="sec_h4">Tshwane University of Technology</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/vut.jpg" alt="" />
+              </div>
+              <a href="Campuses/vut.html"
+                ><h4 class="sec_h4">Vaal University of Technology</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/venda.jpg" alt="" />
+              </div>
+              <a href="Campuses/uv.html"
+                ><h4 class="sec_h4">University of Venda</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/WSU-building.jpg" alt="" />
+              </div>
+              <a href="Campuses/wsu.html"
+                ><h4 class="sec_h4">Walter Sisulu University</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/UWC.jpg" alt="" />
+              </div>
+              <a href="Campuses/uwc.html"
+                ><h4 class="sec_h4">University of the Western Cape</h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="accomodation_item text-center">
+              <div class="hotel_img">
+                <img src="image/universities/smhsu.jpg" alt="" />
+              </div>
+              <a href="Campuses/smu.html"
+                ><h4 class="sec_h4">
+                  Sefako Makgatho Health & Sciences University
+                </h4></a
+              >
+              <h5><small></small></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+      <div class="container">
+        <div
+          class="row footer-bottom d-flex justify-content-between align-items-center"
+        >
+          <p class="col-lg-8 col-sm-12 footer-text m-0 mb-2 mb-lg-0">
+            Copyright &copy; 2026. UniRoomi is a digital platform operated by
+            Anokha Holdings (Pty) Ltd.
+          </p>
+          <div class="col-lg-4 col-sm-12 footer-social">
+            <a href="#"
+              ><i
+                class="fa-brands fa-facebook"
+                style="color: rgb(130, 132, 143)"
+              ></i
+            ></a>
+            <a href="#"
+              ><i
+                class="fa-brands fa-x-twitter"
+                style="color: rgb(130, 132, 143)"
+              ></i
+            ></a>
+            <a href="#"
+              ><i
+                class="fa-brands fa-linkedin"
+                style="color: rgb(130, 132, 143)"
+              ></i
+            ></a>
+            <a href="#"
+              ><i
+                class="fa-brands fa-instagram"
+                style="color: rgb(130, 132, 143)"
+              ></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- Firebase SDK -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-functions-compat.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
+        authDomain: "uniroomi-e1216.firebaseapp.com",
+        projectId: "uniroomi-e1216",
+        storageBucket: "uniroomi-e1216.appspot.com",
+        messagingSenderId: "495800480757",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Firebase Email Authentication -->
+    <script src="js/firebase-email-auth.js"></script>
+
+    <!-- Dashboard Navigation Fix -->
+    <script>
+      // Role-based navigation utility - ensures dashboard button works even if auth.js hasn't loaded
+      function navigateToDashboard() {
+        // First try to use the auth system's navigateToDashboard if available
+        if (
+          typeof window.auth !== "undefined" &&
+          typeof window.auth.navigateToDashboard === "function"
+        ) {
+          return window.auth.navigateToDashboard();
+        }
+
+        // Fallback: check localStorage for user role using the correct key format
+        let userRole = "guest";
+
+        // Try to get the current user from Firebase Auth
+        if (
+          typeof firebase !== "undefined" &&
+          firebase.auth &&
+          firebase.auth().currentUser
+        ) {
+          const user = firebase.auth().currentUser;
+          const userData = localStorage.getItem(`uniroomi_user_${user.uid}`);
+
+          if (userData) {
+            try {
+              const userObj = JSON.parse(userData);
+              userRole = userObj.role || "guest";
+            } catch (error) {
+              console.error("Error parsing user data:", error);
+            }
+          }
+        } else {
+          // If no Firebase user, check for any stored user data
+          const keys = Object.keys(localStorage).filter((key) =>
+            key.startsWith("uniroomi_user_"),
+          );
+          if (keys.length > 0) {
+            try {
+              const userData = localStorage.getItem(keys[0]);
+              const userObj = JSON.parse(userData);
+              userRole = userObj.role || "guest";
+            } catch (error) {
+              console.error("Error parsing user data:", error);
+            }
+          }
+        }
+
+        const currentPath = window.location.pathname;
+
+        // Determine which dashboard to go to
+        let targetDashboard = "dashboard.html"; // default for guests
+
+        if (userRole === "host") {
+          targetDashboard = "dashboard-host.html";
+        }
+
+        // Check if we're already on the correct dashboard
+        if (!currentPath.includes(targetDashboard)) {
+          window.location.href = targetDashboard;
+        }
+      }
+    </script>
+  </body>
+</html>
