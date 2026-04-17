@@ -71,10 +71,7 @@
                 <button
                   class="button-75"
                   role="button"
-                  onclick="
-                    navigateToDashboard();
-                    return false;
-                  "
+                  onclick="getRoleAndNavigate(); return false;"
                 >
                   <span class="text"
                     ><i class="fa-solid fa-th-large"></i> Dashboard</span
@@ -100,10 +97,10 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <span class="nav-link theme_btn_two">Become a Host</span>
+                <a href="#" class="nav-link theme_btn_two">Become a Host</a>
               </li>
               <li class="nav-item">
-                <span class="nav-link theme_btn login-btn">Login</span>
+                <a href="#" class="nav-link theme_btn login-btn">Login</a>
               </li>
             </ul>
           </div>
@@ -562,13 +559,12 @@
     <script src="js/stellar.js"></script>
     <script src="vendors/lightbox/simpleLightbox.min.js"></script>
     <script src="js/custom.js"></script>
+    
     <!-- Firebase SDK -->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-functions-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-functions.js"></script>
 
     <!-- Firebase Configuration -->
     <script>
@@ -589,66 +585,47 @@
     <!-- Firebase Email Authentication -->
     <script src="js/firebase-email-auth.js"></script>
 
-    <!-- Dashboard Navigation Fix -->
+    <!-- Dashboard Navigation -->
     <script>
-      // Role-based navigation utility - ensures dashboard button works even if auth.js hasn't loaded
-      function navigateToDashboard() {
-        // First try to use the auth system's navigateToDashboard if available
-        if (
-          typeof window.auth !== "undefined" &&
-          typeof window.auth.navigateToDashboard === "function"
-        ) {
-          return window.auth.navigateToDashboard();
+      async function getRoleAndNavigate() {
+        if (typeof firebase === 'undefined' || !firebase.auth || !firebase.firestore) {
+            console.error("Firebase not fully initialized for navigation.");
+            return;
+        }
+        
+        // Use the initialized uniroomiAuth instance if it exists and user is authenticated
+        if (window.uniroomiAuth && window.uniroomiAuth.isAuthenticated) {
+          window.uniroomiAuth.redirectToDashboard();
+          return;
         }
 
-        // Fallback: check localStorage for user role using the correct key format
-        let userRole = "guest";
+        // Fallback for cases where the main script is still loading
+        const user = firebase.auth().currentUser;
+        if (user) {
+          try {
+            const db = firebase.firestore();
+            const userDoc = await db.collection('users').doc(user.uid).get();
+            let userRole = 'guest';
 
-        // Try to get the current user from Firebase Auth
-        if (
-          typeof firebase !== "undefined" &&
-          firebase.auth &&
-          firebase.auth().currentUser
-        ) {
-          const user = firebase.auth().currentUser;
-          const userData = localStorage.getItem(`uniroomi_user_${user.uid}`);
-
-          if (userData) {
-            try {
-              const userObj = JSON.parse(userData);
-              userRole = userObj.role || "guest";
-            } catch (error) {
-              console.error("Error parsing user data:", error);
+            if (userDoc.exists) {
+              userRole = userDoc.data().role || 'guest';
             }
+            
+            const targetDashboard = (userRole === 'host') ? 'dashboard-host.html' : 'dashboard.html';
+            
+            if (!window.location.pathname.includes(targetDashboard)) {
+              window.location.href = targetDashboard;
+            }
+          } catch (error) {
+            console.error("Error getting user role for navigation:", error);
+            // Default navigation if firestore fails
+            window.location.href = 'dashboard.html';
           }
         } else {
-          // If no Firebase user, check for any stored user data
-          const keys = Object.keys(localStorage).filter((key) =>
-            key.startsWith("uniroomi_user_"),
-          );
-          if (keys.length > 0) {
-            try {
-              const userData = localStorage.getItem(keys[0]);
-              const userObj = JSON.parse(userData);
-              userRole = userObj.role || "guest";
-            } catch (error) {
-              console.error("Error parsing user data:", error);
+            // If no user is logged in, prompt them to log in.
+            if(window.uniroomiAuth) {
+                window.uniroomiAuth.showLoginModal();
             }
-          }
-        }
-
-        const currentPath = window.location.pathname;
-
-        // Determine which dashboard to go to
-        let targetDashboard = "dashboard.html"; // default for guests
-
-        if (userRole === "host") {
-          targetDashboard = "dashboard-host.html";
-        }
-
-        // Check if we're already on the correct dashboard
-        if (!currentPath.includes(targetDashboard)) {
-          window.location.href = targetDashboard;
         }
       }
     </script>

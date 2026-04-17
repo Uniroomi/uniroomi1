@@ -228,12 +228,12 @@ class FirebaseEmailAuth {
 
     try {
       const userCredential = await this.auth.createUserWithEmailAndPassword(formData.email, formData.password);
-      await userCredential.user.updateProfile({ displayName: `${'''${formData.firstName} ${formData.lastName}'''}` });
+      await userCredential.user.updateProfile({ displayName: `${formData.firstName} ${formData.lastName}` });
 
       await this.db.collection('users').doc(userCredential.user.uid).set({
         uid: userCredential.user.uid,
         email: formData.email,
-        fullName: `${'''${formData.firstName} ${formData.lastName}'''}`,
+        fullName: `${formData.firstName} ${formData.lastName}`,
         role: formData.role,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       });
@@ -296,9 +296,9 @@ class FirebaseEmailAuth {
       </li>
     `;
 
-    // Replace login/host buttons with the user menu
+    // Remove login/host buttons and add the user menu.
     $('.login-btn').parent().remove();
-    $('.become-host').parent().remove();
+    $('a.theme_btn_two').parent().remove(); // Remove any existing "Become a Host" button
     $('.navbar-nav.ml-auto').append($userMenu);
   }
 
@@ -306,15 +306,16 @@ class FirebaseEmailAuth {
     // Remove any authenticated user menus/buttons
     $('.desktop-dashboard-btn').remove();
     $('.nav-item.dropdown').has('#userProfileDropdown').remove();
+    $('a.theme_btn_two[href="dashboard-host.html"]').parent().remove(); // remove logged-in "Become a Host" button
 
     // Ensure the logged-out buttons exist. If not, add them.
     if ($('.login-btn').length === 0) {
         const $loggedOutButtons = `
-            <li class="nav-item become-host">
-                <span class="nav-link theme_btn_two">Become a Host</span>
+            <li class="nav-item">
+                <a href="#" class="nav-link theme_btn_two">Become a Host</a>
             </li>
             <li class="nav-item">
-                <span class="nav-link theme_btn login-btn">Login</span>
+                <a href="#" class="nav-link theme_btn login-btn">Login</a>
             </li>
         `;
         $('.navbar-nav.ml-auto').append($loggedOutButtons);
