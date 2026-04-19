@@ -25,13 +25,24 @@ class FirebaseEmailAuth {
         const userDocRef = this.db.collection('users').doc(user.uid);
         const userDoc = await userDocRef.get();
 
+        let firestoreData = {};
         if (!userDoc.exists) {
-          await this.auth.signOut();
-          this.showError(null, 'Your user profile could not be found. Please contact support.');
-          return;
+          console.warn("User document missing in Firestore, using default profile data.");
+          firestoreData = {
+              uid: user.uid,
+              email: user.email,
+              fullName: user.displayName || 'User',
+              role: 'host',
+              createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          };
+          try {
+              await userDocRef.set(firestoreData);
+          } catch(e) {
+              console.error("Could not create user document", e);
+          }
+        } else {
+            firestoreData = userDoc.data();
         }
-
-        const firestoreData = userDoc.data();
 
         this.currentUserProfile = {
             uid: firestoreData.uid,
@@ -282,9 +293,14 @@ this.handleRegister();
 
     const $userMenu = `
       ${becomeHostButton}
-      <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-bell"></i></a></li>
+      <li class="nav-item notification-bell">
+        <a href="#" class="nav-link notification">
+          <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+          <div class="notification--num">1</div>
+        </a>
+      </li>
       <li class="nav-item desktop-dashboard-btn">
-        <button class="button-75" role="button" onclick="window.uniroomiAuth.redirectToDashboard(); return false;"><span class="text"><i class="fa fa-th-large"></i> Dashboard</span></button>
+        <button class="button-75" role="button" onclick="window.uniroomiAuth.redirectToDashboard(); return false;"><span class="text"><i class="fa fa-th-large"></i> DASHBOARD</span></button>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle profile-avatar" href="#" id="userProfileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
