@@ -102,7 +102,7 @@ class FirebaseEmailAuth {
 
     $(document).on('submit', '#registerForm', (e) => {
       e.preventDefault();
-      this.handleRegister();
+this.handleRegister();
     });
 
     $(document).on('click', '.logout-btn', (e) => {
@@ -342,12 +342,103 @@ class FirebaseEmailAuth {
     else console.log('Auth Success:', message);
   }
 
-  // Modal HTML templates (simplified for brevity)
+  // Modal HTML templates
   getLoginModalHtml(prefilledEmail = '', isHostUser = false) {
-    return `<div class="modal-overlay" id="loginModal">...</div>`;
+    return `
+    <div class="modal-overlay" id="loginModal">
+      <div class="modal-content">
+        <a href="#" class="modal-close"><i class="fa fa-times"></i></a>
+        <h2>Welcome Back</h2>
+        <p>Login to continue with UniRoomi</p>
+        <form id="loginForm">
+          <div id="loginError" class="alert alert-danger" style="display:none;"></div>
+          <div class="input-group-modal">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="e.g. name@example.com" value="${prefilledEmail}" required>
+          </div>
+          <div class="input-group-modal">
+            <label for="loginPassword">Password</label>
+            <div class="password-wrapper">
+              <input type="password" id="loginPassword" placeholder="Enter your password" required>
+              <a href="#" class="password-toggle" data-target="loginPassword"><i class="fa fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="form-options">
+            <label><input type="checkbox" name="remember"> Remember me</label>
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn-submit">Login</button>
+        </form>
+        <div class="social-login">
+          <span>or</span>
+          <div class="social-buttons">
+            <button class="btn-google"><i class="fab fa-google"></i> Google</button>
+            <button class="btn-facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+          </div>
+        </div>
+        <p class="register-link-text">Don't have an account? <a href="#" class="register-link">Register</a></p>
+      </div>
+    </div>
+    `;
   }
+
   getRegisterModalHtml(preselectedRole = null) {
-    return `<div class="modal-overlay" id="registerModal">...</div>`;
+    const isHost = preselectedRole === 'host';
+    return `
+    <div class="modal-overlay" id="registerModal">
+      <div class="modal-content">
+        <a href="#" class="modal-close"><i class="fa fa-times"></i></a>
+        <h2>Create Account</h2>
+        <p>Join UniRoomi to find your perfect student accommodation.</p>
+        <form id="registerForm">
+          <div id="registerError" class="alert alert-danger" style="display:none;"></div>
+          <div id="registerSuccess" class="alert alert-success" style="display:none;"></div>
+          <div class="input-group-modal">
+            <label for="registerFirstName">First Name</label>
+            <input type="text" id="registerFirstName" placeholder="Enter your first name" required>
+          </div>
+          <div class="input-group-modal">
+            <label for="registerLastName">Last Name</label>
+            <input type="text" id="registerLastName" placeholder="Enter your last name" required>
+          </div>
+          <div class="input-group-modal">
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" placeholder="e.g. name@example.com" required>
+          </div>
+          <div class="input-group-modal">
+            <label for="registerPassword">Password</label>
+            <div class="password-wrapper">
+              <input type="password" id="registerPassword" placeholder="Create a password" required>
+              <a href="#" class="password-toggle" data-target="registerPassword"><i class="fa fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="input-group-modal">
+            <label for="registerConfirmPassword">Confirm Password</label>
+            <div class="password-wrapper">
+              <input type="password" id="registerConfirmPassword" placeholder="Confirm your password" required>
+              <a href="#" class="password-toggle" data-target="registerConfirmPassword"><i class="fa fa-eye"></i></a>
+            </div>
+          </div>
+          <div class="input-group-modal">
+            <label for="registerRole">I am a...</label>
+            <select id="registerRole" required>
+              <option value="guest" ${!isHost ? 'selected' : ''}>Student</option>
+              <option value="host" ${isHost ? 'selected' : ''}>Host</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit">Register</button>
+        </form>
+        <div class="social-login">
+          <span>or</span>
+          <div class="social-buttons">
+            <button class="btn-google"><i class="fab fa-google"></i> Google</button>
+            <button class="btn-facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+          </div>
+        </div>
+        <p class="login-link-text">Already have an account? <a href="#" class="back-to-login">Login</a></p>
+      </div>
+    </div>
+    `;
   }
 }
 
