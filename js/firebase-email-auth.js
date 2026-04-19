@@ -1,4 +1,3 @@
-
 // Firebase Email Authentication for UniRoomi
 // Replaces SMS verification with email verification
 
@@ -347,39 +346,27 @@ this.handleRegister();
   getLoginModalHtml(prefilledEmail = '', isHostUser = false) {
     return `
     <div class="modal-overlay" id="loginModal" style="display:none;">
-        <div class="login_popup">
-            <div class="login_popup_body">
-                <div class="close_login_popup modal-close"> <i class="fa fa-times"></i> </div>
-                <div class="login_popup_content">
-                    <h4>Login to UniRoomi</h4>
-                    <div id="loginError" class="alert alert-danger" style="display:none;"></div>
-                    <form id="loginForm" class="login_form">
-                        <div class="form-group">
-                            <input type="email" id="loginEmail" class="form-control" placeholder="EMAIL" value="${prefilledEmail}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" id="loginPassword" class="form-control" placeholder="PASSWORD" required>
-                            <a href="#" class="password-toggle" data-target="loginPassword"><i class="fa fa-eye"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <div class="form-group">
-                                <label for="remember_me_login" class="checkbox_input">Remember me
-                                    <input type="checkbox" id="remember_me_login">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div>
-                                <a href="#" class="forgot-password">Forgot password?</a>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn_login" type="submit">LOGIN</button>
-                        </div>
-                    </form>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Login to UniRoomi</h2>
+                <button class="modal-close"><i class="fa fa-times"></i></button>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div id="loginError" class="error-message" style="display:none;"></div>
+                <div class="form-group">
+                    <label for="loginEmail">EMAIL</label>
+                    <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" value="${prefilledEmail}" required>
                 </div>
-                <div class="login_popup_footer">
-                    <p>Don't have an account? <a href="#" class="register-link">Register here</a></p>
+                <div class="form-group">
+                    <label for="loginPassword">PASSWORD</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                     <a href="#" class="password-toggle" data-target="loginPassword"><i class="fa fa-eye"></i></a>
                 </div>
+                <button type="submit" class="auth-submit-btn">Login</button>
+            </form>
+            <div class="modal-footer">
+                <p>Don't have an account? <a href="#" class="register-link">Register here</a></p>
+                <p><a href="#" class="forgot-password">Forgot password?</a></p>
             </div>
         </div>
     </div>
@@ -390,44 +377,45 @@ this.handleRegister();
     const isHost = preselectedRole === 'host';
     return `
     <div class="modal-overlay" id="registerModal" style="display:none;">
-        <div class="login_popup">
-            <div class="login_popup_body">
-                <div class="close_login_popup modal-close"> <i class="fa fa-times"></i> </div>
-                <div class="login_popup_content">
-                    <h4>Create an Account</h4>
-                    <div id="registerError" class="alert alert-danger" style="display:none;"></div>
-                    <div id="registerSuccess" class="alert alert-success" style="display:none;"></div>
-                    <form id="registerForm" class="login_form">
-                        <div class="form-group">
-                            <input type="text" id="registerFirstName" class="form-control" placeholder="FIRST NAME" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="registerLastName" class="form-control" placeholder="LAST NAME" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="registerEmail" class="form-control" placeholder="EMAIL" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" id="registerPassword" class="form-control" placeholder="PASSWORD" required>
-                            <a href="#" class="password-toggle" data-target="registerPassword"><i class="fa fa-eye"></i></a>
-                        </div>
-                         <div class="form-group">
-                            <input type="password" id="registerConfirmPassword" class="form-control" placeholder="CONFIRM PASSWORD" required>
-                        </div>
-                        <div class="form-group">
-                             <select id="registerRole" class="form-control" required>
-                                <option value="guest" ${!isHost ? 'selected' : ''}>I am a Student</option>
-                                <option value="host" ${isHost ? 'selected' : ''}>I am a Host</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn_login" type="submit">REGISTER</button>
-                        </div>
-                    </form>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>${isHost ? 'Register as a Host' : 'Create an Account'}</h2>
+                <button class="modal-close"><i class="fa fa-times"></i></button>
+            </div>
+            <form id="registerForm" class="auth-form">
+                <div id="registerError" class="error-message" style="display:none;"></div>
+                <div id="registerSuccess" class="success-message" style="display:none;"></div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="registerFirstName">FIRST NAME</label>
+                        <input type="text" id="registerFirstName" class="form-control" placeholder="First name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerLastName">LAST NAME</label>
+                        <input type="text" id="registerLastName" class="form-control" placeholder="Last name" required>
+                    </div>
                 </div>
-                <div class="login_popup_footer">
-                    <p>Already have an account? <a href="#" class="back-to-login">Login</a></p>
+                <div class="form-group">
+                    <label for="registerEmail">EMAIL</label>
+                    <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email" required>
                 </div>
+                <div class="form-group">
+                    <label for="registerPassword">PASSWORD</label>
+                    <input type="password" id="registerPassword" class="form-control" placeholder="Create your password" required>
+                    <a href="#" class="password-toggle" data-target="registerPassword"><i class="fa fa-eye"></i></a>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">CONFIRM PASSWORD</label>
+                    <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirm your password" required>
+                    <a href="#" class="password-toggle" data-target="registerConfirmPassword"><i class="fa fa-eye"></i></a>
+                </div>
+                 <div class="form-group">
+                    <input type="hidden" id="registerRole" value="${isHost ? 'host' : 'guest'}">
+                </div>
+                <button type="submit" class="auth-submit-btn">${isHost ? 'Create Host Account' : 'Create Account'}</button>
+            </form>
+            <div class="modal-footer">
+                <p>Already have an account? <a href="#" class="back-to-login">Login</a></p>
             </div>
         </div>
     </div>
