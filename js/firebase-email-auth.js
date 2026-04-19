@@ -178,7 +178,6 @@ this.handleRegister();
       await this.auth.signInWithEmailAndPassword(email, password);
       this.closeAllModals();
       this.showSuccess(null, 'Login successful!');
-      setTimeout(() => this.redirectToDashboard(), 1000);
     } catch (error) {
       let errorMessage = 'Login failed. Please try again.';
       if (error.code) {
