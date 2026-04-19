@@ -133,7 +133,7 @@ this.handleRegister();
     });
   }
 
-  showLoginModal(prefilledEmail = null, isHostUser = false) {
+  showLoginModal(prefilledEmail = '', isHostUser = false) {
     this.closeAllModals();
     const modalHtml = this.getLoginModalHtml(prefilledEmail, isHostUser);
     $('body').append(modalHtml);
@@ -355,9 +355,9 @@ this.handleRegister();
                 <div id="loginError" class="error-message" style="display:none;"></div>
                 <div class="form-group">
                     <label for="loginEmail">EMAIL</label>
-                    <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" value="${prefilledEmail}" required>
+                    <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" value="${prefilledEmail || ''}" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group password-field">
                     <label for="loginPassword">PASSWORD</label>
                     <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
                      <a href="#" class="password-toggle" data-target="loginPassword"><i class="fa fa-eye"></i></a>
@@ -399,12 +399,12 @@ this.handleRegister();
                     <label for="registerEmail">EMAIL</label>
                     <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group password-field">
                     <label for="registerPassword">PASSWORD</label>
                     <input type="password" id="registerPassword" class="form-control" placeholder="Create your password" required>
                     <a href="#" class="password-toggle" data-target="registerPassword"><i class="fa fa-eye"></i></a>
                 </div>
-                <div class="form-group">
+                <div class="form-group password-field">
                     <label for="registerConfirmPassword">CONFIRM PASSWORD</label>
                     <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirm your password" required>
                     <a href="#" class="password-toggle" data-target="registerConfirmPassword"><i class="fa fa-eye"></i></a>
