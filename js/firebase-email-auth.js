@@ -178,6 +178,7 @@ this.handleRegister();
       await this.auth.signInWithEmailAndPassword(email, password);
       this.closeAllModals();
       this.showSuccess(null, 'Login successful!');
+      setTimeout(() => this.redirectToDashboard(), 1000);
     } catch (error) {
       let errorMessage = 'Login failed. Please try again.';
       if (error.code) {
@@ -281,6 +282,7 @@ this.handleRegister();
 
     const $userMenu = `
       ${becomeHostButton}
+      <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-bell"></i></a></li>
       <li class="nav-item desktop-dashboard-btn">
         <button class="button-75" role="button" onclick="window.uniroomiAuth.redirectToDashboard(); return false;"><span class="text"><i class="fa fa-th-large"></i> Dashboard</span></button>
       </li>
