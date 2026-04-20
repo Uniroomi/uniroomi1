@@ -326,6 +326,51 @@ this.handleRegister();
     $('.navbar-nav .login-btn').parent().remove();
     $('.navbar-nav .theme_btn_two').parent().remove(); // Remove any existing "Become a Host" button
     $('.navbar-nav.ml-auto').append($userMenu);
+
+    // Mobile Overlay Menu Implementation
+    const userName = (this.currentUser && this.currentUser.displayName && this.currentUser.displayName.trim() !== '') ? this.currentUser.displayName : ((this.currentUserProfile && this.currentUserProfile.firstName) ? `${this.currentUserProfile.firstName} ${this.currentUserProfile.lastName || ''}`.trim() : 'UniRoomi User');
+    const userEmail = (this.currentUser && this.currentUser.email) ? this.currentUser.email : '';
+
+    const mobileOverlayHtml = `
+      <div id="mobileUserOverlay" class="mobile-user-overlay">
+        <div class="mobile-overlay-header">
+          <img src="image/Logo.png" alt="UniRoomi Logo" class="mobile-overlay-logo" />
+          <button class="mobile-overlay-close">&times;</button>
+        </div>
+        <div class="mobile-overlay-profile">
+          <div class="mobile-overlay-avatar">${avatarHtml}</div>
+          <div class="mobile-overlay-user-info">
+            <div class="mobile-overlay-name">${userName}</div>
+            <div class="mobile-overlay-email">${userEmail}</div>
+          </div>
+        </div>
+        <div class="mobile-overlay-links">
+          <a href="#" onclick="window.uniroomiAuth.redirectToDashboard(); return false;"><i class="fa fa-user"></i> MY PROFILE</a>
+          <a href="#" onclick="window.uniroomiAuth.redirectToDashboard(); return false;"><i class="fa fa-home"></i> MY BOOKINGS</a>
+          <a href="#" onclick="window.uniroomiAuth.redirectToDashboard(); return false;"><i class="fa fa-heart"></i> SAVED PROPERTIES</a>
+          <a href="#" onclick="window.uniroomiAuth.redirectToDashboard(); return false;"><i class="fa fa-envelope"></i> MESSAGES</a>
+          <a href="#" onclick="window.uniroomiAuth.redirectToDashboard(); return false;"><i class="fa fa-cog"></i> SETTINGS</a>
+          <a href="#" onclick="window.uniroomiAuth.redirectToDashboard(); return false;"><i class="fa-solid fa-circle-question"></i> HELP CENTER</a>
+        </div>
+        <div class="mobile-overlay-footer">
+          <button class="mobile-overlay-logout logout-btn"><i class="fa fa-sign-out"></i> LOG OUT</button>
+        </div>
+      </div>
+    `;
+
+    $('#mobileUserOverlay').remove();
+    $('body').append(mobileOverlayHtml);
+
+    // Override mobile toggler to open overlay
+    $('.navbar-toggler').removeAttr('data-toggle').off('click.authMenu').on('click.authMenu', function(e) {
+      e.preventDefault();
+      $('#mobileUserOverlay').addClass('show');
+    });
+
+    // Handle closing the overlay
+    $(document).off('click.closeOverlay').on('click.closeOverlay', '.mobile-overlay-close', function() {
+      $('#mobileUserOverlay').removeClass('show');
+    });
   }
 
   updateUIForLoggedOutUser() {
@@ -333,6 +378,10 @@ this.handleRegister();
     $('.desktop-dashboard-btn').remove();
     $('.nav-item.dropdown').has('#userProfileDropdown').remove();
     $('.navbar-nav .theme_btn_two[href="dashboard-host.html"]').parent().remove(); // remove logged-in "Become a Host" button
+
+    // Restore default toggler behavior and remove overlay
+    $('.navbar-toggler').attr('data-toggle', 'collapse').off('click.authMenu');
+    $('#mobileUserOverlay').remove();
 
     // Ensure the logged-out buttons exist. If not, add them.
     if ($('.login-btn').length === 0) {
