@@ -6,98 +6,29 @@
 <link rel="icon" href="image/favicon.ico" type="image/png" />
 <title>Accommodation Admin Panel</title>
 <link rel="stylesheet" href="css/custom.css">
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-</head>
 
-<body>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-functions.js"></script>
 
-<!-- Mobile Menu Button -->
+    <!-- Firebase Configuration -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
+        authDomain: "uniroomi-e1216.firebaseapp.com",
+        projectId: "uniroomi-e1216",
+        storageBucket: "uniroomi-e1216.appspot.com",
+        messagingSenderId: "495800480757",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
+      };
+      if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+      }
+    </script>
 
-<div class="mobile-header">
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
-<h3>Admin Panel</h3>
-</div>
-
-<!-- Sidebar -->
-
-<div class="sidebar" id="sidebar">
-
-<h2>Admin Panel</h2>
-
-<a href="#users">User Management</a>
-<a href="#properties">Property Approvals</a>
-<a href="#" onclick="adminLogout()" style="color: #ef4444; margin-top: 20px;">🚪 Logout</a>
-
-</div>
-
-<div class="main">
-
-<!-- USER MANAGEMENT -->
-
-<div class="section" id="users">
-
-<h2>User Management</h2>
-
-<div class="user-stats">
-  <div class="stat-card">
-    <span class="stat-number" id="hostCount">0</span>
-    <span class="stat-label">Hosts</span>
-  </div>
-  <div class="stat-card">
-    <span class="stat-number" id="guestCount">0</span>
-    <span class="stat-label">Guests</span>
-  </div>
-  <div class="stat-card">
-    <span class="stat-number" id="totalCount">0</span>
-    <span class="stat-label">Total Users</span>
-  </div>
-</div>
-
-<div class="tabs">
-<div class="tab active-tab" onclick="showUsers('hosts', event)">Hosts</div>
-<div class="tab" onclick="showUsers('guests', event)">Guests</div>
-</div>
-
-<div class="table-container">
-
-<table id="hostsTable">
-<tr>
-<th>Name</th>
-<th>Email</th>
-<th>Password</th>
-<th>Actions</th>
-</tr>
-</table>
-
-<table id="guestsTable" style="display:none">
-<tr>
-<th>Name</th>
-<th>Email</th>
-<th>Password</th>
-<th>Actions</th>
-</tr>
-</table>
-
-</div>
-
-</div>
-
-
-<!-- PROPERTY APPROVAL -->
-
-<div class="section" id="properties">
-
-<h2>New Property Listings</h2>
-
-<div id="propertyList"></div>
-
-</div>
-
-</div>
-
-<script src="js/script.js"></script>
-
-</body>
+    <!-- Firebase Email Authentication -->
+    <script src="js/firebase-email-auth.js"></script>
+  </body>
 </html>

@@ -22,26 +22,36 @@ class FirebaseEmailAuth {
     this.bindEvents();
     this.auth.onAuthStateChanged(async (user) => {
       if (user) {
-        const userDocRef = this.db.collection('users').doc(user.uid);
-        const userDoc = await userDocRef.get();
-
         let firestoreData = {};
-        if (!userDoc.exists) {
-          console.warn("User document missing in Firestore, using default profile data.");
+        try {
+          const userDocRef = this.db.collection('users').doc(user.uid);
+          const userDoc = await userDocRef.get();
+
+          if (!userDoc.exists) {
+            console.warn("User document missing in Firestore, using default profile data.");
+            firestoreData = {
+                uid: user.uid,
+                email: user.email,
+                fullName: user.displayName || 'User',
+                role: 'host',
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+            try {
+                await userDocRef.set(firestoreData);
+            } catch(e) {
+                console.error("Could not create user document", e);
+            }
+          } else {
+              firestoreData = userDoc.data();
+          }
+        } catch (dbError) {
+          console.error("Error fetching from Firestore, falling back to auth user data:", dbError);
           firestoreData = {
               uid: user.uid,
               email: user.email,
               fullName: user.displayName || 'User',
-              role: 'host',
-              createdAt: firebase.firestore.FieldValue.serverTimestamp()
+              role: 'host', // Assuming host as default to keep UI stable
           };
-          try {
-              await userDocRef.set(firestoreData);
-          } catch(e) {
-              console.error("Could not create user document", e);
-          }
-        } else {
-            firestoreData = userDoc.data();
         }
 
         this.currentUserProfile = {
@@ -189,7 +199,6 @@ this.handleRegister();
       await this.auth.signInWithEmailAndPassword(email, password);
       this.closeAllModals();
       this.showSuccess(null, 'Login successful!');
-      setTimeout(() => this.redirectToDashboard(), 1000);
     } catch (error) {
       let errorMessage = 'Login failed. Please try again.';
       if (error.code) {
@@ -314,8 +323,8 @@ this.handleRegister();
     `;
 
     // Remove login/host buttons and add the user menu.
-    $('.login-btn').parent().remove();
-    $('a.theme_btn_two').parent().remove(); // Remove any existing "Become a Host" button
+    $('.navbar-nav .login-btn').parent().remove();
+    $('.navbar-nav .theme_btn_two').parent().remove(); // Remove any existing "Become a Host" button
     $('.navbar-nav.ml-auto').append($userMenu);
   }
 
@@ -323,7 +332,7 @@ this.handleRegister();
     // Remove any authenticated user menus/buttons
     $('.desktop-dashboard-btn').remove();
     $('.nav-item.dropdown').has('#userProfileDropdown').remove();
-    $('a.theme_btn_two[href="dashboard-host.html"]').parent().remove(); // remove logged-in "Become a Host" button
+    $('.navbar-nav .theme_btn_two[href="dashboard-host.html"]').parent().remove(); // remove logged-in "Become a Host" button
 
     // Ensure the logged-out buttons exist. If not, add them.
     if ($('.login-btn').length === 0) {
@@ -341,9 +350,25 @@ this.handleRegister();
 
 
   redirectToDashboard() {
-    const userRole = this.getUserRole();
-    const targetDashboard = (userRole === 'host') ? 'dashboard-host.html' : 'dashboard.html';
-    window.location.href = targetDashboard;
+    const doRedirect = () => {
+      // Default to 'host' if profile isn't loaded to prevent sending hosts to the guest dashboard
+      const userRole = (this.currentUserProfile && this.currentUserProfile.role) || 'host';
+      const targetDashboard = (userRole === 'host') ? 'dashboard-host.html' : 'dashboard.html';
+      window.location.href = targetDashboard;
+    };
+
+    if (this.currentUserProfile) {
+      doRedirect();
+    } else {
+      let attempts = 0;
+      const checkInterval = setInterval(() => {
+        attempts++;
+        if (this.currentUserProfile || attempts >= 10) { // Wait up to 5 seconds
+          clearInterval(checkInterval);
+          doRedirect();
+        }
+      }, 500);
+    }
   }
 
   getUserRole() {

@@ -560,6 +560,7 @@
     <script src="vendors/lightbox/simpleLightbox.min.js"></script>
     <script src="js/custom.js"></script>
     
+    
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
@@ -568,66 +569,20 @@
 
     <!-- Firebase Configuration -->
     <script>
-      // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
         authDomain: "uniroomi-e1216.firebaseapp.com",
         projectId: "uniroomi-e1216",
         storageBucket: "uniroomi-e1216.appspot.com",
         messagingSenderId: "495800480757",
-        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
       };
-
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+      if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+      }
     </script>
 
     <!-- Firebase Email Authentication -->
     <script src="js/firebase-email-auth.js"></script>
-
-    <!-- Dashboard Navigation -->
-    <script>
-      async function getRoleAndNavigate() {
-        if (typeof firebase === 'undefined' || !firebase.auth || !firebase.firestore) {
-            console.error("Firebase not fully initialized for navigation.");
-            return;
-        }
-        
-        // Use the initialized uniroomiAuth instance if it exists and user is authenticated
-        if (window.uniroomiAuth && window.uniroomiAuth.isAuthenticated) {
-          window.uniroomiAuth.redirectToDashboard();
-          return;
-        }
-
-        // Fallback for cases where the main script is still loading
-        const user = firebase.auth().currentUser;
-        if (user) {
-          try {
-            const db = firebase.firestore();
-            const userDoc = await db.collection('users').doc(user.uid).get();
-            let userRole = 'guest';
-
-            if (userDoc.exists) {
-              userRole = userDoc.data().role || 'guest';
-            }
-            
-            const targetDashboard = (userRole === 'host') ? 'dashboard-host.html' : 'dashboard.html';
-            
-            if (!window.location.pathname.includes(targetDashboard)) {
-              window.location.href = targetDashboard;
-            }
-          } catch (error) {
-            console.error("Error getting user role for navigation:", error);
-            // Default navigation if firestore fails
-            window.location.href = 'dashboard.html';
-          }
-        } else {
-            // If no user is logged in, prompt them to log in.
-            if(window.uniroomiAuth) {
-                window.uniroomiAuth.showLoginModal();
-            }
-        }
-      }
-    </script>
   </body>
 </html>

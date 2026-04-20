@@ -6,177 +6,29 @@
 <link rel="icon" href="image/favicon.ico" type="image/png" />
 <title>Admin Login - UniRoomi</title>
 <link rel="stylesheet" href="css/custom.css">
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-</head>
 
-<body class="admin-login">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-functions.js"></script>
 
-<div class="login-container">
+    <!-- Firebase Configuration -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
+        authDomain: "uniroomi-e1216.firebaseapp.com",
+        projectId: "uniroomi-e1216",
+        storageBucket: "uniroomi-e1216.appspot.com",
+        messagingSenderId: "495800480757",
+        appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
+      };
+      if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+      }
+    </script>
 
-<div class="login-card">
-
-<h2>Admin Login</h2>
-
-<form id="loginForm">
-
-<div class="input-group">
-<input type="email" id="email" required>
-<label for="email">Email</label>
-</div>
-
-<div class="input-group">
-<input type="password" id="password" required>
-<label for="password">Password</label>
-</div>
-
-<button type="submit">Login</button>
-
-<p id="error"></p>
-
-</form>
-
-</div>
-
-</div>
-
-<script>
-// Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
-    authDomain: "uniroomi-e1216.firebaseapp.com",
-    projectId: "uniroomi-e1216",
-    storageBucket: "uniroomi-e1216.appspot.com",
-    messagingSenderId: "495800480757",
-    appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
-};
-
-// Initialize Firebase only if not already initialized
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
-const auth = firebase.auth();
-
-// Login form submission
-document.getElementById("loginForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const errorDiv = document.getElementById("error");
-    const submitBtn = document.querySelector("button");
-    
-    // Clear previous errors
-    errorDiv.textContent = "";
-    
-    // Disable button during login
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Logging in...";
-    
-    try {
-        // Sign in with Firebase to verify credentials
-        const userCredential = await auth.signInWithEmailAndPassword(email, password);
-        const user = userCredential.user;
-        
-        // For demo purposes, we'll check if the email is exactly the admin email
-        // In production, you should check user roles in your database
-        if (email === "uniroomi@proton.me") {
-            // Store admin session
-            localStorage.setItem("adminSession", JSON.stringify({
-                uid: user.uid,
-                email: user.email,
-                loginTime: new Date().toISOString()
-            }));
-            
-            // IMPORTANT: Immediately sign out from Firebase to prevent main site login
-            await auth.signOut();
-            
-            // Redirect to admin dashboard
-            window.location.href = "dashboard-admin.html";
-        } else {
-            // User is not admin, sign out and clear any main site session
-            await auth.signOut();
-            // Clear any existing user session from main site
-            Object.keys(localStorage).forEach(key => {
-                if (key.startsWith('uniroomi_user_') || key.startsWith('host_listings_')) {
-                    localStorage.removeItem(key);
-                }
-            });
-            errorDiv.textContent = "Access denied. Admin privileges required.";
-        }
-        
-    } catch (error) {
-        console.error("Login error:", error);
-        let errorMessage = "Login failed. Please try again.";
-        
-        switch (error.code) {
-            case 'auth/user-not-found':
-                errorMessage = "No admin account found with this email.";
-                break;
-            case 'auth/wrong-password':
-                errorMessage = "Incorrect password.";
-                break;
-            case 'auth/user-disabled':
-                errorMessage = "This admin account has been disabled.";
-                break;
-            case 'auth/too-many-requests':
-                errorMessage = "Too many failed attempts. Please try again later.";
-                break;
-            default:
-                errorMessage = error.message;
-        }
-        
-        errorDiv.textContent = errorMessage;
-    } finally {
-        // Re-enable button
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Login";
-    }
-});
-
-// Check if already logged in as admin
-const ADMIN_EMAIL = "uniroomi@proton.me";
-
-auth.onAuthStateChanged(async (user) => {
-    if (!user) return;
-
-    // Only allow the configured admin email to remain signed in
-    if (user.email !== ADMIN_EMAIL) {
-        await auth.signOut();
-        localStorage.removeItem("adminSession");
-        return;
-    }
-
-    // Load existing session if present
-    const raw = localStorage.getItem("adminSession");
-    let adminSession = raw ? JSON.parse(raw) : null;
-
-    // If no session or session belongs to a different user, create/refresh it
-    if (!adminSession || adminSession.uid !== user.uid) {
-        adminSession = {
-            uid: user.uid,
-            email: user.email,
-            loginTime: new Date().toISOString()
-        };
-        localStorage.setItem("adminSession", JSON.stringify(adminSession));
-    }
-
-    // Validate session age
-    const loginTime = new Date(adminSession.loginTime);
-    const now = new Date();
-    const hoursDiff = (now - loginTime) / (1000 * 60 * 60);
-
-    if (!isNaN(hoursDiff) && hoursDiff < 24) {
-        window.location.href = "dashboard-admin.html";
-        return;
-    }
-
-    // Session expired
-    await auth.signOut();
-    localStorage.removeItem("adminSession");
-});
-</script>
-
-</body>
+    <!-- Firebase Email Authentication -->
+    <script src="js/firebase-email-auth.js"></script>
+  </body>
 </html>

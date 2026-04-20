@@ -1270,16 +1270,15 @@
     <script src="../../js/stellar.js"></script>
     <script src="../../vendors/lightbox/simpleLightbox.min.js"></script>
     <script src="../../js/custom.js"></script>
-    <!-- Firebase SDK -->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-functions-compat.js"></script>
     
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-functions.js"></script>
+
     <!-- Firebase Configuration -->
     <script>
-      // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyA4BFHNLe0LB0itiZ392YjefYPoDYznBdw",
         authDomain: "uniroomi-e1216.firebaseapp.com",
@@ -1288,97 +1287,13 @@
         messagingSenderId: "495800480757",
         appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
       };
-
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+      if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+      }
     </script>
-    
+
     <!-- Firebase Email Authentication -->
     <script src="../../js/firebase-email-auth.js"></script>
-    
-    <!-- Accommodation Favorites -->
-    <script src="../../js/accommodation-favorites.js"></script>
-    
-    <style>
-        /* Back to Top Button Styles */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: #000000;
-            color: #2BA2D8;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-        }
-        
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .back-to-top:hover {
-            background: #000000;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-        }
-        
-        .back-to-top:active {
-            transform: translateY(-1px);
-        }
-        
-        /* Pulse animation for attention */
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            }
-            50% {
-                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-            }
-            100% {
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            }
-        }
-        
-        .back-to-top.show {
-            animation: pulse 2s infinite;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                font-size: 16px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .back-to-top {
-                bottom: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-                font-size: 14px;
-            }
-        }
-    </style>
   </body>
 </html>
 

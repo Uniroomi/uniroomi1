@@ -1546,10 +1546,13 @@
     <script src="../../vendors/lightbox/simpleLightbox.min.js"></script>
     <script src="../../js/custom.js"></script>
     
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
     
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-functions.js"></script>
+
     <!-- Firebase Configuration -->
     <script>
       const firebaseConfig = {
@@ -1560,31 +1563,13 @@
         messagingSenderId: "495800480757",
         appId: "1:495800480757:web:d2a02ba1c115c40c23e6bc"
       };
-
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-    </script>
-    
-    <!-- Firebase Email Authentication -->
-    <script src="../../js/firebase-email-auth.js"></script>
-    
-    <!-- Accommodation Favorites -->
-    <script src="../../js/accommodation-favorites.js"></script>
-    
-    <!-- Initialize Messaging System -->
-    <script>
-      // Initialize messaging system when user is logged in
-      if (typeof firebase !== 'undefined' && firebase.auth) {
-        firebase.auth().onAuthStateChanged((user) => {
-          if (user) {
-            // Initialize messaging system for logged in users
-            if (typeof initializeMessaging === 'function') {
-              initializeMessaging();
-            }
-          }
-        });
+      if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
       }
     </script>
+
+    <!-- Firebase Email Authentication -->
+    <script src="../../js/firebase-email-auth.js"></script>
   </body>
 </html>
 
