@@ -131,11 +131,16 @@ this.handleRegister();
       this.logout();
     });
 
-    $(document).on('click', '.theme_btn_two:not(.logout-btn)', (e) => {
+    $(document).on('click', '.theme_btn_two:not(.logout-btn, .become-host-auth-btn)', (e) => {
        if(!this.isAuthenticated){
             e.preventDefault();
             this.showRegisterModal('host');
        }
+    });
+
+    $(document).on('click', '.become-host-auth-btn', (e) => {
+      e.preventDefault();
+      alert("Host upgrade functionality coming soon! Please contact support to upgrade your account.");
     });
 
     $(document).on('click', '.password-toggle', function(e) {
@@ -258,6 +263,8 @@ this.handleRegister();
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       });
 
+      localStorage.setItem('userRole', formData.role);
+
       await userCredential.user.sendEmailVerification();
       await this.auth.signOut();
 
@@ -279,12 +286,14 @@ this.handleRegister();
   }
 
   async logout() {
+    localStorage.removeItem('userRole');
     await this.auth.signOut();
     window.location.href = 'index.html';
   }
 
   updateUIForAuthenticatedUser() {
     const userRole = this.getUserRole();
+    localStorage.setItem('userRole', userRole);
     let initials = 'U';
     if (this.currentUser && this.currentUser.displayName) {
         const nameParts = this.currentUser.displayName.trim().split(' ');
@@ -297,7 +306,7 @@ this.handleRegister();
 
     let becomeHostButton = '';
     if (userRole !== 'host') {
-      becomeHostButton = `<li class="nav-item"><a href="dashboard-host.html" class="nav-link theme_btn_two">Become a Host</a></li>`;
+      becomeHostButton = `<li class="nav-item"><a href="#" class="nav-link theme_btn_two become-host-auth-btn">Become a Host</a></li>`;
     }
 
     const $userMenu = `
@@ -403,8 +412,7 @@ this.handleRegister();
 
   redirectToDashboard() {
     const doRedirect = () => {
-      // Default to 'guest' if profile isn't loaded to prevent sending guests to the host dashboard
-      const userRole = (this.currentUserProfile && this.currentUserProfile.role) || 'guest';
+      const userRole = this.getUserRole();
       const targetDashboard = (userRole === 'host') ? 'dashboard-host.html' : 'dashboard.html';
       window.location.href = targetDashboard;
     };
@@ -424,7 +432,7 @@ this.handleRegister();
   }
 
   getUserRole() {
-    return (this.currentUserProfile && this.currentUserProfile.role) || 'guest';
+    return (this.currentUserProfile && this.currentUserProfile.role) || localStorage.getItem('userRole') || 'guest';
   }
 
   showError($element, message) {
