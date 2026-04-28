@@ -1886,16 +1886,16 @@
   width: 100%;
   height: 100%;
   background: white;
-  z-index: 1050;
+  z-index: 999999 !important;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   overflow-y: auto;
 }
 
 .mobile-user-overlay.show {
-  transform: translateX(0);
+  transform: translateX(0) !important;
 }
 
 .mobile-overlay-header {

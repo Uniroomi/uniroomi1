@@ -33,7 +33,7 @@ class FirebaseEmailAuth {
                 uid: user.uid,
                 email: user.email,
                 fullName: user.displayName || 'User',
-                role: 'host',
+                role: 'guest',
                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
             };
             try {
@@ -50,7 +50,7 @@ class FirebaseEmailAuth {
               uid: user.uid,
               email: user.email,
               fullName: user.displayName || 'User',
-              role: 'host', // Assuming host as default to keep UI stable
+              role: 'guest', // Assuming guest as default to keep UI stable
           };
         }
 
@@ -328,8 +328,8 @@ this.handleRegister();
     $('.navbar-nav.ml-auto').append($userMenu);
 
     // Mobile Overlay Menu Implementation
-    const userName = (this.currentUser && this.currentUser.displayName && this.currentUser.displayName.trim() !== '') ? this.currentUser.displayName : ((this.currentUserProfile && this.currentUserProfile.firstName) ? `${this.currentUserProfile.firstName} ${this.currentUserProfile.lastName || ''}`.trim() : 'UniRoomi User');
-    const userEmail = (this.currentUser && this.currentUser.email) ? this.currentUser.email : '';
+    const userName = (user.displayName && user.displayName.trim() !== '') ? user.displayName : ((this.currentUserProfile && this.currentUserProfile.firstName) ? `${this.currentUserProfile.firstName} ${this.currentUserProfile.lastName || ''}`.trim() : 'UniRoomi User');
+    const userEmail = user.email || '';
 
     const mobileOverlayHtml = `
       <div id="mobileUserOverlay" class="mobile-user-overlay">
@@ -362,8 +362,11 @@ this.handleRegister();
     $('body').append(mobileOverlayHtml);
 
     // Override mobile toggler to open overlay
-    $('.navbar-toggler').removeAttr('data-toggle').off('click.authMenu').on('click.authMenu', function(e) {
+    $('.navbar-toggler').removeAttr('data-toggle');
+    $(document).off('click.authMenu', '.navbar-toggler, .navbar-toggler *').on('click.authMenu', '.navbar-toggler, .navbar-toggler *', function(e) {
       e.preventDefault();
+      e.stopPropagation();
+      console.log('Hamburger menu clicked! Showing mobile overlay.');
       $('#mobileUserOverlay').addClass('show');
     });
 
@@ -400,8 +403,8 @@ this.handleRegister();
 
   redirectToDashboard() {
     const doRedirect = () => {
-      // Default to 'host' if profile isn't loaded to prevent sending hosts to the guest dashboard
-      const userRole = (this.currentUserProfile && this.currentUserProfile.role) || 'host';
+      // Default to 'guest' if profile isn't loaded to prevent sending guests to the host dashboard
+      const userRole = (this.currentUserProfile && this.currentUserProfile.role) || 'guest';
       const targetDashboard = (userRole === 'host') ? 'dashboard-host.html' : 'dashboard.html';
       window.location.href = targetDashboard;
     };
